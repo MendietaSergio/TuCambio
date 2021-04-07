@@ -1,0 +1,154 @@
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+  <!--HEADER MODULARIZADO-->
+  <%- include('./partials/header.ejs')%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <div>
+
+      <a href="https://api.whatsapp.com/send?phone=51955081075&text=%C2%A1Hola!%20Quer%C3%ADa%20saber%20m%C3%A1s%20informaci%C3%B3n%20para%20realizar%20la%20operaci%C3%B3n"
+        class="whatsapp" target="_blank"><span class="help">¿Necesitas ayuda?</span>
+        <i class="fa fa-whatsapp my-float"></i>
+      </a>
+    </div>
+
+    <div class="caja-cambio">
+      <div class="errorEntrada" id="errorEntrada">
+        <small></small>
+      </div>
+      <form action="#formulario" method="POST">
+
+        <div class="caja-input">
+          <div class="inputEntrada">
+            <span class="inputTituloEntrada">Tú envías <span class="abreviaturaEntrada"></span> </span>
+            <input id="numEntrada" class="numEntrada" name="numEntrada" placeholder="$0.00  " type="number"
+              value="13000" step=".08" min="0.00">
+          </div>
+          <div class="selectCambioEntrada">
+            <div class="select" id="selectEntrada">
+              <div class="contenido-select-Entrada">
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png"
+                  alt="<%=pagos[0].nombre%>">
+                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[0].id%>">
+                  <%=pagos[0].campoAdicional%>
+                </h4>
+                <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-pagos.id%>">
+                  <%=pagos[0].abreviatura%>
+                </h4>
+              </div>
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="opciones" id="opcionesEntrada">
+              <% pagos.forEach(dato=> { %>
+                <a href="#" class="opcionEntrada">
+                  <div class="contenido-opcion">
+                    <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                    <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>">
+                      <%-dato.campoAdicional%>
+                    </h4>
+                    <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-dato.id%>">
+                      <%=dato.abreviatura%>
+                    </h4>
+
+                  </div>
+                </a>
+                <% }) %>
+            </div>
+          </div>
+        </div>
+        <div class="caja-input">
+          <div class="inputSalida">
+            <span class="inputTituloSalida">Te enviamos <span class="abreviaturaSalida"></span> </span>
+            <input id="numSalida" name="numSalida" type="number" min="0.00" placeholder="$0.00  " step=".01"
+              value="100">
+          </div>
+          <div class="selectCambioSalida">
+            <div class="select" id="selectSalida">
+              <div class="contenido-select-Salida">
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[12].image%>.png"
+                  alt="<%=pagos[12].nombre%>">
+                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%=pagos[12].id%>">
+                  <%=pagos[12].campoAdicional%>
+                </h4>
+                <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-pagos.id%>">
+                  <%=pagos[12].abreviatura%>
+                </h4>
+
+              </div>
+              <i class="fas fa-angle-down"></i>
+            </div>
+
+            <div class="opciones" id="opcionesSalida">
+              <% pagos.forEach(dato=> { %>
+                <% if( dato.id!=2 && dato.id !=3 ){%>
+                  <a href="#" class="opcionSalida">
+                    <div class="contenido-opcion">
+                      <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                      <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%-dato.id%>">
+                        <%=dato.campoAdicional%>
+                      </h4>
+                      <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-dato.id%>">
+                        <%=dato.abreviatura%>
+                      </h4>
+                      </span>
+                    </div>
+                  </a>
+                  <%}%>
+                    <% }) %>
+            </div>
+          </div>
+        </div>
+        </script>
+        <div class="caja-input">
+          <div class="btnSiguiente">
+            <button id="hide" type="button" class="btn btn-success">Siguiente</button>
+          </div>
+        </div>
+        <input type="hidden" name="origen" id="metodoOrigen" value="<%=pagos[0].id%>">
+        <input type="hidden" name="destino" id="metodoDestino" value="<%=pagos[12].id%>">
+        <span class="text-danger" id="msgError"></span>
+      </form>
+    </div>
+    <%- include('./form.ejs') %>
+      <div id="caja-info" class="caja-info">
+        <div class="infoInstrucciones">
+
+          <h3 class="info-compra">Comprá en 3 sencillos pasos</h3>
+        </div>
+
+        <div class="infoInstrucciones">
+          <span class="infoNumero">1</span><span class="infoLinea">Cotizá tu pedido.</span>
+          <div class="infoInstrucciones">
+            <span class="infoNumero">2</span><span class="infoLinea">Recibí las instrucciones en tu mail para hacer tu
+              envío.</span>
+          </div>
+          <div class="infoInstrucciones">
+            <span class="infoNumero">3</span><span class="infoLinea">Te enviamos el saldo cotizado.</span>
+          </div>
+        </div>
+      </div>
+      <div class="caja-comision">
+        <span class="comision">Comisión PayPal: tené en cuenta que te enviaremos $<small id="totalPaypal"></small>,
+          recordá que PayPal te cobrará
+          una comisión de $<span class="porcentajeVariable"></span> . Por lo tanto recibirás un neto de $<span
+            class="comisionRecibido"></span> .</span>
+        <div class="caja-switch">
+          <div class="cajaCheckbox">
+            <span class="checkboxDeseo">Deseo recibir un neto de $ <small id="deseoPaypal"></small></span>
+            <span class="checkboxRecibiras">Recibirás un neto de $ <small id="recibePaypal"></small></span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="checkboxPaypal">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="mas-info">
+
+      </div>
+
+
+
+      <%- include('./partials/footer.ejs') %>
+        <script src="../javascripts/<%=JQueryForm %>"></script>
+        <script src="/javascripts/<%=scriptForm%>"></script>
+        <script src="/javascripts/<%=script%>"></script>

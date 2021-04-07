@@ -1,0 +1,33 @@
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+    <!--HEADER MODULARIZADO-->
+    <%- include('./partials/header.ejs')%>
+        <div class="caja-perfil">
+            <form action="/admin/profile" method="POST">
+                <h2 class="titulo-profile">Cambiá tu contraseña</h2>
+                <div class="caja-input">
+                    <label for="passwordOld" class="labels">Contraseña vieja:</label>
+                    <input type="password" id="passwordOld" name="passwordOld " class="form-control" placeholder="Contraseña vieja">
+                    <small class="text-danger" id="errorPasswordOld"><%= (typeof errors !="undefined" && errors.passwordOld)?errors.passwordOld.msg: "" %></small>
+                </div>
+                <div class="caja-input">
+                    <label for="passwordNew"  class="labels">Repita la contraseña nueva:</label>
+                    <input type="password" id="passwordNew" name="passwordNew"  class="form-control" placeholder="Contraseña nueva">
+                    <small class="text-danger" id="errorPasswordNew"></small>
+                </div>
+                <div class="caja-input">
+                    <label for="passwordNew2"  class="labels">Repita la contraseña nueva:</label>
+                    <input type="password" id="passwordNew2" name="passwordNew2"  class="form-control" placeholder="Repita la contraseña nueva">
+                    <small class="text-danger" id="errorPasswordNew2"></small>
+                </div>                
+                <div class="caja-input">
+                   <button type="button" class="btn btn-danger"><a href="/">Cancelar</a></button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <small class="text-danger" id="errorSubmit"></small>
+                </div>
+
+            </form>
+        </div>
+<%-include('./partials/footer.ejs') %>
+
+<script src="/javascripts/<%=userProfileEdit%> "></script>

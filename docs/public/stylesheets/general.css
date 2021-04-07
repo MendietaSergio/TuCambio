@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  background-color: rgb(43, 128, 87);
+  font-family: 'Roboto Slab', serif;  
+  height: auto;
+  width: auto;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+a:hover{
+  color: #fff;
+}
+div .title-usuario{
+  font-size: x-large;
+  color: white;
+  cursor: pointer;
+}
+div .dropdown{
+  float: right;
+  padding-right: 140px;
+  bottom: 85px;
+}
+div .dropdown-contenido{
+  display: none;
+  position: absolute;
+  background-color: #2d8259;
+  width: 186px;
+  right: 130px;
+  padding: 12px 16px;
+  z-index: 1;
+}
+div .listMenu{
+  padding: 6px;
+}
+div .dropdown:hover .dropdown-contenido{
+  box-shadow:  0px 8px 16px 0px rgba(41, 48, 57,0.8);
+  display: block;
+}
+div.header{
+  background-color:rgb(43, 128, 87);
+  /*background-color: rgba(41, 48, 57,0.8);/*nuevo*/
+  grid-area: header;
+  height: 150px;
+  
+  margin-bottom: 80px;
+}
+
+div.header img{
+  height: 150px;
+  width: 35%;
+  margin: auto;
+}
+.whatsapp{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+.help:hover,.whatsapp:hover span{
+	text-decoration: none;
+	color: #25d366;
+}
+
+.my-float{
+	margin-top:16px;
+}
+div .help{
+    position:fixed;
+    width:auto;
+    height:60px;
+    bottom:26px;
+    right:102px;
+    color:rgb(3, 3, 3);
+    text-align:center;
+    font-size:24px;
+    z-index:100;
+}
+@media(max-width:768px){
+  div .dropdown{
+    float: left;
+    padding-left: 40px;
+    bottom: 40px;
+  }
+  div .dropdown-contenido{
+    left: 29px;
+  }
+}

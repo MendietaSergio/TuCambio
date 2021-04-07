@@ -1,0 +1,39 @@
+<div id="caja-formulario" class="caja-formulario">
+    <form id="formulario" action="/form" method="POST">
+        <div class="caja-form">
+            <div class="instrucciones">
+                <p class="formNumero">1</p><small class="titulo-form">¡Llena tu formulario para hacer tu pedido!</small>
+            </div>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre y apellido" required>
+            <span class="text-danger" id="errorNombre"></span>
+
+            <input type="email" name="email" id="email" class="form-control" placeholder="Correo electrónico" required>
+            <span class="text-danger" id="errorEmail"></span>
+
+            <input type="text" name="numero" id="numero" class="form-control" placeholder="Número de Whatsapp: xxxxxxxxxx" required>
+            <span class="text-danger" id="errorNumero"></span>
+
+            <input type="text" name="adicional1" class="campoAdicional1" id="campoAdicional1" class="form-control" required>
+            <span class="text-danger" id="errorAdicional1"></span>
+
+            <input type="text" name="adicional2" id="campoAdicional2" class="form-control" required>
+            <span class="text-danger" id="errorAdicional2"></span>
+
+            <br>
+
+            <input type="checkbox" name="accept" id="accept"><small> Acepto enviar documentación que acredite mi
+                identidad si me es requerido.</small>
+
+            <input type="button" class="btn btn-primary" value="Hace tu pedido" id="boton"></input>
+            <span class="text-danger" id="errorSubmit"></span>
+
+            <div class="instrucciones" >
+                <p class="formNumero">2</p><small name="pasoDos">Recibe en tu correo las instrucciones para enviar $<small class="enviar"></small> <small class="enviaAbreviatura"> </small> por <small class="enviaNombre"></small>.</small>
+            </div>
+            <div class="instrucciones" >
+                <p class="formNumero">3</p> <small name="pasoTres">Te enviamos $<small
+                        id="comisionTotal"></small> <small class="recibeAbreviatura"></small> por <small class="recibeNombre"></small>.</small>
+            </div>            
+        </div>
+    </form>
+</div>

@@ -1,0 +1,85 @@
+@import "general.css";
+@import "footer.css";
+@import "header.css";
+
+div.contenedor{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: "header header header header"
+                        "caja-perfil caja-perfil caja-perfil caja-perfil"
+                        "footer footer footer footer";
+}
+div.caja-perfil{
+    padding: 50px;
+    grid-area: caja-perfil;
+    height: auto;
+    margin: 30px;
+}div.caja-perfil form{
+    padding: 20px;
+}
+form{
+    width: 40%;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: rgba(41, 48, 57,0.8);
+    /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
+    box-sizing: border-box;
+    border-radius: 4px;    
+}
+div.caja-perfil .caja-input{
+    width: auto;
+    padding: 3px;
+}
+div input{
+    font-weight: 900;
+    height: 60px;
+    width: 100%;
+}
+div .labels{
+    color: white;
+    font-size: 20px;
+    height: 30px;
+    width: 100%;
+}
+div .titulo-profile{
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-decoration: underline 5px;
+    text-decoration-color: green;
+}
+
+div .btn{
+    width: 49%;
+}
+@media (max-width:768px){
+    div.contenedor{
+      grid-template-columns: repeat(2,1fr);
+      grid-template-areas: "header header"
+                          "caja-perfil caja-perfil"
+                          "footer footer";
+  }
+  div .header{
+    margin-bottom: 60px;
+  }div.header img{
+    margin: auto;
+    display: block;
+    width: 80%;
+    height: 200px;
+  }
+  div .caja-perfil{
+    height: 610px;
+  }
+  div.caja-perfil form{
+    width: 80%;
+  }
+}
+  @media(max-width: 475px){
+    div .caja-perfil{
+      padding: 100px 0px 100px 0px;
+      margin: 0px;
+    }
+  }

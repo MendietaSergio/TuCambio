@@ -1,0 +1,490 @@
+@import "general.css";
+@import "footer.css";
+@import "header.css";
+@import "form.css";
+div.contenedor{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: "header header header header"
+                      "caja-cambio caja-cambio caja-info caja-info"
+                      "mas-info mas-info form form" 
+                      "footer footer footer footer";
+}
+div.contenedor_form{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: "header header form form"
+                       "caja-cambio caja-cambio form form"
+                       "caja-comision caja-comision form form"
+                       "mas-info mas-info mas-info mas-info"
+                       "footer footer footer footer";
+}
+div.caja-cambio{
+  grid-area: caja-cambio;
+  height: auto;
+  margin: 30px;
+}
+div.caja-cambio form{
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+div.caja-cambio .caja-input{
+  width: 100%;
+}
+
+div.caja-cambio input{
+  font-weight: 900;
+  text-align: end;
+  height: 110px;
+  border: solid 2px white;
+  border-radius: 10px;
+  width: 96%;
+  font-size: 30px;
+
+}
+div.caja-cambio input:hover{
+  box-shadow: 0px 5px 10px rgb(0 0 0 / 16%);
+  border: 2px solid #213f8f;
+  border-color: #213f8f;
+}
+div.caja-cambio .btn{
+  margin-top: 10px;
+  height: 40px;
+  width: 99%;
+}
+div .inputTituloEntrada, .inputTituloSalida{
+  color: #9e9393;
+  position: absolute;
+  left: 60px;
+  margin: 10px;
+}
+div.caja-info{
+  background-color: rgba(255, 255, 255, 0.8) ;
+  grid-area: caja-info;
+  height: 370px;
+  margin:30px;
+  padding-left: 35px;
+}
+div.caja-comision{
+  display: none;
+  background-color: rgba(255, 255, 255, 0.658) ;
+  grid-area: caja-comision;
+  height: auto;
+  padding: 30px;
+}/*INICIO SWITCH */
+
+div .cajaCheckbox{
+  margin-top:20px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  float: right;
+  bottom: 30px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}/*FIN SWITCH */
+div .info-compra{
+  text-decoration: underline 5px;
+  text-decoration-color: rgb(47, 0, 255);
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 30px;
+}
+div .infoInstrucciones{
+  margin: 50px 0px 48px 0px;
+  font-size: 20px;
+}
+div .infoNumero{
+  height: 24px;
+    width: 24px;
+    font-size: 16px;
+    background-color: rgb(43, 128, 87);
+    border-radius: 100px;
+    display: inline-grid;
+    place-items: center;
+    color: #fff;
+    margin-right: 12px!important;
+}
+div .infoLinea{
+  text-decoration: underline 3px;
+  text-decoration-color: rgb(47, 0, 255);
+}
+div .mas-info{
+  height: 350px;
+  margin: 30px;
+  grid-area: mas-info;
+}
+div .valores{
+  height: 350px;
+  grid-area: valores;
+}
+div.caja-input{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-areas: "inputEntrada selectCambioEntrada"
+                       "inputSalida selectCambioSalida"
+                       "btnSiguiente btnSiguiente"
+}
+/* CAMBIOS NUEVOS PARA VERIFICAR CUADRO DE INPUT Y SELECT DE MEDIOS DE PAGOS*/
+div.inputEntrada{
+  grid-area: inputEntrada;
+ height: auto; 
+}
+div.btnSiguiente{
+  grid-area: btnSiguiente;
+}
+.selectCambioEntrada {
+  grid-area: selectCambioEntrada;
+  width: 100%;
+  height: auto;
+}
+div.inputSalida{
+  grid-area: inputSalida;
+ height: auto; 
+ 
+}
+.selectCambioSalida {
+  grid-area: selectCambioSalida;
+  width: 100%;
+  height: auto;
+}
+.select {
+  background: #fff;
+  width: 100%;
+  height: 110px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, .16);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: .2s ease all;
+  margin-bottom: 30px;
+  padding: 23px;
+  z-index: 200;
+  border: 2px solid transparent;
+}
+
+.select.active,
+.select:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, .16);
+  border: 2px solid #213f8f;
+}
+
+.select.active:before {
+  content: "";
+  display: block;
+  height: 0;
+  width: 0;
+  border-top: 15px solid #213f8f;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid transparent;
+  position: relative;
+  bottom: -30px;
+  left: calc(50% - 15px);
+}
+
+.select i {
+  font-size: 30px;
+  margin-left: 30px;
+  color: #213f8f;
+}
+
+
+.descripcion {
+  font-size: 18px;
+  color: #434343;
+}
+
+.opciones {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, .16);
+  max-height: 300px;
+  overflow: auto;
+  z-index: 100;
+  position: absolute;
+  width: 22%;
+  display: none;
+}
+
+.opciones.active {
+  display: block;
+  animation: fadeIn .3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-200px) scale(.5);
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.contenido-opcion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: .2s ease all;
+}
+
+.opciones .contenido-opcion {
+  padding: 30px;
+}
+
+.contenido-opcion img {
+  width: 100%;
+  height: 60px;
+
+}
+
+.opciones .contenido-opcion:hover {
+  background: #213F8F;
+}
+
+.opciones .contenido-opcion:hover .titulo,
+.opciones .contenido-opcion:hover .descripcion {
+  color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+  .selectbox {
+    width: 100%;
+  }
+}
+div .idOcultado{
+  display: none;
+}
+div .img-pagos{
+  width: 100%;
+}
+input:placeholder-shown {
+  font-size: 30px;
+}
+div .checkboxDeseo{
+  display: block;
+}
+div .checkboxRecibiras{
+  display: none;
+}
+.errorEntrada {
+  width: auto;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  color: rgb(255, 0, 0);
+  font-size: 20px;
+  text-align: center;
+  border-radius: 40px;
+}
+.EntradaValida{
+  display: none;
+}
+/*
+RESPONSIVE - TABLET
+*/
+@media (max-width:768px){
+  div.contenedor{
+  grid-template-columns: repeat(1,1fr);
+
+    grid-template-areas: "header header"
+                         "caja-cambio caja-cambio"
+                         "caja-info caja-info " 
+                         "mas-info mas-info" 
+                         "footer footer";
+  }
+  
+  div .header{
+    margin-bottom: 60px;
+  }div.header img{
+    margin: auto;
+    display: block;
+    width: 80%;
+    height: 200px;
+  }
+  div .caja-cambio{
+    width: 92%;
+  }
+  div .caja-info{
+    width: 92%;
+  }
+  div.contenedor_form{
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: "header header "
+                         "form form "                         
+                         "caja-cambio caja-cambio"
+                         "caja-comision caja-comision "
+                         "mas-info mas-info"
+                         "footer footer ";
+  }
+div .caja-formulario{
+  width: 92%;
+  margin: 30px;
+}
+.opciones {
+  width: 43%;
+}
+}
+@media(max-width: 360px){
+div.header img{
+  width: 100%;
+}
+  div .caja-cambio{
+    width: 84%;
+  }
+  div .caja-info{
+    width: 84%;
+  }
+  div .caja-formulario{
+    width: 100%;
+    margin: 0px;
+  }
+  div.caja-input{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: "inputEntrada"
+                         "selectCambioEntrada"
+                         "inputSalida"
+                         "selectCambioSalida"
+                         "btnSiguiente"
+  }
+  /* CAMBIOS NUEVOS PARA VERIFICAR CUADRO DE INPUT Y SELECT DE MEDIOS DE PAGOS*/
+  div.inputEntrada{
+    margin-bottom: 10px; 
+  }
+  .selectCambioEntrada {
+    width: 96%;
+  }
+  div.inputSalida{
+   margin-bottom: 10px;
+  }
+  .selectCambioSalida {
+    width: 96%;
+  }
+  .opciones.active{
+    width: 70%;
+  }
+  div .caja-info{
+    padding-left: 20px;
+  }
+  div .infoInstrucciones{
+    margin: 38px 0px 0px 0px;
+    font-size: 16px;
+  }
+  div .caja-comsion{
+    padding: 6px;
+  }
+}
+@media(max-width: 475px){
+  div .caja-cambio{
+    width: 86%;
+  }
+  div .caja-info{
+    width: 86%;
+  }
+  div .infoInstrucciones{
+    font-size: 16px;
+  }
+  div.caja-input{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: "inputEntrada"
+                         "selectCambioEntrada"
+                         "inputSalida"
+                         "selectCambioSalida"
+                         "btnSiguiente"
+  }
+  /* CAMBIOS NUEVOS PARA VERIFICAR CUADRO DE INPUT Y SELECT DE MEDIOS DE PAGOS*/
+  div.inputEntrada{
+    margin-bottom: 10px; 
+  }
+  .selectCambioEntrada {
+    width: 96%;
+  }
+  div.inputSalida{
+   margin-bottom: 10px;
+  }
+  .selectCambioSalida {
+    width: 96%;
+  }
+  .opciones.active{
+    width: 70%;
+  }
+  div .caja-info{
+    padding-left: 20px;
+  }
+  div .infoInstrucciones{
+    margin: 38px 0px 0px 0px;
+    font-size: 16px;
+  }
+  div .caja-comsion{
+    padding: 6px;
+  }
+  div .caja-formulario{
+    width: 100%;
+    margin: 0px;
+  }
+}

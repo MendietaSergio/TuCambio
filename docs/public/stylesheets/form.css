@@ -1,0 +1,75 @@
+
+div .caja-formulario{
+    display: none;
+    grid-area: form;
+    height: auto;
+}
+div .caja-formulario form{
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    padding: 10px 20px;
+    /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
+    box-sizing: border-box;
+    border-radius: 4px;    
+}
+div .caja-formulario form:hover{
+    box-shadow: 2px 2px 5px 1px rgba(177, 177, 177, 0.9);
+}
+div .titulo-form{
+    text-decoration: underline 5px;
+    text-decoration-color: rgb(47, 0, 255);
+}
+div .caja-formulario input{
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+div .caja-formulario #accept{
+    width: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+div .caja-formulario small{
+    color: rgb(68, 67, 67);
+}
+div .caja-formulario #adicional{
+    display: none;
+}
+div .caja-formulario #boton{
+    background-color: rgba(65, 105, 255, .4);
+    color: rgb(255, 255, 255);
+    border-color: rgb(73, 63, 211);
+}
+#boton:hover{
+    background-color: rgba(65, 105, 255, .4);
+    cursor: pointer;
+}
+div .caja-formulario span{
+    font-weight: bold;
+    top: -18px;
+    position: relative;
+}
+div .caja-form{
+    margin-top: 34px;
+
+}
+div .instrucciones{
+    margin: 20px 0px 20px 0px;
+    font-size: 20px;
+
+}
+div .formNumero{
+    height: 24px;
+    width: 24px;
+    font-size: 16px;
+    background-color: #4169e1;
+    border-radius: 100px;
+    display: inline-grid;
+    place-items: center;
+    color: #fff;
+    margin-right: 12px!important;
+}
+div #formulario input:placeholder-shown{
+    font-size: 14px;
+}

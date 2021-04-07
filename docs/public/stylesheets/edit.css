@@ -1,0 +1,232 @@
+@import "general.css";
+@import "footer.css";
+@import "header.css";
+div.contenedor{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: "header header header header"
+                        "caja-cambio caja-cambio caja-cambio caja-cambio"
+                        "footer footer footer footer";
+}
+div.caja-cambio{
+    padding: 50px;
+    grid-area: caja-cambio;
+    height: auto;
+    margin: 30px;
+}
+div.caja-cambio form{
+    padding: 20px;
+}
+div.caja-cambio form{
+    width: 40%;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: rgba(41, 48, 57,0.8);
+    /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
+    box-sizing: border-box;
+    border-radius: 4px;    
+}
+div.caja-cambio .caja-input{
+    width: auto;
+    padding: 3px;
+}
+div input,select,label{
+    font-weight: 900;
+    text-align: end;
+    height: 60px;
+    width: 100%;
+}
+div .caja-input #coeficiente{
+    width: 49%;
+}
+div label{
+    text-align: center;
+}
+div .btn{
+    margin-top: 10px;
+    height: 40px;
+    width: 49%;
+}
+div .titulo-edit{
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-decoration: underline 5px;
+    text-decoration-color: green;
+}
+div .valor{
+    color: #fff;
+}
+form:hover{
+    box-shadow: 2px 2px 5px 1px rgba(177, 177, 177, 0.9);
+}
+div .errorCampo{
+    border: red solid 2px;
+    background-color: rgba(255, 0, 0, .5);
+}
+div .validCampo{
+    border: green solid 2px;
+}
+div .errorSelector{
+    border: red solid 2px;
+}
+div .validSeletor{
+    border: green solid 2px;
+}
+
+.select {
+    background: #fff;
+    width: 100%;
+    height: 110px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, .16);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s ease all;
+    margin-bottom: 30px;
+    padding: 48px;
+    z-index: 200;
+    border: 2px solid transparent;
+  }
+  
+  .select.active,
+  .select:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .16);
+    border: 2px solid #213f8f;
+  }
+  
+  .select.active:before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    border-top: 15px solid #213f8f;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid transparent;
+    position: relative;
+    bottom: -30px;
+    left: calc(50% - 15px);
+  }
+  
+  .select i {
+    font-size: 30px;
+    margin-left: 30px;
+    color: #213f8f;
+  }
+  
+  
+  .descripcion {
+    font-size: 18px;
+    color: #434343;
+  }
+  
+  .opciones {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .16);
+    max-height: 300px;
+    overflow: auto;
+    z-index: 100;
+    position: absolute;
+    width: 32%;
+    padding: 2px;
+    display: none;
+  }
+  
+  .opciones.active {
+    display: block;
+    animation: fadeIn .3s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      transform: translateY(-200px) scale(.5);
+    }
+  
+    to {
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .contenido-opcion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: .2s ease all;
+  }
+  
+  .opciones .contenido-opcion {
+    padding: 30px;
+  }
+  
+  .contenido-opcion img {
+    width: 100%;
+    height: 60px;
+  
+  }
+  
+  .opciones .contenido-opcion:hover {
+    background: #213F8F;
+  }
+  
+  .opciones .contenido-opcion:hover .titulo,
+  .opciones .contenido-opcion:hover .descripcion {
+    color: #fff;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .selectbox {
+      width: 100%;
+    }
+  }
+  div .idOcultado{
+    display: none;
+  }
+  div .img-pagos{
+    width: 100%;
+  }
+@media (max-width:768px){
+  div.contenedor{
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: "header header"
+                        "caja-cambio caja-cambio"
+                        "footer footer";
+}
+div .dropdown{
+  float: left;
+  padding-right: 40px;
+  bottom: 85px;
+}
+div .dropdown-contenido{
+/* SEGUIR EL MENU ACÁ */
+}
+div .header{
+  margin-bottom: 60px;
+}div.header img{
+  margin: auto;
+  display: block;
+  width: 80%;
+  height: 200px;
+}
+div.caja-cambio form{
+  width: 80%;
+}
+div .opciones {
+  width: 57%;
+}
+}
+@media(max-width: 475px){
+  div .caja-cambio{
+    padding: 100px 0px 100px 0px;
+    margin: 0px;
+  }
+  div .opciones{
+    width: 68%;
+  }
+}
