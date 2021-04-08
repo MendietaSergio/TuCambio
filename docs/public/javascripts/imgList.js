@@ -944,7 +944,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const submitForm =(content) =>{
-        fetch('http://localhost:3001/api/form',{
+        fetch('http://www.tucambio.com.ar/api/form',{
             method: 'POST',
             body: JSON.stringify({
                 content
