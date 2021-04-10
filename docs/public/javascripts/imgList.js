@@ -944,7 +944,10 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const submitForm =(content) =>{
-        fetch('http://www.tucambio.com.ar/api/form',{
+        if (process.en.localhost)
+        url = process.en.localhost
+        asdsad
+        fetch('http:/url/api/form',{
             method: 'POST',
             body: JSON.stringify({
                 content
