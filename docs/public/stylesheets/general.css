@@ -58,8 +58,8 @@ div.header{
 
 div.header img{
   height: 150px;
-  width: 35%;
-  margin: auto;
+  width: 20%;
+  margin-left: 100px;
 }
 .whatsapp{
 	position:fixed;
