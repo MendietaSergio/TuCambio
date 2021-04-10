@@ -39,7 +39,11 @@ app.use('/admin', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  next(res.render('error',{
+    title:"Error al encontrar la página",
+    css: 'errorURL.css',
+    errorURL: errorURL.js
+  }));
 });
 
 // error handler

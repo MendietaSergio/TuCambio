@@ -1,0 +1,39 @@
+@import "general.css";
+@import "footer.css";
+@import "header.css";
+
+div.contenedor{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: "header header header header"
+                        "caja_error caja_error caja_error caja_error"
+                        "footer footer footer footer";
+}
+div .caja_error{
+    grid-area: caja_error;
+    padding: 20px;
+    height: 100vh;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+div .btnHome{
+    margin: 50px;
+}
+@media (max-width:768px){
+    div.contenedor{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "header header"
+                            "caja_error caja_error"
+                            "footer footer";
+    }
+    div.header img{
+        margin: auto;
+        display: block;
+        width: 80%;
+        height: 200px;
+  }
+}
