@@ -147,14 +147,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //FUNCION PARA BLOQUEAR Y DESBLOQUEAR LA CAJA DE COMISIONES CUANDO ALGUN MEDIO DE PAGO SEA DE PAYPAL
     let caja_Comision = document.querySelector('.caja-comision');
+    let caja_Formulario = document.querySelector('#caja-formulario');
 
     const cajaComisionDestino = (destino) => {
         console.log("comision destino");
-        if (destino != 13) {
+        if (caja_Formulario.style.display != 'block') {
             caja_Comision.style.display = "none";
-        }
-        if (destino == 13) {
-            caja_Comision.style.display = "block";
+        } else {
+            if (destino != 13) {
+                caja_Comision.style.display = "none";
+            }
+            if (destino == 13) {
+                caja_Comision.style.display = "block";
+            }
         }
     }
     const btnSiguiente = document.querySelector('.btn-success');
@@ -789,7 +794,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const validarCampoAdicional1 = () => {
         if (campoAdicional1.style.display === "none") {
             validCampAdicional1 = true;
-            campoAdicional1.value=" ";
+            campoAdicional1.value = " ";
         } else {
             campoAdicional1.addEventListener('blur', () => {
                 switch (true) {
@@ -928,11 +933,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 'Formulario enviado',
                 'Recuerda revisar tu casilla de correo electronico o de spam',
                 'Aceptar'
-              )
-            .then(() => {
-                formulario.submit();
-                console.log("formulario.submit OK");                
-            })
+            )
+                .then(() => {
+                    formulario.submit();
+                    console.log("formulario.submit OK");
+                })
 
                 .catch(error => {
                     res.send(error)
@@ -942,8 +947,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    const submitForm =(content) =>{        
-        fetch('http://www.tucambio.com.ar/api/form',{
+    const submitForm = (content) => {
+        fetch('http://www.tucambio.com.ar/api/form', {
             method: 'POST',
             body: JSON.stringify({
                 content
@@ -954,7 +959,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => response.json())
             .then(result => {
-                
+
             })
     }
 });
