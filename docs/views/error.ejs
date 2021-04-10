@@ -1,3 +1,17 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+    <!--HEADER MODULARIZADO-->
+    <%- include('./partials/header.ejs')%>
+
+        <div class="caja_error">
+            <h3 class="titulo_error"></h3>
+            <br>
+            <h5 class="subTitulo_error"></h5>
+            <div class="btnHome">
+                <a href="/"><button class="btn btn-primary">Volver al Home</button></a>
+            </div>
+        </div>
+
+
+        <%- include('./partials/footer.ejs') %>
+            <script src="/javascripts/<%=errorURL%>"></script>
