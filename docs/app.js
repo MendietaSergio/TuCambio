@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
   next(res.render('error',{
     title:"Error al encontrar la página",
     css: 'errorURL.css',
-    errorURL: errorURL.js
+    errorURL: 'errorURL.js'
   }));
 });
 
