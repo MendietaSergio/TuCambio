@@ -51,7 +51,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://pruebasaldo.herokuapp.com"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="https://pruebasaldo.herokuapp.com/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="http://www.tucambio.com.ar/img/Logo.png" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -68,7 +68,7 @@ const estructuraHTML = (content) => {
         </ul>
 
         <h2 style="color:black;"> Un cordial saludo...
-        El equipo de tucambio.com.ar</h2>
+        El equipo de <a href="http://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
     </html>
     `;
@@ -85,7 +85,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://pruebasaldo.herokuapp.com"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="https://pruebasaldo.herokuapp.com/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="http://www.tucambio.com.ar/img/Logo.png" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -102,7 +102,7 @@ const estructuraHTML = (content) => {
         </ul>
 
         <h2 style="color:black;"> Un cordial saludo...
-        El equipo de tucambio.com.ar</h2>
+        El equipo de <a href="http://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
     </html>
     `;
@@ -119,7 +119,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://pruebasaldo.herokuapp.com"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="https://pruebasaldo.herokuapp.com/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="http://www.tucambio.com.ar/img/Logo.png" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -136,7 +136,7 @@ const estructuraHTML = (content) => {
         </ul>
 
         <h2 style="color:black;"> Un cordial saludo...
-        El equipo de tucambio.com.ar</h2>
+        El equipo de <a href="http://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
     </html>
     `;
@@ -154,7 +154,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://pruebasaldo.herokuapp.com"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="https://pruebasaldo.herokuapp.com/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="http://www.tucambio.com.ar/img/Logo.png" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -171,7 +171,7 @@ const estructuraHTML = (content) => {
         </ul>
 
         <h2 style="color:black;"> Un cordial saludo...
-        El equipo de tucambio.com.ar</h2>
+        El equipo de <a href="http://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
     </html>
     `;
@@ -189,7 +189,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://pruebasaldo.herokuapp.com"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="https://pruebasaldo.herokuapp.com/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="https://www.tucambio.com.ar//img/Logo.png" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -206,7 +206,7 @@ const estructuraHTML = (content) => {
         </ul>
 
         <h2 style="color:black;"> Un cordial saludo...
-        El equipo de tucambio.com.ar</h2>
+        El equipo de <a href="http://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
     </html>
     `;
