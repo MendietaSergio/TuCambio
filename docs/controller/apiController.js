@@ -1,37 +1,37 @@
 const db = require('../database/models');
 const nodeMailer = require('nodemailer');
 // //PRUEBANODEMAILER@GMAIL.COM
-var smtpConfig = {
-    host: 'smtp.gmail.com',
-    secureConnection: true,
-    port: 465,
-    secure: true, // use SSL
-    auth: {
-        user: 'pruebanodemailers@gmail.com',
-        pass: 'aduwbhzuypeuefam'
-    },
-    tls: {
-        rejectUnauthorized: false,
-        secureProtocol: "TLSv1_method"
-    }
-};
-// var transporter = nodeMailer.createTransport(smtpConfig);
-//==============================================================
-// SERVTUCAMBIO@GMAIL.COM
 // var smtpConfig = {
 //     host: 'smtp.gmail.com',
 //     secureConnection: true,
 //     port: 465,
 //     secure: true, // use SSL
 //     auth: {
-//         user: 'servtucambio@gmail.com',
-//         pass: 'szlqdzqyhgkkzijp'
+//         user: 'pruebanodemailers@gmail.com',
+//         pass: 'aduwbhzuypeuefam'
 //     },
 //     tls: {
 //         rejectUnauthorized: false,
 //         secureProtocol: "TLSv1_method"
 //     }
 // };
+// var transporter = nodeMailer.createTransport(smtpConfig);
+//==============================================================
+// SERVTUCAMBIO@GMAIL.COM
+var smtpConfig = {
+    host: 'smtp.gmail.com',
+    secureConnection: true,
+    port: 465,
+    secure: true, // use SSL
+    auth: {
+        user: 'servtucambio@gmail.com',
+        pass: 'szlqdzqyhgkkzijp'
+    },
+    tls: {
+        rejectUnauthorized: false,
+        secureProtocol: "TLSv1_method"
+    }
+};
 var transporter = nodeMailer.createTransport(smtpConfig);
 const estructuraHTML = (content) => {
     let wallet;
@@ -51,7 +51,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -85,7 +85,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -119,7 +119,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -154,7 +154,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -189,7 +189,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png"" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
@@ -391,19 +391,19 @@ module.exports = {
         let contentHTML = estructuraHTML(content);
         let mail = content.content.correoPersonal;
         //PRUEBA PARA PRUEBANODEMAILER
-        let mailOptions = {
-            from: 'Tu cambio - Datos de contacto <pruebanodemailers@gmail.com>',
-            to: 'pruebanodemailers@gmail.com',
-            subject: 'Prueba de Nodemailer',
-            html: contentHTML
-        }
-        //PRUEBA PARA SERVTUCAMBIO
         // let mailOptions = {
-        //     from: 'Tu cambio - Datos de contacto <servtucambio@gmail.com>',
-        //     to: 'servtucambio@gmail.com,'+ mail,
-        //     subject: 'Datos de contacto',
+        //     from: 'Tu cambio - Datos de contacto <pruebanodemailers@gmail.com>',
+        //     to: 'pruebanodemailers@gmail.com',
+        //     subject: 'Prueba de Nodemailer',
         //     html: contentHTML
         // }
+        //PRUEBA PARA SERVTUCAMBIO
+        let mailOptions = {
+            from: 'Tu cambio - Datos de contacto <servtucambio@gmail.com>',
+            to: 'servtucambio@gmail.com,'+ mail,
+            subject: 'Datos de contacto',
+            html: contentHTML
+        }
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log("Correo no enviado");
