@@ -1,5 +1,4 @@
 var ventana_ancho = $(window).width()
-console.log(ventana_ancho);
 if (ventana_ancho > 768) {
   $("button").click(function () {
     console.log(ventana_ancho);
@@ -21,7 +20,6 @@ if (ventana_ancho > 768) {
 }
 if (ventana_ancho <= 768) {
   $("button").click(function () {
-    console.log(ventana_ancho);
     $('#contenedor').removeClass('contenedor');
     $('#contenedor').addClass('contenedor_form');
     $("#caja-info").hide("slow");

@@ -1,7 +1,6 @@
 //VALIDACIONES, ACTUALIZACION DE COEFICIENTE LISTOS!
 
 window.addEventListener('DOMContentLoaded', () => {
-    console.log("apiEdit vinculado");
     const $ = (element) => {
         return document.querySelector(element)
     }
@@ -72,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const setUpdate = (coeficiente, origen, destino) => {
         if ($('.coeficiente').value > 0 && origen != destino) {
-            fetch('http://localhost:3001/admin/api/edit', {
+            fetch('http://www.tucambio.com.ar/admin/api/edit', {
                 method: 'POST',
                 body: JSON.stringify({
                     coeficiente,

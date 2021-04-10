@@ -19,7 +19,6 @@ module.exports = {
                 }
             })
                 .then(user => {
-                    //bcrypt bcrypt.hashSync(user.password, 10)
                     req.session.user = {
                         id: user.id,
                         nick: user.nombre,
@@ -69,11 +68,7 @@ module.exports = {
     processProfileEdit(req,res){
     //SEGUIR DESDE ACA
         let errors = validationResult(req);
-        console.log("antes de errors.mapped()");
-        console.log(errors.mapped());
-        console.log("despues de errors.mapped()");
         if (errors.isEmpty()) {
-            console.log("entra sin errores");
             db.Usuarios.findByPk(req.session.user.id)
                 .then(user => {
                     return res.redirect('/')
@@ -82,7 +77,6 @@ module.exports = {
                     res.send(error);
                 })
         } else {
-            console.log("entra con error");
             res.render('profile', {
                 title: 'Perfil Administrador',
                 css: 'profile.css',

@@ -1,31 +1,14 @@
 const db = require('../database/models');
 const nodeMailer = require('nodemailer');
-//PRUEBANODEMAILER@GMAIL.COM
-var smtpConfig = {
-    host: 'smtp.gmail.com',
-    secureConnection: true,
-    port: 465,
-    secure: true, // use SSL
-    auth: {
-        user: 'pruebanodemailers@gmail.com',
-        pass: 'aduwbhzuypeuefam'
-    },
-    tls: {
-        rejectUnauthorized: false,
-        secureProtocol: "TLSv1_method"
-    }
-};
-var transporter = nodeMailer.createTransport(smtpConfig);
-//==============================================================
-//SERVTUCAMBIO@GMAIL.COM
+// //PRUEBANODEMAILER@GMAIL.COM
 // var smtpConfig = {
 //     host: 'smtp.gmail.com',
 //     secureConnection: true,
 //     port: 465,
 //     secure: true, // use SSL
 //     auth: {
-//         user: 'servtucambio@gmail.com',
-//         pass: 'szlqdzqyhgkkzijp'
+//         user: 'pruebanodemailers@gmail.com',
+//         pass: 'aduwbhzuypeuefam'
 //     },
 //     tls: {
 //         rejectUnauthorized: false,
@@ -33,6 +16,23 @@ var transporter = nodeMailer.createTransport(smtpConfig);
 //     }
 // };
 // var transporter = nodeMailer.createTransport(smtpConfig);
+//==============================================================
+// SERVTUCAMBIO@GMAIL.COM
+var smtpConfig = {
+    host: 'smtp.gmail.com',
+    secureConnection: true,
+    port: 465,
+    secure: true, // use SSL
+    auth: {
+        user: 'servtucambio@gmail.com',
+        pass: 'szlqdzqyhgkkzijp'
+    },
+    tls: {
+        rejectUnauthorized: false,
+        secureProtocol: "TLSv1_method"
+    }
+};
+var transporter = nodeMailer.createTransport(smtpConfig);
 const estructuraHTML = (content) => {
     let wallet;
     let iban;
@@ -217,38 +217,13 @@ const estructuraHTML = (content) => {
 module.exports = {
     getValorEntrada: (req, res) => {
         const { numEntrada, origen, destino } = req.body;
-        console.log("getValorEntrada");
         db.Coeficientes.findOne({
             where: {
                 mediosdepagos1: origen,
                 mediosdepagos2: destino
             }
         })
-            .then(result => {
-                //medios de pago 1 a medios de pago 2
-                //de Pesos a Dolares y Pesos a Euro/Pesos a DAI/Pesos a Tether
-                /* numEntrada / result.coeficiente
-                */
-                //pesos, dolar y euro funciona en viseversa.
-                //Pesos a Pesos/Dolar a Dolar/Dolar a Euro/Pesos a Bitcoin/Dolar a Bitcoin/Euro a Bitcoin
-                /* numEntrada * resul.coeficiente*/
-
-                //Pesos a Bitcoin/Dolar a Bitcoin/Euro a Bitcoin (minimo 3.000 pesos con bitcoin, dai tether)
-                /* numEntrada / result.coeficiente */
-
-
-                //medios de pago 2 a medios de pago 1
-                //de Dolares Pesos y  Euro a Pesos/ DAI a Pesos/ Tether a Pesos
-                /* numEntrada * result.coeficiente
-                */
-                ///Bitcoin a Pesos/ Bitcoin a Dolar/Euro a Bitcoin
-                /* numEntrada / resul.coeficiente*/
-
-                //Bitcoin a Pesos/ Bitcoin a Dolar/Bitcoin a Euro
-                /* numEntrada * result.coeficiente */
-
-                // para paypal cuando es medio de pago 2
-                /*((numEntrada*5)/100)+ 0.70 */
+            .then(result => {                
                 db.MediosDePagos.findAll()
                     .then(medios => {
                         let resultado;
@@ -294,8 +269,6 @@ module.exports = {
                                             console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        //PESOS A PESOS, DOLAR A DOLAR, DOLAR A EURO, PESOA A BITCOIN, DOLAR A BITCOIN, EURO A BITCOIN
-                                        //text.txt 
                                         default:
                                             console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numEntrada * result.coeficiente).toFixed(2);
@@ -305,17 +278,6 @@ module.exports = {
 
                                 }
                             }
-                            //medios de pago 1 a medios de pago 2
-                            //de Pesos a Dolares y Pesos a Euro/Pesos a DAI/Pesos a Tether
-                            /* numEntrada / result.coeficiente                              ¡¡LISTO!!
-                            */
-                            //pesos, dolar y euro funciona en viseversa.
-                            //Pesos a Pesos/Dolar a Dolar/Dolar a Euro/Pesos a Bitcoin/Dolar a Bitcoin/Euro a Bitcoin
-                            /* numEntrada * resul.coeficiente                               ¡¡LISTO!!
-
-                            //Pesos a Bitcoin/Dolar a Bitcoin/Euro a Bitcoin (minimo 3.000 pesos con bitcoin, dai tether)
-                            // numEntrada / result.coeficiente                              ¡¡PREGUNTAR!!*/
-
                         }
                         //PARA LA SALIDA DE BITCOIN CON 8 DECIMALES
                         let numSalida = resultado;
@@ -341,8 +303,6 @@ module.exports = {
                             for (let subIndex = 0; subIndex < medios.length; subIndex++) {
                                 if (origen == medios[index].id && destino == medios[subIndex].id) {
                                     switch (true) {
-                                        //DIVIDO BTC
-                                        //BTC A PESOS/BTC A USD/BTC A USDt/EUR A BTC
                                         case medios[index].abreviatura == "BTC" && medios[subIndex].abreviatura == "ARS":
                                             console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida / result.coeficiente).toFixed(8);
@@ -359,8 +319,6 @@ module.exports = {
                                             console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida / result.coeficiente).toFixed(8);
                                             break;
-                                        //LOS DEMAS, SE MULTIPLICA
-                                        //text.txt 
                                         default:
                                             console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida * result.coeficiente).toFixed(2);
@@ -376,18 +334,6 @@ module.exports = {
                         })
                     })
             })
-        //medios de pago 2 a medios de pago 1
-        //de Dolares Pesos y  Euro a Pesos/ DAI a Pesos/ Tether a Pesos
-        /* numEntrada * result.coeficiente
-        */
-        ///Bitcoin a Pesos/ Bitcoin a Dolar/Euro a Bitcoin
-        /* numEntrada / resul.coeficiente*/
-
-        //Bitcoin a Pesos/ Bitcoin a Dolar/Bitcoin a Euro
-        /* numEntrada * result.coeficiente */
-
-        // para paypal cuando es medio de pago 2
-        /*((numEntrada*5)/100)+ 0.70 */
     },
     processEdit: (req, res) => {
         const { coeficiente, origen, destino } = req.body;
@@ -445,26 +391,24 @@ module.exports = {
         let contentHTML = estructuraHTML(content);
         let mail = content.content.correoPersonal;
         //PRUEBA PARA PRUEBANODEMAILER
-        let mailOptions = {
-            from: 'Tu cambio - Datos de contacto <pruebanodemailers@gmail.com>',
-            to: 'pruebanodemailers@gmail.com',
-            subject: 'Prueba de Nodemailer',
-            html: contentHTML
-        }
-        //PRUEBA PARA SERVTUCAMBIO
         // let mailOptions = {
-        //     from: 'Tu cambio - Datos de contacto <servtucambio@gmail.com>',
-        //     to: 'servtucambio@gmail.com,'+ mail,
-        //     subject: 'Datos de contacto',
+        //     from: 'Tu cambio - Datos de contacto <pruebanodemailers@gmail.com>',
+        //     to: 'pruebanodemailers@gmail.com',
+        //     subject: 'Prueba de Nodemailer',
         //     html: contentHTML
         // }
+        //PRUEBA PARA SERVTUCAMBIO
+        let mailOptions = {
+            from: 'Tu cambio - Datos de contacto <servtucambio@gmail.com>',
+            to: 'servtucambio@gmail.com,'+ mail,
+            subject: 'Datos de contacto',
+            html: contentHTML
+        }
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log("Correo no enviado");
-                console.log(error);
             } else {
                 console.log("Correo enviado " + info.response);
-                console.log(info);
             }
             console.log("Preview URL: %s", nodeMailer.getTestMessageUrl(info));
         })

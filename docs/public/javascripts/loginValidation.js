@@ -1,7 +1,6 @@
 // LOGINVALIDATION TERMINADO.
 
 addEventListener('DOMContentLoaded', function () {
-    console.log("Vinculado LoginValidation.JS..!>");
 
     const formulario = document.querySelector('form');
 

@@ -16,10 +16,7 @@ div .caja-formulario form{
 div .caja-formulario form:hover{
     box-shadow: 2px 2px 5px 1px rgba(177, 177, 177, 0.9);
 }
-div .titulo-form{
-    text-decoration: underline 5px;
-    text-decoration-color: rgb(47, 0, 255);
-}
+
 div .caja-formulario input{
     width: 100%;
     margin-bottom: 40px;

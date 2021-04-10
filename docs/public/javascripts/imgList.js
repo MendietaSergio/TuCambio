@@ -237,7 +237,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValor = (numEntrada, origen, destino) => {
         agregaAbreviaturaInput();
         if (numEntrada > 0 && origen != destino) {
-            fetch('http://localhost:3001/apis/valor', {
+            fetch('http://www.tucambio.com.ar/apis/valor', {
                 method: 'POST',
                 body: JSON.stringify({
                     numEntrada,
@@ -325,7 +325,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValorSalida = (numSalida, origen, destino) => {
         agregaAbreviaturaInput();
         if (numSalida > 0 && origen != destino) {
-            fetch('http://localhost:3001/apis/valores', {
+            fetch('http://www.tucambio.com.ar/apis/valores', {
                 method: 'POST',
                 body: JSON.stringify({
                     numSalida,
@@ -791,7 +791,6 @@ window.addEventListener('DOMContentLoaded', () => {
             validCampAdicional1 = true;
             campoAdicional1.value=" ";
         } else {
-            console.log("campoAdicional1 es block");
             campoAdicional1.addEventListener('blur', () => {
                 switch (true) {
                     case campoAdicional1.value.length === 0:
@@ -943,11 +942,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    const submitForm =(content) =>{
-        if (process.en.localhost)
-        url = process.en.localhost
-        asdsad
-        fetch('http:/url/api/form',{
+    const submitForm =(content) =>{        
+        fetch('http://www.tucambio.com.ar/api/form',{
             method: 'POST',
             body: JSON.stringify({
                 content

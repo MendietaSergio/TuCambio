@@ -23,12 +23,6 @@ module.exports = [
                 }
             })
                 .then(user => {
-                    console.log("value");
-                    console.log(value);
-                    console.log("req.body");
-                    console.log(req.body);
-                    console.log("user.password");
-                    console.log(user.password);
                     if (!bcrypt.compareSync(value, user.password)) {
                         return Promise.reject('Credenciales inválidas')
                     }
