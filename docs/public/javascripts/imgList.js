@@ -408,6 +408,9 @@ window.addEventListener('DOMContentLoaded', () => {
             msgError.innerHTML = " ";
         }
     }
+    //PARA INICIAR VALOR SALIDA
+    getValor(numEntrada.value, origen.value, destino.value);
+    
     /****************************************************************************************************************
     *                                       VALIDACIONES DEL FORMULARIO                                             *
     *****************************************************************************************************************/
