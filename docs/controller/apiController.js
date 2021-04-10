@@ -189,7 +189,7 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:400; width:300" src="/img/Logo.png" alt="TuCambio"></a>
+    <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png"" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="color:black;">
