@@ -8,8 +8,8 @@ div.contenedor{
   grid-template-columns: repeat(4,1fr);
   grid-template-areas: "header header header header"
                       "caja-cambio caja-cambio caja-info caja-info"
-                      "mas-info mas-info form form"
                       "caja-comision caja-comision form form"
+                      "mas-info mas-info form form"
                       "footer footer footer footer";
 }
 div.contenedor_form{
