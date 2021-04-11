@@ -151,35 +151,25 @@ window.addEventListener('DOMContentLoaded', () => {
     let comisionEntrada = document.querySelector('.comisionEntrada');
     let comisionSalida = document.querySelector('.comisionSalida');
     const cajaComisionDestino = (destino,origen) => {
-        console.log("comision destino");
-        if (caja_Formulario.style.display != 'block') {
-            caja_Comision.style.display = "none"
-        } else {
-            caja_Comision.style.display = "block";
             switch (true) {
                 case (origen == 16 && destino == 13) || (origen == 14 && destino == 13) || (origen == 11 && destino == 13):
                     comisionEntrada.style.display = "block";
                     comisionSalida.style.display = "block";
-                    console.log(`comision entrada y salida`);
                     break;
                 case destino == 13:
                     comisionEntrada.style.display = "none";
                     comisionSalida.style.display = "block";
-                    console.log(`comisionSalida igual block >>> ${destino}`);
                     break;
                 case origen == 16 || origen == 14 || origen == 11:
                     comisionEntrada.style.display = "block";
                     comisionSalida.style.display = "none";
-                    console.log(`--------comisionEntrada block >>> ${origen}`);
                     break;
                 default:
                     comisionEntrada.style.display = "none";
-                    console.log(`comisionSalida diferente none >>> ${destino}`);
                     comisionSalida.style.display = "none";
-                    console.log(`comisionEntrada none >>> ${origen}`);
                     break;
             }
-        }
+        
     }
     cajaComisionDestino(destino.value, origen.value);
     const btnSiguiente = document.querySelector('.btn-success');

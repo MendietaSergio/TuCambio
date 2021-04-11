@@ -8,7 +8,8 @@ div.contenedor{
   grid-template-columns: repeat(4,1fr);
   grid-template-areas: "header header header header"
                       "caja-cambio caja-cambio caja-info caja-info"
-                      "mas-info mas-info form form" 
+                      "mas-info mas-info form form"
+                      "caja-comision caja-comision form form"
                       "footer footer footer footer";
 }
 div.contenedor_form{
@@ -68,9 +69,11 @@ div.caja-info{
   padding-left: 35px;
 }
 div.caja-comision{
-  display: none;
+  display: block;
   grid-area: caja-comision;
   height: auto;
+  width: 90%;
+  margin: 38px;
 }
 div .comisionSalida{
   border-radius: 30px;
@@ -364,6 +367,7 @@ RESPONSIVE - TABLET
 
     grid-template-areas: "header header"
                          "caja-cambio caja-cambio"
+                         "caja-comision caja-comision"
                          "caja-info caja-info " 
                          "mas-info mas-info" 
                          "footer footer";
@@ -446,8 +450,11 @@ div.header img{
     margin: 38px 0px 0px 0px;
     font-size: 16px;
   }
+  
   div .caja-comsion{
-    padding: 6px;
+    width: 97%;
+    margin: 6px;
+    padding: 8px;
   }
 }
 @media(max-width: 475px){
@@ -498,5 +505,10 @@ div.header img{
   div .caja-formulario{
     width: 100%;
     margin: 0px;
+  }
+  div .caja-comision{
+    width: 80%;
+    margin: 36px;
+    font-size: 18px;
   }
 }

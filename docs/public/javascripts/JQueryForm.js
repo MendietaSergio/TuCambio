@@ -5,7 +5,7 @@ if (ventana_ancho > 768) {
     $('.caja-formulario').css({ 'margin-top': '0px' })
     $('.header-img').css({ 'margin': 'auto', 'display': 'block', 'width': 'auto' })
     $('.caja-cambio').css({ 'margin': '0px' })
-    $('.caja-comision').css({ 'height': 'auto', 'margin': '0px'})
+    $('.caja-comision').css({ 'width': '98%', 'margin': '6px'})
     $('.header').css({ 'height': 'auto', 'margin-bottom': '0px' })
 
     $('#contenedor').removeClass('contenedor');
