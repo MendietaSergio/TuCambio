@@ -235,7 +235,7 @@ window.addEventListener('DOMContentLoaded', () => {
             recibeNombre.innerHTML = e.currentTarget.querySelector('.opcionSalida img').alt;
             campoCBU2(inputAdicional2, origen.value, destino.value)
             igualdad(origen.value, destino.value);
-            getValorSalida(numSalida.value, origen.value, destino.value);
+            getValor(numEntrada.value, origen.value, destino.value);
             cajaComisionDestino(destino.value, origen.value);
             campoAdicional2.value = "";
             campoAdicional1.value = "";
