@@ -206,6 +206,7 @@ window.addEventListener('DOMContentLoaded', () => {
             campoAdicional1.classList.remove('is-valid');
             errorAdicional1.innerHTML = "";
             blockAcutualizar();
+            comisionPagoUno();
             cajaComisionDestino(destino.value, origen.value);
             validarCampoAdicional1();
         });
@@ -421,8 +422,9 @@ window.addEventListener('DOMContentLoaded', () => {
         comisionTotal.innerHTML = numSalida.value;
         totalPaypal.innerHTML = numSalida.value;
         deseoPaypal.innerHTML = numSalida.value;
-        enviar.innerHTML = numEntrada.value;
         totalEntrada.innerHTML = numEntrada.value;
+        enviar.innerHTML = numEntrada.value;
+        
     }
     valorSalida()
     let porcentajeVariable = document.querySelector('.porcentajeVariable');
@@ -459,7 +461,6 @@ window.addEventListener('DOMContentLoaded', () => {
             recibirasSwitch.style.display = "none";
             deseoSwitch.style.display = "block";
             paypalComision();
-            comisionPagoUno();
         }
     })
     const igualdad = (origen, destino) => {
