@@ -127,19 +127,28 @@
         </div>
       </div>
       <div class="caja-comision">
-        <span class="comision">Comisión PayPal: tené en cuenta que te enviaremos $<small id="totalPaypal"></small>,
-          recordá que PayPal te cobrará
-          una comisión de $<span class="porcentajeVariable"></span> . Por lo tanto recibirás un neto de $<span
-            class="comisionRecibido"></span> .</span>
-        <div class="caja-switch">
-          <div class="cajaCheckbox">
-            <span class="checkboxDeseo">Deseo recibir un neto de $ <small id="deseoPaypal"></small></span>
-            <span class="checkboxRecibiras">Recibirás un neto de $ <small id="recibePaypal"></small></span>
+        <div class="comisionEntrada">
+          <span class="comision">Comisión <span id="nombreComisionEntrada"></span>: Tené en cuenta que enviarás: $<small
+              id="totalEntrada"></small>, pero <span id="nombreComision2Entrada"></span> además, te cobrará
+            una comisión de $<span class="porcentajeVariableEntrada"></span> por la operación.
+        </div>
+
+        <div class="comisionSalida">
+          <span class="comision">Comisión <span id="nombreComision"></span>:Tené en cuenta que te enviaremos: $<small
+              id="totalPaypal"></small>,
+            recordá que <span id="nombreComision2"></span> te cobrará
+            una comisión de $<span class="porcentajeVariable"></span> . Por lo tanto recibirás un neto de $<span
+              class="comisionRecibido"></span> .</span>
+          <div class="caja-switch">
+            <div class="cajaCheckbox">
+              <span class="checkboxDeseo">Deseo recibir un neto de $ <small id="deseoPaypal"></small></span>
+              <span class="checkboxRecibiras">Recibirás un neto de $ <small id="recibePaypal"></small></span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="checkboxPaypal">
+              <span class="slider round"></span>
+            </label>
           </div>
-          <label class="switch">
-            <input type="checkbox" id="checkboxPaypal">
-            <span class="slider round"></span>
-          </label>
         </div>
       </div>
       <div class="mas-info">

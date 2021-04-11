@@ -5,14 +5,13 @@ if (ventana_ancho > 768) {
     $('.caja-formulario').css({ 'margin-top': '0px' })
     $('.header-img').css({ 'margin': 'auto', 'display': 'block', 'width': 'auto' })
     $('.caja-cambio').css({ 'margin': '0px' })
-    $('.caja-comision').css({ 'height': 'auto', 'margin': '0px', 'margin-top': '24px' })
+    $('.caja-comision').css({ 'height': 'auto', 'margin': '0px'})
     $('.header').css({ 'height': 'auto', 'margin-bottom': '0px' })
 
     $('#contenedor').removeClass('contenedor');
     $('#contenedor').addClass('contenedor_form');
     $("#caja-info").hide("slow");
 
-    $('.caja-comision').css({ 'height': 'auto', 'margin': '0px', 'margin-top': '24px' })
     $('#caja-comision').show(2000)
     $("#caja-formulario").show(2000);
 

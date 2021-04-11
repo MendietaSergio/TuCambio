@@ -152,13 +152,31 @@ window.addEventListener('DOMContentLoaded', () => {
     const cajaComisionDestino = (destino) => {
         console.log("comision destino");
         if (caja_Formulario.style.display != 'block') {
-            caja_Comision.style.display = "none";
+            caja_Comision.style.display = "none"
         } else {
-            if (destino != 13) {
-                caja_Comision.style.display = "none";
-            }
-            if (destino == 13) {
-                caja_Comision.style.display = "block";
+            caja_Comision.style.display = "block";
+            switch (true) {
+                case (origen == 16 && destino == 13) || (origen == 14 && destino == 13) || (origen == 11 && destino == 13):
+                    comisionEntrada.style.display = "block";
+                    comisionSalida.style.display = "block";
+                    console.log(`comision entrada y salida`);
+                    break;
+                case destino == 13:
+                    comisionEntrada.style.display = "none";
+                    comisionSalida.style.display = "block";
+                    console.log(`comisionSalida igual block >>> ${destino}`);
+                    break;
+                case origen == 16 || origen == 14 || origen == 11:
+                    comisionEntrada.style.display = "block";
+                    comisionSalida.style.display = "none";
+                    console.log(`--------comisionEntrada block >>> ${origen}`);
+                    break;
+                default:
+                    comisionEntrada.style.display = "none";
+                    console.log(`comisionSalida diferente none >>> ${destino}`);
+                    comisionSalida.style.display = "none";
+                    console.log(`comisionEntrada none >>> ${origen}`);
+                    break;
             }
         }
     }
@@ -281,11 +299,13 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
                     break;
+                    comisionPagoUno();
                 case numEntrada.value < 3000:
                     errorEntrada.innerHTML = "Debe ingresar un mínimo de $3.000";
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
                     paypalComision();
+                    comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
                     break;
                 default:
@@ -293,6 +313,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.style.display = "none";
                     btnSiguiente.style.display = "block";
                     paypalComision();
+                    comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
                     break;
             }
@@ -310,6 +331,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
                     paypalComision();
+                    comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
                     break;
                 default:
@@ -317,11 +339,13 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.style.display = "none";
                     btnSiguiente.style.display = "block";
                     paypalComision();
+                    comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
                     break;
             }
         } else {
             paypalComision();
+            comisionPagoUno();
             getValor(numEntrada.value, origen.value, destino.value);
         }
 
@@ -350,9 +374,44 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     numSalida.addEventListener('input', () => {
         paypalComision()
+        comisionPagoUno();
         getValorSalida(numSalida.value, origen.value, destino.value);
     });
+    //Entrada
+    const totalEntrada = document.querySelector('#totalEntrada');
+    const nombreComisionEntrada = document.querySelector('#nombreComisionEntrada')
+    const nombreComision2Entrada = document.querySelector('#nombreComision2Entrada')
+    let porcentajeVariableEntrada = document.querySelector('.porcentajeVariableEntrada');
+    let comisionSkrillNeteller = Number(0.0145);
+    let comisionPerfectMoney = Number(0.02);
+    let comisionPagoUno = () => {
+        switch (true) {
+            case (origen.value == 16 || origen.value == 11):
+                console.log(`origen 16 y 11`);
+                console.log(enviaNombre);
+                console.log(`comisionEntrada ${origen.value} `);
+                nombreComisionEntrada.innerHTML = enviaNombre.textContent;
+                nombreComision2Entrada.innerHTML = enviaNombre.textContent;
+                let resultPorcentajeSN = numEntrada.value * comisionSkrillNeteller;
+                porcentajeVariableEntrada.innerHTML = resultPorcentajeSN.toFixed(2);
+                console.log("origen.value == 16");
+                break;
+            case origen.value == 14:
+                console.log(`origen 14`);
+                console.log(enviaNombre);
+                console.log(`comisionEntrada ${origen.value} `);
+                nombreComisionEntrada.innerHTML = enviaNombre.textContent;
+                nombreComision2Entrada.innerHTML = enviaNombre.textContent;
+                let resultPorcentajePM = numEntrada.value * comisionPerfectMoney;
+                porcentajeVariableEntrada.innerHTML = resultPorcentajePM.toFixed(2);
+                console.log("origen.value == 16");
+                break;
+        }
+        if (origen.value == 16) {
 
+        }
+    }
+    comisionPagoUno();
     const totalPaypal = document.querySelector('#totalPaypal');
     const recibePaypal = document.querySelector('#recibePaypal');
     const deseoPaypal = document.querySelector('#deseoPaypal');
@@ -363,6 +422,7 @@ window.addEventListener('DOMContentLoaded', () => {
         totalPaypal.innerHTML = numSalida.value;
         deseoPaypal.innerHTML = numSalida.value;
         enviar.innerHTML = numEntrada.value;
+        totalEntrada.innerHTML = numEntrada.value;
     }
     valorSalida()
     let porcentajeVariable = document.querySelector('.porcentajeVariable');
@@ -399,6 +459,7 @@ window.addEventListener('DOMContentLoaded', () => {
             recibirasSwitch.style.display = "none";
             deseoSwitch.style.display = "block";
             paypalComision();
+            comisionPagoUno();
         }
     })
     const igualdad = (origen, destino) => {
@@ -410,7 +471,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     //PARA INICIAR VALOR SALIDA
     getValor(numEntrada.value, origen.value, destino.value);
-    
+
     /****************************************************************************************************************
     *                                       VALIDACIONES DEL FORMULARIO                                             *
     *****************************************************************************************************************/
