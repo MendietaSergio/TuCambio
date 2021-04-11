@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const setUpdate = (coeficiente, origen, destino) => {
         if ($('.coeficiente').value > 0 && origen != destino) {
-            fetch('http://www.tucambio.com.ar/admin/api/edit', {
+            fetch('https://www.tucambio.com.ar/admin/api/edit', {
                 method: 'POST',
                 body: JSON.stringify({
                     coeficiente,
