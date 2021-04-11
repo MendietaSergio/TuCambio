@@ -148,7 +148,8 @@ window.addEventListener('DOMContentLoaded', () => {
     //FUNCION PARA BLOQUEAR Y DESBLOQUEAR LA CAJA DE COMISIONES CUANDO ALGUN MEDIO DE PAGO SEA DE PAYPAL
     let caja_Comision = document.querySelector('.caja-comision');
     let caja_Formulario = document.querySelector('#caja-formulario');
-
+    let comisionEntrada = document.querySelector('.comisionEntrada');
+    let comisionSalida = document.querySelector('.comisionSalida');
     const cajaComisionDestino = (destino) => {
         console.log("comision destino");
         if (caja_Formulario.style.display != 'block') {
@@ -204,6 +205,7 @@ window.addEventListener('DOMContentLoaded', () => {
             campoAdicional1.classList.remove('is-valid');
             errorAdicional1.innerHTML = "";
             blockAcutualizar();
+            cajaComisionDestino(destino.value, origen.value);
             validarCampoAdicional1();
         });
     });
@@ -298,8 +300,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.innerHTML = "Debe ingresar un número."
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
-                    break;
                     comisionPagoUno();
+                    break;                    
                 case numEntrada.value < 3000:
                     errorEntrada.innerHTML = "Debe ingresar un mínimo de $3.000";
                     errorEntrada.style.display = "block";
@@ -325,6 +327,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.innerHTML = "Debe ingresar un número."
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
+                    comisionPagoUno();
                     break;
                 case numEntrada.value < 10:
                     errorEntrada.innerHTML = "Debe ingresar un mínimo de $10.";
@@ -374,7 +377,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     numSalida.addEventListener('input', () => {
         paypalComision()
-        comisionPagoUno();
         getValorSalida(numSalida.value, origen.value, destino.value);
     });
     //Entrada
@@ -406,9 +408,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 porcentajeVariableEntrada.innerHTML = resultPorcentajePM.toFixed(2);
                 console.log("origen.value == 16");
                 break;
-        }
-        if (origen.value == 16) {
-
         }
     }
     comisionPagoUno();

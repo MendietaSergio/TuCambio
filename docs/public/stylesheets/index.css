@@ -71,7 +71,6 @@ div.caja-comision{
   display: none;
   grid-area: caja-comision;
   height: auto;
-  padding: 30px;
 }
 div .comisionSalida{
   border-radius: 30px;
