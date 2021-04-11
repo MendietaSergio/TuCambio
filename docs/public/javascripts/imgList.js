@@ -150,7 +150,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let caja_Formulario = document.querySelector('#caja-formulario');
     let comisionEntrada = document.querySelector('.comisionEntrada');
     let comisionSalida = document.querySelector('.comisionSalida');
-    const cajaComisionDestino = (destino) => {
+    const cajaComisionDestino = (destino,origen) => {
         console.log("comision destino");
         if (caja_Formulario.style.display != 'block') {
             caja_Comision.style.display = "none"
@@ -181,6 +181,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+    cajaComisionDestino(destino.value, origen.value);
     const btnSiguiente = document.querySelector('.btn-success');
     btnSiguiente.addEventListener('click', () => {
         cajaComisionDestino(destino.value)
