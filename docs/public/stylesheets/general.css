@@ -65,8 +65,8 @@ div.header img{
 	position:fixed;
 	width:60px;
 	height:60px;
-	bottom:40px;
-	right:40px;
+	bottom: 10px;
+  right: 12px;
 	background-color:#25d366;
 	color:#FFF;
 	border-radius:50px;
@@ -86,9 +86,9 @@ div.header img{
 div .help{
     position:fixed;
     width:auto;
-    height:60px;
-    bottom:26px;
-    right:102px;
+    height: 24px;
+    bottom: 23px;
+    right: 79px;
     color:rgb(3, 3, 3);
     text-align:center;
     font-size:24px;
@@ -102,5 +102,8 @@ div .help{
   }
   div .dropdown-contenido{
     left: 29px;
+  }
+  div .help{
+    font-size: 16px;
   }
 }
