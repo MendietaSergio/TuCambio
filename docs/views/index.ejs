@@ -21,18 +21,18 @@
           <div class="inputEntrada">
             <span class="inputTituloEntrada">Tú envías <span class="abreviaturaEntrada"></span> </span>
             <input id="numEntrada" class="numEntrada" name="numEntrada" placeholder="$0.00  " type="number"
-              value="13000" step=".08" min="0.00">
+              value="100" step=".08" min="0.00">
           </div>
           <div class="selectCambioEntrada">
             <div class="select" id="selectEntrada">
               <div class="contenido-select-Entrada">
-                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png"
-                  alt="<%=pagos[0].nombre%>">
-                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[0].id%>">
-                  <%=pagos[0].campoAdicional%>
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[12].image%>.png"
+                  alt="<%=pagos[12].nombre%>">
+                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[12].id%>">
+                  <%=pagos[12].campoAdicional%>
                 </h4>
                 <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-pagos.id%>">
-                  <%=pagos[0].abreviatura%>
+                  <%=pagos[12].abreviatura%>
                 </h4>
               </div>
               <i class="fas fa-angle-down"></i>
@@ -58,19 +58,18 @@
         <div class="caja-input">
           <div class="inputSalida">
             <span class="inputTituloSalida">Te enviamos <span class="abreviaturaSalida"></span> </span>
-            <input id="numSalida" name="numSalida" type="number" min="0.00" placeholder="$0.00  " step=".01"
-              value="100">
+            <input id="numSalida" name="numSalida" type="number" min="0.00" placeholder="$0.00  " step=".01">
           </div>
           <div class="selectCambioSalida">
             <div class="select" id="selectSalida">
               <div class="contenido-select-Salida">
-                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[12].image%>.png"
-                  alt="<%=pagos[12].nombre%>">
-                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%=pagos[12].id%>">
-                  <%=pagos[12].campoAdicional%>
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png"
+                  alt="<%=pagos[0].nombre%>">
+                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%=pagos[0].id%>">
+                  <%=pagos[0].campoAdicional%>
                 </h4>
                 <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-pagos.id%>">
-                  <%=pagos[12].abreviatura%>
+                  <%=pagos[0].abreviatura%>
                 </h4>
 
               </div>
@@ -103,8 +102,8 @@
             <button id="hide" type="button" class="btn btn-success">Siguiente</button>
           </div>
         </div>
-        <input type="hidden" name="origen" id="metodoOrigen" value="<%=pagos[0].id%>">
-        <input type="hidden" name="destino" id="metodoDestino" value="<%=pagos[12].id%>">
+        <input type="hidden" name="origen" id="metodoOrigen" value="<%=pagos[12].id%>">
+        <input type="hidden" name="destino" id="metodoDestino" value="<%=pagos[0].id%>">
         <span class="text-danger" id="msgError"></span>
       </form>
     </div>

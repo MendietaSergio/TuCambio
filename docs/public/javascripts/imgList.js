@@ -6,7 +6,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const destino = document.querySelector("#metodoDestino");
     const tituloOrigen = document.querySelector('#tituloOrigen');
     const tituloDestino = document.querySelector('#tituloDestino');
-
+    console.log(`*******************************`);
+    console.log( `Origen Inicial => ${origen.value} `);
+    console.log( `Destino Inicial => ${destino.value} `);
+    console.log(`*******************************`);
     let campoAdicional1 = document.querySelector('.campoAdicional1');
     let campoAdicional2 = document.querySelector('#campoAdicional2');
 
