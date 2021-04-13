@@ -199,6 +199,10 @@ div.caja-input{
                        "inputSalida selectCambioSalida"
                        "btnSiguiente btnSiguiente"
 }
+div .icon-change{
+  display: none;
+}
+
 div .fa-exchange-alt{
   position: absolute;
   transform: rotate(90deg);
