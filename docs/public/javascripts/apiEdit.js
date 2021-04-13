@@ -69,10 +69,9 @@ window.addEventListener('DOMContentLoaded', () => {
         opcionesSalida.classList.toggle('active');
     });
     const viewCoeficiente =(origen, destino)=>{
-        console.log(`Dentro de la funcion Origen ${origen.value} Destino ${destino.value}`);
         if (origen > 0 && destino >0) {
             console.log(`Adentro del if en viewCoeficiente`);
-            fetch('http://localhost:3000/admin/api/viewCoeficiente', {
+            fetch('http://www.tucambio.com.ar/admin/api/viewCoeficiente', {
                 method: 'POST',
                 body: JSON.stringify({
                     origen,
@@ -85,8 +84,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 .then(response => response.json())
                 .then(result => {
                     coeficiente.value = result.viewCoeficiente
-                    console.log("Abajo de coeficiente.value viewCoeficiente");
-                    console.log(coeficiente.value);
                 })
         } else {
             console.log('no actualizado');
