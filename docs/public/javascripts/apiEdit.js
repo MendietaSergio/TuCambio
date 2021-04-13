@@ -33,6 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
             console.log(origen.value);
             igualdad(origen.value, destino.value, envia.textContent);
             envia.textContent = " envia";
+            viewCoeficiente(origen.value, destino.value);
         });
     });
 
@@ -59,6 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
             destino.value = e.currentTarget.querySelector('#tituloDestino').getAttribute('data-id');
             igualdad(origen.value, destino.value, envia.textContent);
             recibe.textContent = " recibe";
+            viewCoeficiente(origen.value, destino.value);
         });
     });
 
@@ -66,7 +68,30 @@ window.addEventListener('DOMContentLoaded', () => {
         selectSalida.classList.toggle('active');
         opcionesSalida.classList.toggle('active');
     });
-
+    const viewCoeficiente =(origen, destino)=>{
+        console.log(`Dentro de la funcion Origen ${origen.value} Destino ${destino.value}`);
+        if (origen > 0 && destino >0) {
+            console.log(`Adentro del if en viewCoeficiente`);
+            fetch('http://localhost:3000/admin/api/viewCoeficiente', {
+                method: 'POST',
+                body: JSON.stringify({
+                    origen,
+                    destino
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                }
+            })
+                .then(response => response.json())
+                .then(result => {
+                    coeficiente.value = result.viewCoeficiente
+                    console.log("Abajo de coeficiente.value viewCoeficiente");
+                    console.log(coeficiente.value);
+                })
+        } else {
+            console.log('no actualizado');
+        }
+    }
     /********************************************************************************************************/
 
     const setUpdate = (coeficiente, origen, destino) => {

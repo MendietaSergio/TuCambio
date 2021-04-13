@@ -386,6 +386,25 @@ module.exports = {
         //     })
 
     },
+    processViewCoeficiente:(req,res)=>{
+        const {origen, destino } = req.body;
+        console.log(req.body);
+        db.Coeficientes.findOne({
+            where: {
+                mediosdepagos1: origen,
+                mediosdepagos2: destino,
+            }
+        })
+            .then(result => {
+                let viewCoeficiente = result.coeficiente;
+                res.json({
+                    viewCoeficiente
+                })
+            })
+            .catch(error => {
+                res.send(error)
+            })
+    },
     processForm: (req, res) => {
         const content = req.body;
         let contentHTML = estructuraHTML(content);

@@ -20,6 +20,7 @@ router.post('/',redirect,loginValidation, userController.processLogin);
 //EDIT Y PROCESO DE EDIT.
 router.get('/edit',redirectAdmin,userController.edit);
 router.post('/api/edit',apiEditController.processEdit);
+router.post('/api/viewCoeficiente',apiEditController.processViewCoeficiente);
 
 //PROFILE Y PROCESO DE ACTUALIZACIÓN PASSWORD.
 router.get('/profile',redirectAdmin,userController.profile);
