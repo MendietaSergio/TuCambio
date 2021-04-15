@@ -321,7 +321,7 @@ module.exports = {
                                             break;
                                         default:
                                             console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
-                                            resultado = (numSalida * result.coeficiente).toFixed(2);
+                                            resultado = (numSalida / result.coeficiente).toFixed(2);
                                             break;
                                     }
                                     console.log("Origen: " + medios[index].id + ", Destino " + medios[subIndex].id);
