@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
-    "username": USERNAME_DB,
-    "password": PASSWORD_DB,
-    "database": DATABASE_DB,
-    "host": HOST_DB,
+    "username": "c91o82vevk1tvg7t",
+    "password": "irl9twuf8ky9cw8z",
+    "database": "gru2839oboew6ruq",
+    "host": "ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "root": 3306
   },
@@ -23,10 +23,10 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": USERNAME_DB,
-    "password": PASSWORD_DB,
-    "database": DATABASE_DB,
-    "host": HOST_DB,
+    "username": "c91o82vevk1tvg7t",
+    "password": "irl9twuf8ky9cw8z",
+    "database": "gru2839oboew6ruq",
+    "host": "ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "root": 3306
   }

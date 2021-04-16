@@ -24,8 +24,8 @@ var smtpConfig = {
     port: 465,
     secure: true, // use SSL
     auth: {
-        user: process.env.USER_MAIL,
-        pass: USER_PASSWORD
+        user: 'servtucambio@gmail.com',
+        pass: 'szlqdzqyhgkkzijp'
     },
     tls: {
         rejectUnauthorized: false,
