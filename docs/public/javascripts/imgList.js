@@ -535,6 +535,7 @@ window.addEventListener('DOMContentLoaded', () => {
         changeValue();
     })
     const changeValue = () => {
+        campoCBU1(inputAdicional1,origen.value,destino);
         igualdad(origen.value, destino.value);
         getValor(numEntrada.value, origen.value, destino.value);
         cajaComisionDestino(destino.value, origen.value);
