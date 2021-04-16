@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var env = require('node-env-file');
+env(__dirname + '/.env');
 const session = require('express-session');
 const methodOverride = require('method-override');
 
