@@ -7,7 +7,7 @@ module.exports = {
                     title: "Tu cambio - CAMBIÁ FÁCIL Y SEGURO",
                     css: 'index.css',
                     pagos: pagos,
-                    script: "imgList.js",
+                    script: "funcionHome.js",
                     JQueryForm: "JQueryForm.js"
                 })
             })
@@ -23,7 +23,7 @@ module.exports = {
                     title: "Tu cambio - CAMBIÁ FÁCIL Y SEGURO",
                     css: 'index.css',
                     pagos: pagos,
-                    script: "imgList.js",
+                    script: "funcionHome.js",
                     JQueryForm: "JQueryForm.js"
                 })
             })

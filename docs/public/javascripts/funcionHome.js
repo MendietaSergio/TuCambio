@@ -456,10 +456,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
     /*HACER UNA FUNCION IGUAL AL DE igualdad PARA QUE NO SE PUEDA ELEGIR ENTRE PESOS*/
-    
+    const evitaCambio = ()=>{
+        msgError.innerHTML = "Seleccione otro medio."
+    }
     let arrowChange = document.querySelector('#arrowChange');
 
     arrowChange.addEventListener('click', () => {
+        if(origen.value == 2 || origen.value ==3){
+            evitaCambio();
+        } else {
         let imgOrigen = document.querySelector('.contenido-select-Entrada img');
         let imgDestino = document.querySelector('.contenido-select-Salida img');
         let abreviaturaDestino = document.querySelector('#abreviaturaDestino');
@@ -531,11 +536,11 @@ window.addEventListener('DOMContentLoaded', () => {
         abreviaturaSalida.innerHTML = contentOrigen.abreviaturaOrigen;
         recibeNombre.innerHTML = contentOrigen.imgALT;
         recibeAbreviatura.innerHTML = contentOrigen.abreviaturaOrigen;//CAMBIO ABREVIATURA DE INPUT
-
         changeValue();
+        }
     })
     const changeValue = () => {
-        campoCBU1(inputAdicional1,origen.value,destino);
+        campoCBU1(inputAdicional1,origen.value,destino.value);
         igualdad(origen.value, destino.value);
         getValor(numEntrada.value, origen.value, destino.value);
         cajaComisionDestino(destino.value, origen.value);
