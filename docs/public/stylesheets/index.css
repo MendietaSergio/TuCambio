@@ -200,7 +200,7 @@ div.caja-input{
                        "btnSiguiente btnSiguiente"
 }
 div .icon-change{
-  display: none;
+  display: block;
 }
 
 div .fa-exchange-alt{

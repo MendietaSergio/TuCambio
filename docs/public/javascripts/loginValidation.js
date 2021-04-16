@@ -28,7 +28,6 @@ addEventListener('DOMContentLoaded', function () {
                 errorEmailLogin.innerHTML = "";
                 break;
         }
-        console.log("entro en switch");
 
     })
     inputEmailLogin.addEventListener('blur',() =>{
@@ -73,7 +72,6 @@ addEventListener('DOMContentLoaded', function () {
         let error = false;
         for(let i=0; i<2; i++){
             if(elementos[i].value == 0){
-                console.log(elementos[i]);
                 elementos[i].classList.add('is-invalid');
                 error = true;
             }

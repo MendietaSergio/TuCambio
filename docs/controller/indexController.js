@@ -8,8 +8,7 @@ module.exports = {
                     css: 'index.css',
                     pagos: pagos,
                     script: "imgList.js",
-                    JQueryForm: "JQueryForm.js",
-                    scriptForm: "contactValidation.js"
+                    JQueryForm: "JQueryForm.js"
                 })
             })
             .catch(error => {
@@ -25,8 +24,7 @@ module.exports = {
                     css: 'index.css',
                     pagos: pagos,
                     script: "imgList.js",
-                    JQueryForm: "JQueryForm.js",
-                    scriptForm: "contactValidation.js"
+                    JQueryForm: "JQueryForm.js"
                 })
             })
             .catch(error => {

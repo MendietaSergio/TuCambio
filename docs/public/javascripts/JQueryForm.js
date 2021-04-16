@@ -1,7 +1,6 @@
 var ventana_ancho = $(window).width()
 if (ventana_ancho > 768) {
   $("button").click(function () {
-    console.log(ventana_ancho);
     $('.caja-formulario').css({ 'margin-top': '0px' })
     $('.header-img').css({ 'margin': 'auto', 'display': 'block', 'width': 'auto' })
     $('.caja-cambio').css({ 'margin': '0px' })

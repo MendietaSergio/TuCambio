@@ -30,7 +30,6 @@ window.addEventListener('DOMContentLoaded', () => {
             selectEntrada.classList.toggle('active');
             opcionesEntrada.classList.toggle('active');
             origen.value = e.currentTarget.querySelector('#tituloOrigen').getAttribute('data-id');
-            console.log(origen.value);
             igualdad(origen.value, destino.value, envia.textContent);
             envia.textContent = " envia";
             viewCoeficiente(origen.value, destino.value);
@@ -70,7 +69,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     const viewCoeficiente =(origen, destino)=>{
         if (origen > 0 && destino >0) {
-            console.log(`Adentro del if en viewCoeficiente`);
             fetch('http://www.tucambio.com.ar/admin/api/viewCoeficiente', {
                 method: 'POST',
                 body: JSON.stringify({
@@ -178,7 +176,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     //BOTON DE ACTUALIZAR, CON VALIDACIONES SI ESTA TODO CORRECTO
     actualizar.addEventListener('click', () => {
-        console.log(envia.textContent);
         let error = false;
         if (envia.textContent == "Envia") {
             selectEntrada.style.borderColor = "red";

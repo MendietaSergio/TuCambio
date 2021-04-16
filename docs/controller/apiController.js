@@ -223,7 +223,7 @@ module.exports = {
                 mediosdepagos2: destino
             }
         })
-            .then(result => {                
+            .then(result => {
                 db.MediosDePagos.findAll()
                     .then(medios => {
                         let resultado;
@@ -233,49 +233,37 @@ module.exports = {
                                 if (origen == medios[index].id && destino == medios[subIndex].id) {
                                     switch (true) {
                                         //PESOS A DOLARES
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USD":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USD":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USDt":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USDt":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "EUR":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "EUR":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "DAI":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "DAI":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "BTC":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "BTC":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "EUR" && medios[subIndex].abreviatura == "BTC":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "EUR" && medios[subIndex].abreviatura == "BTC":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "USD" && medios[subIndex].abreviatura == "BTC":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "USD" && medios[subIndex].abreviatura == "BTC":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "USDt" && medios[subIndex].abreviatura == "BTC":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "USDt" && medios[subIndex].abreviatura == "BTC":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "DAI" && medios[subIndex].abreviatura == "BTC":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        case medios[index].abreviatura == "DAI" && medios[subIndex].abreviatura == "BTC":                                             
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        default:
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
+                                        default:                                             
                                             resultado = (numEntrada * result.coeficiente).toFixed(2);
                                             break;
                                     }
-                                    console.log("Origen: " + medios[index].id + ", Destino " + medios[subIndex].id);
-
                                 }
                             }
                         }
@@ -304,23 +292,33 @@ module.exports = {
                                 if (origen == medios[index].id && destino == medios[subIndex].id) {
                                     switch (true) {
                                         case medios[index].abreviatura == "BTC" && medios[subIndex].abreviatura == "ARS":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida / result.coeficiente).toFixed(8);
                                             break;
                                         case medios[index].abreviatura == "BTC" && medios[subIndex].abreviatura == "USD":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida / result.coeficiente).toFixed(8);
                                             break;
                                         case medios[index].abreviatura == "BTC" && medios[subIndex].abreviatura == "USDt":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida / result.coeficiente).toFixed(8);
                                             break;
                                         case medios[index].abreviatura == "BTC" && medios[subIndex].abreviatura == "EUR":
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida / result.coeficiente).toFixed(8);
                                             break;
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "EUR":
+                                            resultado = (numSalida * result.coeficiente).toFixed(2);
+                                            break;
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USD":
+                                            resultado = (numSalida * result.coeficiente).toFixed(2);
+                                            break;
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USDt":
+                                            resultado = (numSalida * result.coeficiente).toFixed(2);
+                                            break;
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "DAI":
+                                            resultado = (numSalida * result.coeficiente).toFixed(2);
+                                            break;
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "BTC":
+                                            resultado = (numSalida * result.coeficiente).toFixed(2);
+                                            break;
                                         default:
-                                            console.log("Origen: " + medios[index].abreviatura + ", Destino " + medios[subIndex].abreviatura);
                                             resultado = (numSalida / result.coeficiente).toFixed(2);
                                             break;
                                     }
@@ -386,8 +384,8 @@ module.exports = {
         //     })
 
     },
-    processViewCoeficiente:(req,res)=>{
-        const {origen, destino } = req.body;
+    processViewCoeficiente: (req, res) => {
+        const { origen, destino } = req.body;
         console.log(req.body);
         db.Coeficientes.findOne({
             where: {
@@ -409,17 +407,9 @@ module.exports = {
         const content = req.body;
         let contentHTML = estructuraHTML(content);
         let mail = content.content.correoPersonal;
-        //PRUEBA PARA PRUEBANODEMAILER
-        // let mailOptions = {
-        //     from: 'Tu cambio - Datos de contacto <pruebanodemailers@gmail.com>',
-        //     to: 'pruebanodemailers@gmail.com',
-        //     subject: 'Prueba de Nodemailer',
-        //     html: contentHTML
-        // }
-        //PRUEBA PARA SERVTUCAMBIO
         let mailOptions = {
             from: 'Tu cambio - Datos de contacto <servtucambio@gmail.com>',
-            to: 'servtucambio@gmail.com,'+ mail,
+            to: 'servtucambio@gmail.com,' + mail,
             subject: 'Datos de contacto',
             html: contentHTML
         }

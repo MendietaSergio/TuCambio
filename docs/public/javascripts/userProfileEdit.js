@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-    console.log("userProfileEdit.js Vinculado!!");
     const formulario = document.querySelector('form');
 
     let inputPasswordOld = document.querySelector('#passwordOld');

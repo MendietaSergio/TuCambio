@@ -149,8 +149,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const contenidoSelectEntrada = document.querySelector('#selectEntrada .contenido-select-Entrada');
 
     //FUNCION PARA BLOQUEAR Y DESBLOQUEAR LA CAJA DE COMISIONES CUANDO ALGUN MEDIO DE PAGO SEA DE PAYPAL
-    let caja_Comision = document.querySelector('.caja-comision');
-    let caja_Formulario = document.querySelector('#caja-formulario');
     let comisionEntrada = document.querySelector('.comisionEntrada');
     let comisionSalida = document.querySelector('.comisionSalida');
     const cajaComisionDestino = (destino,origen) => {
@@ -180,6 +178,7 @@ window.addEventListener('DOMContentLoaded', () => {
         cajaComisionDestino(destino.value, origen.value);
 
     })
+    let inputAdicional1;
     document.querySelectorAll('#opcionesEntrada > .opcionEntrada').forEach((opcion) => {
         opcion.addEventListener('click', (e) => {
             e.preventDefault();
@@ -188,7 +187,7 @@ window.addEventListener('DOMContentLoaded', () => {
             opcionesEntrada.classList.toggle('active');
             origen.value = e.currentTarget.querySelector('#tituloOrigen').getAttribute('data-id');
             igualdad(origen.value, destino.value);
-            let inputAdicional1 = e.currentTarget.querySelector('#tituloOrigen').textContent;
+            inputAdicional1 = e.currentTarget.querySelector('#tituloOrigen').textContent;
             enviaAbreviatura.innerHTML = e.currentTarget.querySelector('#abreviaturaOrigen').textContent;
             enviaNombre.innerHTML = e.currentTarget.querySelector('.opcionEntrada img').alt;
             campoCBU1(inputAdicional1, origen.value, destino.value);
@@ -215,7 +214,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const opcionesSalida = document.querySelector('#opcionesSalida');
     const contenidoSelectSalida = document.querySelector('#selectSalida .contenido-select-Salida');
 
-
+    let inputAdicional2;
     document.querySelectorAll('#opcionesSalida > .opcionSalida').forEach((opcion) => {
         opcion.addEventListener('click', (e) => {
             e.preventDefault();
@@ -223,7 +222,7 @@ window.addEventListener('DOMContentLoaded', () => {
             selectSalida.classList.toggle('active');
             opcionesSalida.classList.toggle('active');
             destino.value = e.currentTarget.querySelector('#tituloDestino').getAttribute('data-id');
-            let inputAdicional2 = e.currentTarget.querySelector('#tituloDestino').textContent;
+            inputAdicional2 = e.currentTarget.querySelector('#tituloDestino').textContent;
             recibeAbreviatura.innerHTML = e.currentTarget.querySelector('#abreviaturaDestino').textContent;
             recibeNombre.innerHTML = e.currentTarget.querySelector('.opcionSalida img').alt;
             campoCBU2(inputAdicional2, origen.value, destino.value)
@@ -237,7 +236,6 @@ window.addEventListener('DOMContentLoaded', () => {
             errorAdicional2.innerHTML = "";
             blockAcutualizar();
             validarCampoAdicional1();
-
         });
     });
 
@@ -271,6 +269,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 .then(response => response.json())
                 .then(result => {
                     numSalida.value = result.numSalida;
+                    paypalComision()
                     valorSalida()
                 })
         }
@@ -384,24 +383,16 @@ window.addEventListener('DOMContentLoaded', () => {
     let comisionPagoUno = () => {
         switch (true) {
             case (origen.value == 16 || origen.value == 11):
-                console.log(`origen 16 y 11`);
-                console.log(enviaNombre);
-                console.log(`comisionEntrada ${origen.value} `);
                 nombreComisionEntrada.innerHTML = enviaNombre.textContent;
                 nombreComision2Entrada.innerHTML = enviaNombre.textContent;
                 let resultPorcentajeSN = numEntrada.value * comisionSkrillNeteller;
                 porcentajeVariableEntrada.innerHTML = resultPorcentajeSN.toFixed(2);
-                console.log("origen.value == 16");
                 break;
             case origen.value == 14:
-                console.log(`origen 14`);
-                console.log(enviaNombre);
-                console.log(`comisionEntrada ${origen.value} `);
                 nombreComisionEntrada.innerHTML = enviaNombre.textContent;
                 nombreComision2Entrada.innerHTML = enviaNombre.textContent;
                 let resultPorcentajePM = numEntrada.value * comisionPerfectMoney;
                 porcentajeVariableEntrada.innerHTML = resultPorcentajePM.toFixed(2);
-                console.log("origen.value == 16");
                 break;
         }
     }
@@ -416,14 +407,15 @@ window.addEventListener('DOMContentLoaded', () => {
         totalPaypal.innerHTML = numSalida.value;
         deseoPaypal.innerHTML = numSalida.value;
         totalEntrada.innerHTML = numEntrada.value;
-        enviar.innerHTML = numEntrada.value;
-        
+        enviar.innerHTML = numEntrada.value;        
     }
     valorSalida()
     let porcentajeVariable = document.querySelector('.porcentajeVariable');
     let comisionPaypal = Number(0.057);
     let comisionRecibido = document.querySelector('.comisionRecibido');
     let paypalComision = () => {
+        nombreComision.innerHTML = recibeNombre.textContent;
+        nombreComision2.innerHTML = recibeNombre.textContent;
         let resultPorcentaje = numSalida.value * comisionPaypal;
         porcentajeVariable.innerHTML = resultPorcentaje.toFixed(2);
         let result = numSalida.value - resultPorcentaje;
@@ -462,6 +454,112 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             msgError.innerHTML = " ";
         }
+    }
+    /*HACER UNA FUNCION IGUAL AL DE igualdad PARA QUE NO SE PUEDA ELEGIR ENTRE PESOS*/
+    
+    let arrowChange = document.querySelector('#arrowChange');
+
+    arrowChange.addEventListener('click', () => {
+        let imgOrigen = document.querySelector('.contenido-select-Entrada img');
+        let imgDestino = document.querySelector('.contenido-select-Salida img');
+        let abreviaturaDestino = document.querySelector('#abreviaturaDestino');
+        let abreviaturaOrigen = document.querySelector('#abreviaturaOrigen');
+        let newTituloDestino = document.querySelector('#tituloDestino');
+        let newTituloOrigen = document.querySelector('#tituloOrigen');
+        let contentOrigen = {
+            imgSRC: "",
+            imgALT: "",
+            tituloOrigen: "",
+            origen: 0,
+            campoAdicional1: "",
+            dataID: 0,
+            abreviaturaOrigen: ""
+        };
+        let contentDestino = {
+            imgSRC: "",
+            imgALT: "",
+            tituloDestino: "",
+            destino: 0,
+            campoAdicional2: "",
+            dataID: 0,
+            abreviaturaDestino: "",
+            numSalida: 0
+        }
+        agregaAbreviaturaInput();
+        //cargo los valores del objeto ORIGEN
+        contentOrigen.imgALT = imgOrigen.alt.trim();
+        contentOrigen.imgSRC = atrapaBarra(imgOrigen.src);
+        contentOrigen.tituloOrigen = newTituloOrigen.textContent.trim();
+        contentOrigen.dataID = origen.value;
+        contentOrigen.origen = origen.value;
+        contentOrigen.abreviaturaOrigen = abreviaturaOrigen.textContent.trim();
+        //cargo los valores del objeto DESTINO
+        contentDestino.imgALT = imgDestino.alt.trim();
+        contentDestino.imgSRC = atrapaBarra(imgDestino.src);
+        contentDestino.tituloDestino = newTituloDestino.textContent.trim();
+        contentDestino.destino = destino.value;
+        contentDestino.dataID = destino.value;
+        contentDestino.abreviaturaDestino = abreviaturaDestino.textContent.trim();
+        contentDestino.numSalida = numSalida.value;
+
+        //CAMBIO DESTINO A ORIGEN 
+        imgOrigen.src = contentDestino.imgSRC;
+        imgOrigen.alt = contentDestino.imgALT;
+        inputAdicional1 = contentDestino.tituloDestino;
+        campoCBU1(inputAdicional1, origen.value, destino.value);
+        newTituloOrigen.setAttribute('data-id', contentDestino.dataID);
+        abreviaturaOrigen.setAttribute('data-id',contentDestino.dataID);
+        newTituloOrigen.innerHTML = contentDestino.tituloDestino;
+        origen.value = contentDestino.destino;
+        abreviaturaOrigen.innerHTML = contentDestino.abreviaturaDestino;
+        abreviaturaEntrada.innerHTML = contentDestino.abreviaturaDestino;
+        numEntrada.value = contentDestino.numSalida;
+        enviaAbreviatura.innerHTML = contentDestino.abreviaturaDestino;//CAMBIO ABREVIATURA DE INPUT
+        enviaNombre.innerHTML = contentDestino.imgALT;
+
+        //CAMBIO ORIGEN A DESTINO   ===============>> FUNCIONA!
+        imgDestino.src = contentOrigen.imgSRC;
+
+        imgDestino.alt = contentOrigen.imgALT;
+        inputAdicional2 = contentOrigen.tituloOrigen;
+        campoCBU2(inputAdicional2, origen.value, destino.value);
+        newTituloDestino.setAttribute('data-id', contentOrigen.dataID);//para cambiar data-id
+        abreviaturaDestino.setAttribute('data-id',contentOrigen.dataID)
+        newTituloDestino.innerHTML = contentOrigen.tituloOrigen;
+        destino.value = contentOrigen.origen;
+        abreviaturaDestino.innerHTML = contentOrigen.abreviaturaOrigen;
+        abreviaturaSalida.innerHTML = contentOrigen.abreviaturaOrigen;
+        recibeNombre.innerHTML = contentOrigen.imgALT;
+        recibeAbreviatura.innerHTML = contentOrigen.abreviaturaOrigen;//CAMBIO ABREVIATURA DE INPUT
+
+        changeValue();
+    })
+    const changeValue = () => {
+        igualdad(origen.value, destino.value);
+        getValor(numEntrada.value, origen.value, destino.value);
+        cajaComisionDestino(destino.value, origen.value);
+        paypalComision();
+        errorAdicional1.innerHTML = "";
+        blockAcutualizar();
+        comisionPagoUno();
+        validarCampoAdicional1();
+        valorSalida();
+    }
+    const atrapaBarra = (imgSrc) => {
+        let largo = imgSrc.length;
+        let nuevoImgSrc = "";
+        let tresBarras = 0;
+        while (largo != 0) {
+            largo--;
+            nuevoImgSrc += imgSrc[largo];
+            if (imgSrc[largo] == '/') {
+                tresBarras++;
+            }
+            if (tresBarras == 3) {
+                largo = 0;
+            }
+        }
+        return nuevoImgSrc = nuevoImgSrc.split("").reverse().join("");
     }
     //PARA INICIAR VALOR SALIDA
     getValor(numEntrada.value, origen.value, destino.value);

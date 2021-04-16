@@ -20,20 +20,16 @@
         <div class="caja-input">
           <div class="inputEntrada">
             <span class="inputTituloEntrada">Tú envías <span class="abreviaturaEntrada"></span> </span>
-            <input id="numEntrada" class="numEntrada" name="numEntrada" placeholder="$0.00  " type="number"
-              value="100" step=".08" min="0.00">
+            <input id="numEntrada" class="numEntrada" name="numEntrada" placeholder="$0.00  " type="number" value="100"
+              step=".08" min="0.00">
           </div>
           <div class="selectCambioEntrada">
             <div class="select" id="selectEntrada">
               <div class="contenido-select-Entrada">
                 <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[12].image%>.png"
                   alt="<%=pagos[12].nombre%>">
-                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[12].id%>">
-                  <%=pagos[12].campoAdicional%>
-                </h4>
-                <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-pagos.id%>">
-                  <%=pagos[12].abreviatura%>
-                </h4>
+                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[12].id%>"><%=pagos[12].campoAdicional%></h4>
+                <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-pagos.id%>"><%=pagos[12].abreviatura%></h4>
               </div>
               <i class="fas fa-angle-down"></i>
             </div>
@@ -42,13 +38,8 @@
                 <a href="#" class="opcionEntrada">
                   <div class="contenido-opcion">
                     <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
-                    <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>">
-                      <%-dato.campoAdicional%>
-                    </h4>
-                    <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-dato.id%>">
-                      <%=dato.abreviatura%>
-                    </h4>
-
+                    <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>"><%-dato.campoAdicional%></h4>
+                    <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-dato.id%>"><%=dato.abreviatura%></h4>
                   </div>
                 </a>
                 <% }) %>
@@ -56,7 +47,7 @@
           </div>
         </div>
         <div class="icon-change">
-          <i class="fas fa-exchange-alt"></i>
+          <i id="arrowChange" class="fas fa-exchange-alt"></i>
         </div>
         <div class="caja-input">
           <div class="inputSalida">
@@ -68,13 +59,8 @@
               <div class="contenido-select-Salida">
                 <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png"
                   alt="<%=pagos[0].nombre%>">
-                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%=pagos[0].id%>">
-                  <%=pagos[0].campoAdicional%>
-                </h4>
-                <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-pagos.id%>">
-                  <%=pagos[0].abreviatura%>
-                </h4>
-
+                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%=pagos[0].id%>"><%=pagos[0].campoAdicional%></h4>
+                <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-pagos.id%>"><%=pagos[0].abreviatura%></h4>
               </div>
               <i class="fas fa-angle-down"></i>
             </div>
@@ -85,12 +71,8 @@
                   <a href="#" class="opcionSalida">
                     <div class="contenido-opcion">
                       <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
-                      <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%-dato.id%>">
-                        <%=dato.campoAdicional%>
-                      </h4>
-                      <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-dato.id%>">
-                        <%=dato.abreviatura%>
-                      </h4>
+                      <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%-dato.id%>"><%=dato.campoAdicional%></h4>
+                      <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-dato.id%>"><%=dato.abreviatura%></h4>
                       </span>
                     </div>
                   </a>
@@ -161,5 +143,4 @@
 
       <%- include('./partials/footer.ejs') %>
         <script src="../javascripts/<%=JQueryForm %>"></script>
-        <script src="/javascripts/<%=scriptForm%>"></script>
         <script src="/javascripts/<%=script%>"></script>
