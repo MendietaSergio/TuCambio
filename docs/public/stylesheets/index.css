@@ -200,24 +200,33 @@ div.caja-input{
                        "btnSiguiente btnSiguiente"
 }
 div .icon-change{
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 14px;
+}
+#arrowChange {
+  text-align: center;
+  color: #fff;
+  background-color: #198754;
+  border-color:  #def;
+  font-size: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
 }
 
-div .fa-exchange-alt{
-  position: absolute;
-  transform: rotate(90deg);
-  color: #25d366;
-  font-size: 33px;
-  left: 350px;
-  top: 388px;
-  /* background-color: #dedede; */
-  border-radius: 40px;
-  cursor: pointer;
-  /* border: solid 2px; */
+#arrowChange:hover {
+  background-color: #135838;
+  box-shadow: 0 4px #999;
 }
-div .fa-exchange-alt:hover{
-  transition: all 1s ease-in-out;
-  transform: rotate(270deg);
+
+#arrowChange:active {
+  background-color: #198754;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);  
 }
 /* CAMBIOS NUEVOS PARA VERIFICAR CUADRO DE INPUT Y SELECT DE MEDIOS DE PAGOS*/
 div.inputEntrada{
@@ -479,6 +488,9 @@ div.header img{
     margin: 6px;
     padding: 8px;
   }
+  div .arrowChange{
+    padding-bottom: 5px;
+    }
 }
 @media(max-width: 475px){
   div .caja-cambio{
@@ -533,5 +545,15 @@ div.header img{
     width: 80%;
     margin: 36px;
     font-size: 18px;
+  }
+  div .icon-change{
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  div .arrowChange{
+    font-size: 15px;
+    width: 29px;
+    height: 26px;
+    padding-bottom: 5px;
   }
 }
