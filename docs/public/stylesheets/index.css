@@ -231,7 +231,7 @@ div .icon-change{
 /* CAMBIOS NUEVOS PARA VERIFICAR CUADRO DE INPUT Y SELECT DE MEDIOS DE PAGOS*/
 div.inputEntrada{
   grid-area: inputEntrada;
- height: auto; 
+ height: 110px; 
 }
 div.btnSiguiente{
   grid-area: btnSiguiente;
@@ -239,7 +239,7 @@ div.btnSiguiente{
 .selectCambioEntrada {
   grid-area: selectCambioEntrada;
   width: 100%;
-  height: auto;
+  height: 110px;
 }
 div.inputSalida{
   grid-area: inputSalida;
