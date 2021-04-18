@@ -19,13 +19,13 @@ const nodeMailer = require('nodemailer');
 //==============================================================
 // SERVTUCAMBIO@GMAIL.COM
 var smtpConfig = {
-    host: 'smtp.gmail.com',
+    host: process.env.HOST_MAIL,
     secureConnection: true,
     port: 465,
     secure: true, // use SSL
     auth: {
-        user: 'servtucambio@gmail.com',
-        pass: 'szlqdzqyhgkkzijp'
+        user: process.env.USER_MAIL,
+        pass: process.env.USER_PASSWORD
     },
     tls: {
         rejectUnauthorized: false,

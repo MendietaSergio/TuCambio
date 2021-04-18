@@ -121,21 +121,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     break;
             }
         })
-    // const setUpdate = (inputPasswordOld, inputPasswordNew) => {
-    //     console.log(inputPasswordOld, inputPasswordNew);
-    //     fetch('http://localhost:3001/admin/api/profile', {
-    //         method: 'POST',
-    //         body: JSON.stringify({
-    //             inputPasswordNew,
-    //             inputPasswordOld
-    //         }),
-    //         headers: {
-    //             "Content-type": "application/json; charset=UTF-8",
-    //         }
-    //     })
-    //         .then(response => response.json())
-    //         .then(result => (console.log(result)))
-    // }
+    
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
         let elementos = formulario.elements;
@@ -148,10 +134,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         if (!error) {
             errorSubmit.innerHTML = "";
-            console.log("Enviado...!");
-            //SEGUIR DESDE ACÁ QUE DA ERROR
-            console.log(inputPasswordOld.value, inputPasswordNew.value);
-            //setUpdate(inputPasswordOld.value, inputPasswordNew.value);
             Swal.fire({
                 position: 'top-center',
                 icon: 'success',
