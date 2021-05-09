@@ -102,7 +102,7 @@ module.exports = {
                 <title>Tu cambio</title>
             </head>
             <body style="color:black;">
-            <a href="http://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+            <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
                 <h1 style="color:black;">¡Hola Lucas!</h1>
                 <h2 style="color:black;">Estos son los datos de la persona que se quiere comunicar con usted:</h2>
 
@@ -112,7 +112,7 @@ module.exports = {
 
 
                 <h2 style="color:black;"> Un cordial saludo...
-                El equipo de <a href="http://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
+                El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
             </body>
             </html>
             `
@@ -131,9 +131,9 @@ module.exports = {
 //             </head>
 //             <body style="background-color:rgb(43, 128, 87);">
 //             <div style="margin: 30px;">
-//             <a href="http://www.tucambio.com.ar"><img
+//             <a href="https://www.tucambio.com.ar"><img
 //             style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400"
-//             src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+//             src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
 //     <small style="color:black; font-size: 20px;">¡Hola!</small>
 //     <br>
 //     <br>
@@ -149,7 +149,7 @@ module.exports = {
 //     <br>
 // <br>
 //     <small style="color:black; font-size: 20px;"> Un cordial saludo...
-//         El equipo de <a href="http://www.tucambio.com.ar"></a></small>
+//         El equipo de <a href="https://www.tucambio.com.ar"></a></small>
 //             </body>
 //             </html>
 //             `

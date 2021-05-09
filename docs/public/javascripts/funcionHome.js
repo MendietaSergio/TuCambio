@@ -255,7 +255,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValor = (numEntrada, origen, destino) => {
         agregaAbreviaturaInput();
         if (numEntrada > 0 && origen != destino) {
-            fetch(`http://www.tucambio.com.ar/apis/valor`, {
+            fetch(`https://www.tucambio.com.ar/apis/valor`, {
                 method: 'POST',
                 body: JSON.stringify({
                     numEntrada,
@@ -351,7 +351,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValorSalida = (numSalida, origen, destino) => {
         agregaAbreviaturaInput();
         if (numSalida > 0 && origen != destino) {
-            fetch(`http://www.tucambio.com.ar/apis/valores`, {
+            fetch(`https://www.tucambio.com.ar/apis/valores`, {
                 method: 'POST',
                 body: JSON.stringify({
                     numSalida,
@@ -1110,7 +1110,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const submitForm = (content) => {
-        fetch(`http://www.tucambio.com.ar/api/form`, {
+        fetch(`https://www.tucambio.com.ar/api/form`, {
             method: 'POST',
             body: JSON.stringify({
                 content
