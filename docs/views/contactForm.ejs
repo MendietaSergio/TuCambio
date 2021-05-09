@@ -1,0 +1,36 @@
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+    <!--HEADER MODULARIZADO-->
+    <%- include('./partials/header.ejs')%>
+    <div class="contactForm">
+        <form action="" method="POST">
+            <div class="title-contact">
+                <h1>Contáctenos</h1>
+            </div>
+            <div>
+                <label for="email"></label>
+                <%if(typeof old !="undefined" && old.email){ %>
+                    <input type="email" class="form-control" id="email" name="email" value="<%=old.email%>" >
+                <%}else{%>
+                    <input type="email" class="form-control" id="email" placeholder="example@gmail.com" name="email" >
+                <%}%>
+                    <small class="text-danger" id="errorEmailContact"></small>
+            </div>
+            <div>
+                <label for="asunto"></i></label>
+                <input type="text" id="asunto" class="form-control <%= (typeof errors != 'undefined' && errors.asunto)?"is-invalid":
+                '' %>" name="asunto"  placeholder="Asunto">
+                <small class="text-danger" id="errorAsunto"><%= (typeof errors !="undefined" && errors.asunto)?errors.asunto.msg: "" %></small>
+            </div>
+            <div>
+                <label for="comentario"></i></label>
+                <textarea name="comentario" id="comentario" cols="30"  rows="10" class="form-control <%= (typeof errors != 'undefined' && errors.comentario)?"is-invalid":
+                '' %>"  placeholder="Deje aquí su comentario..."></textarea>
+                <small class="text-danger" id="errorComentario"><%= (typeof errors !="undefined" && errors.comentario)?errors.comentario.msg: "" %></small>
+            </div>
+            <button type="submit" id="boton" class="btn btn-primary">ENVIAR</button>
+            <small class="text-danger" id="errorSubmit"></small>
+        </form>
+    </div>
+<%- include('./partials/footer.ejs') %>
+    <script src="/javascripts/<%=contactForm%>"></script>

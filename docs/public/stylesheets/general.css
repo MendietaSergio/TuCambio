@@ -10,7 +10,7 @@ html {
 }
 body {
   background-color: rgb(43, 128, 87);
-  font-family: 'Roboto Slab', serif;  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   height: auto;
   width: auto;
 }
@@ -18,48 +18,74 @@ a{
   text-decoration: none;
   color: #fff;
 }
+ul{
+  list-style: none;
+  display: inline;
+}
 a:hover{
   color: #fff;
 }
+div .header-nav{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-areas: "header-logo header-menu";
+  height: auto;
+  width: 100%;
+  box-shadow: 5px 0 10px regba(0,0,0,.6);
+}
+div .header-logo{
+  grid-area: header-logo;
+}
+div .header-menu{
+  grid-area: header-menu;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 div .title-usuario{
-  font-size: x-large;
-  color: white;
+  margin-left: 40px;
+  font-size: 30px;
+  color: #fff;
   cursor: pointer;
-}
-div .dropdown{
-  float: right;
-  padding-right: 140px;
-  bottom: 85px;
-}
-div .dropdown-contenido{
   display: none;
-  position: absolute;
-  background-color: #2d8259;
-  width: 186px;
-  right: 130px;
-  padding: 12px 16px;
-  z-index: 1;
 }
-div .listMenu{
-  padding: 6px;
+.menu_items{
+  display: flex;
+  list-style: none;
+  text-align: center;
+  transition: all .4s;
+  padding: 0;
+  margin: 0;
 }
-div .dropdown:hover .dropdown-contenido{
-  box-shadow:  0px 8px 16px 0px rgba(41, 48, 57,0.8);
+.menu_items li{
+  border-radius: 3px;
+  margin:  0 5px;
+}
+.menu_items li a{
+  padding: 7px 13px;
+  font-size: 16px;
   display: block;
+  text-transform: uppercase;
+  color: #fff;
 }
 div.header{
   background-color:rgb(43, 128, 87);
-  /*background-color: rgba(41, 48, 57,0.8);/*nuevo*/
   grid-area: header;
-  height: 150px;
-  
-  margin-bottom: 80px;
+  margin-bottom: 0px;
 }
 
 div.header img{
   height: 250px;
   margin: auto;
 }
+ul.show{
+  top:52px;
+  right: 0px;
+  background-color: rgb(10, 114, 199,.3);
+  text-align: right;
+  width: 214px;
+}
+
 .whatsapp{
 	position:fixed;
 	width:60px;
@@ -94,6 +120,15 @@ div .help{
     z-index:100;
 }
 @media(max-width:768px){
+  div .header-nav{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: "header-logo"
+                         "header-menu";
+  }
+  div .title-usuario{
+    display: block;
+  }
   div .dropdown{
     float: left;
     padding-left: 40px;
@@ -106,3 +141,18 @@ div .help{
     font-size: 16px;
   }
 }
+@media(max-width: 475px){
+  div .header-nav{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: "header-logo"
+                         "header-menu";
+  }
+  div .menu_items{
+    padding: 0 0 0 16px;
+  }
+  div .menu_items .contactenos{
+    display: none;
+  }
+}
+

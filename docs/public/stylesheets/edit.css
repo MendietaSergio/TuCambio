@@ -1,6 +1,5 @@
 @import "general.css";
 @import "footer.css";
-@import "header.css";
 div.contenedor{
     width: 100%;
     display: grid;
@@ -9,6 +8,7 @@ div.contenedor{
                         "caja-cambio caja-cambio caja-cambio caja-cambio"
                         "footer footer footer footer";
 }
+
 div.caja-cambio{
     padding: 50px;
     grid-area: caja-cambio;

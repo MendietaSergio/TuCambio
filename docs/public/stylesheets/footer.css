@@ -1,13 +1,69 @@
 div .footer{
     background-color: rgb(41,48,57);
-    height: 50px;
+    height: auto;
     grid-area: footer;
-  }
-  .footer span{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 6px;
+}
+div .footer-body{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-areas: "footer-logos footer-logos footer-text footer-text footer-text";
+}
+div .footer-logos{
+  grid-area: footer-logos;
+  display: grid;
+  place-content: center;
+}
+div .footer-text{
+  grid-area: footer-text;
+}
+div .footer_title_redes{
+  color: white;
+  margin-top:10px ;
+}
+.footer span{    
+    position: absolute;
+    bottom: 0;
+    left: 650px;
     color: #fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular';
+}
+div .fa-facebook-square{
+  font-size:48px; 
+  color:#0b0b90;
+}
+div .fa-instagram{
+  font-size:48px; color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+div footer ul{
+  display: inline-flex;
+  margin-top: 10px;
+}
+div footer ul li{
+  margin-left: 15px;
+}
+@media(max-width:768px){
+  div .footer-body{
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: "footer-logos"
+                         "footer-text";
+  }
+  div footer ul{
+    margin-left: 60px;
+  }
+  .footer span{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media(max-width: 475px){
+  div footer ul{
+    margin-left: 40px;
+  }
 }

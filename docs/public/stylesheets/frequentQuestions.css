@@ -1,0 +1,71 @@
+@import "general.css";
+
+@import "header.css";
+
+@import "footer.css";
+div .contenedor {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: "header header header header"
+                        "body_fQuestions body_fQuestions body_fQuestions body_fQuestions"
+                        "footer footer header header";
+}
+div .title_fQuestions{
+    color: white;
+    text-align: center;
+    margin: 50px 0px;
+    text-decoration: 4px underline #4169e1;
+}
+/* seguir desde aca acomodando las preguntas frecuentes */
+div .body_fQuestions{
+    grid-area: body_fQuestions;
+    margin: 0px 40px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 40px;
+}
+div .body_fQuestions p{
+    font-size: 24px;
+    font-weight: normal;
+}
+div .body_fQuestions h2{
+    font-size: 2.5rem;
+}
+@media (max-width:768px){
+    div .aboutUs_text {
+        font-size: 22px;
+    }
+    div.contenedor{
+        height: auto;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "header header"
+                          "body_fQuestions body_fQuestions"
+                          "footer footer";
+    }
+    div .header{
+        margin-bottom: 60px;
+    }
+    div.header img{
+        margin: auto;
+        display: block;
+        height: 200px;
+    }
+    div .body_fQuestions h2{
+        font-size: 2rem;
+    }
+    div .body_fQuestions p{
+        font-size: 18px;
+    }
+}
+@media(max-width: 475px){
+    div.header{
+        margin-bottom: 0;
+    }
+
+    div.header img{
+        width: 100%;
+    }
+    div .body_fQuestions h2{
+        font-size: 1.6rem;
+    }
+  }

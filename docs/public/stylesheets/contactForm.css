@@ -1,0 +1,124 @@
+@import "general.css";
+@import "footer.css";
+@import "header.css";
+
+div.contenedor{
+    width: 100%;    
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: "header header header header"
+                        "form form form form"
+                        "footer footer footer footer";
+}
+
+div .contactForm{
+    margin-top: 60px;
+    grid-area: form;
+    height: 600px;
+}
+div form{
+    width: 35%;
+    margin: auto;
+    background-color: rgba(41, 48, 57,0.8);
+    padding: 10px 20px;
+    /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
+    box-sizing: border-box;
+    border-radius: 4px;    
+}
+div .title-contact{
+    color: white;
+    text-decoration: 4px underline #4169e1;
+    text-align: center;
+}
+div form textarea{
+    resize : none;
+    max-height: 150px;
+}
+label{
+    padding-bottom: 3px;
+}   
+form:hover{
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+}
+h2{
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+input{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+}
+#boton{
+    margin-top: 10px;
+    background-color: royalblue;
+    color: #fff;
+    width: 100%;
+    border-color: rgb(73, 63, 211);
+}
+#boton:hover{
+    background-color: rgba(65, 105, 255, .4);
+    cursor: pointer;
+}
+small{
+    position: relative;
+    top: -18px;
+    font-weight: 700;
+}
+#errorComentario{
+    top: 0px;
+}
+#errorSubmit{
+    top: -2px;
+}
+div .fa-key:before, .fa-user:before{
+    color: #fff;
+}
+@media (max-width:768px){
+    body{
+        height: 629px;
+    }
+    div.contenedor{
+        height: auto;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "header header"
+                          "form form"
+                          "footer footer";
+    }
+    div .header{
+        margin-bottom: 60px;
+    }
+    div.header img{
+        margin: auto;
+        display: block;
+        height: 200px;
+    }
+    div .caja-usuario{
+        height: 610px;
+
+    }
+    div form{
+        width: 50%;
+    }
+}
+@media(max-width: 475px){
+    div form{
+        width: 80%;
+    }
+    div.header{
+        margin-bottom: 0;
+    }
+
+    div.header img{
+        width: 100%;
+    }
+}
+@media(max-width: 375px){
+    div form{
+        width: 100%;
+    }
+}
