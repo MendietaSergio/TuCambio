@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     const viewCoeficiente =(origen, destino)=>{
         if (origen > 0 && destino >0) {
-            fetch(`https://www.tucambio.com.ar/admin/api/viewCoeficiente`, {
+            fetch(`http://www.tucambio.com.ar/admin/api/viewCoeficiente`, {
                 method: 'POST',
                 body: JSON.stringify({
                     origen,
@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const setUpdate = (coeficiente, origen, destino) => {
         if ($('.coeficiente').value > 0 && origen != destino) {
-            fetch(`https://www.tucambio.com.ar/admin/api/edit`, {
+            fetch(`http://www.tucambio.com.ar/admin/api/edit`, {
                 method: 'POST',
                 body: JSON.stringify({
                     coeficiente,

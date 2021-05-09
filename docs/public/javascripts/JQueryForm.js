@@ -13,6 +13,7 @@ if (ventana_ancho > 768) {
 
     $('#caja-comision').show(2000)
     $("#caja-formulario").show(2000);
+    $('.hideLink').css({'display':'none'})
 
   })
 }
@@ -24,6 +25,7 @@ if (ventana_ancho <= 768) {
     $('#caja-comision').show(4000)
     $('.caja-comision').css({'margin': '30px' })
     $("#caja-formulario").show(2000);
+    $('.hideLink').css({'display':'none'})
   })
 }
 
