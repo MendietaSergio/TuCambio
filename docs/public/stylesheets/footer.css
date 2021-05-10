@@ -35,6 +35,9 @@ div footer ul{
 div footer ul li{
   margin-left: 15px;
 }
+div footer ul li a img{
+  height: 46px;
+}
 @media(max-width:768px){
   div .footer-body{
     grid-template-columns: repeat(1,1fr);
