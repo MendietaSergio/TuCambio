@@ -9,9 +9,10 @@
   <!-- CSS only -->
   <script>
     window.addEventListener('load', () => {
-      if (location.protocol == "http:") {
-        location.href = location.href.replace(/^http:/, 'https:')
-      }
+      console.log(location.protocol+location.host);
+      // if (location.protocol == "http:") {
+      //   location.href = location.href.replace(/^http:/, 'https:')
+      // }
     })
   </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
