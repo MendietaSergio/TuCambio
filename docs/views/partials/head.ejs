@@ -9,9 +9,8 @@
   <!-- CSS only -->
   <script>
     window.addEventListener('load', () => {
-      if (window.location.protocol != "https:") {
-        window.location.protocol = "https:";
-        window.location.reload();
+      if (location.protocol == "http:") {
+        location.href = location.href.replace(/^http:/, 'https:')
       }
     })
   </script>
