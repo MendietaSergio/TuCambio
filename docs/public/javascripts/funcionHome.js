@@ -1,15 +1,11 @@
 
 window.addEventListener('DOMContentLoaded', () => {
-
+    let url = location.protocol+'//'+location.host;
     //VARIABLES DE INPUT ENTRADA Y SALIDA.
     const origen = document.querySelector("#metodoOrigen");
     const destino = document.querySelector("#metodoDestino");
     const tituloOrigen = document.querySelector('#tituloOrigen');
     const tituloDestino = document.querySelector('#tituloDestino');
-    console.log(`*******************************`);
-    console.log( `Origen Inicial => ${origen.value} `);
-    console.log( `Destino Inicial => ${destino.value} `);
-    console.log(`*******************************`);
     let campoAdicional1 = document.querySelector('.campoAdicional1');
     let campoAdicional2 = document.querySelector('#campoAdicional2');
 
@@ -255,7 +251,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValor = (numEntrada, origen, destino) => {
         agregaAbreviaturaInput();
         if (numEntrada > 0 && origen != destino) {
-            fetch(`${location.protocol+location.host}/apis/valor`, {
+            fetch(url+`/apis/valor`, {
                 method: 'POST',
                 body: JSON.stringify({
                     numEntrada,
@@ -351,7 +347,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValorSalida = (numSalida, origen, destino) => {
         agregaAbreviaturaInput();
         if (numSalida > 0 && origen != destino) {
-            fetch(`${location.protocol+location.host}/apis/valores`, {
+            fetch(url+`/apis/valores`, {
                 method: 'POST',
                 body: JSON.stringify({
                     numSalida,
@@ -1110,7 +1106,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const submitForm = (content) => {
-        fetch(`${location.protocol+location.host}/api/form`, {
+        fetch(url+`/api/form`, {
             method: 'POST',
             body: JSON.stringify({
                 content

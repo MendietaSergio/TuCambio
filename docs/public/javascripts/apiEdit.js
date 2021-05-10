@@ -1,6 +1,5 @@
-//VALIDACIONES, ACTUALIZACION DE COEFICIENTE LISTOS!
-
 window.addEventListener('DOMContentLoaded', () => {
+    let url = location.protocol+'//'+location.host;
     const $ = (element) => {
         return document.querySelector(element)
     }
@@ -13,15 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const errorIgualdad = $('#errorIgualdad')
     const envia = $('#envia');
     const recibe = $('#recibe');
-
-    /********************************************************************************************************/
-
-    //LOGICA PARA MOSTRAR IMAGENES ENFORMA DE LISTA 'ENTRADA'
     const selectEntrada = document.querySelector('#selectEntrada');
     const opcionesEntrada = document.querySelector('#opcionesEntrada');
     const contenidoSelectEntrada = document.querySelector('#selectEntrada .contenido-select-Entrada');
 
-    //HACER QUE CAMBIE DE VALOR AL INGRESAR EL INPUT
     document.querySelectorAll('#opcionesEntrada > .opcionEntrada').forEach((opcion) => {
         opcion.addEventListener('click', (e) => {
             e.preventDefault();
@@ -42,9 +36,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    /********************************************************************************************************/
-
-    //LOGICA PARA MOSTRAR IMAGENES EN FORMA DE LISTA 'SALIDA'
     const selectSalida = document.querySelector('#selectSalida');
     const opcionesSalida = document.querySelector('#opcionesSalida');
     const contenidoSelectSalida = document.querySelector('#selectSalida .contenido-select-Salida');
@@ -69,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     const viewCoeficiente =(origen, destino)=>{
         if (origen > 0 && destino >0) {
-            fetch(`${location.protocol+location.host}/admin/api/viewCoeficiente`, {
+            fetch(`${url}/admin/api/viewCoeficiente`, {
                 method: 'POST',
                 body: JSON.stringify({
                     origen,
@@ -87,11 +78,9 @@ window.addEventListener('DOMContentLoaded', () => {
             console.log('no actualizado');
         }
     }
-    /********************************************************************************************************/
-
     const setUpdate = (coeficiente, origen, destino) => {
         if ($('.coeficiente').value > 0 && origen != destino) {
-            fetch(`${location.protocol+location.host}/admin/api/edit`, {
+            fetch(`${url}/admin/api/edit`, {
                 method: 'POST',
                 body: JSON.stringify({
                     coeficiente,
