@@ -28,8 +28,12 @@
               <div class="contenido-select-Entrada">
                 <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[12].image%>.png"
                   alt="<%=pagos[12].nombre%>">
-                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[12].id%>"><%=pagos[12].campoAdicional%></h4>
-                <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-pagos.id%>"><%=pagos[12].abreviatura%></h4>
+                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[12].id%>">
+                  <%=pagos[12].campoAdicional%>
+                </h4>
+                <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-pagos.id%>">
+                  <%=pagos[12].abreviatura%>
+                </h4>
               </div>
               <i class="fas fa-angle-down"></i>
             </div>
@@ -38,8 +42,12 @@
                 <a href="#" class="opcionEntrada">
                   <div class="contenido-opcion">
                     <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
-                    <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>"><%-dato.campoAdicional%></h4>
-                    <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-dato.id%>"><%=dato.abreviatura%></h4>
+                    <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>">
+                      <%-dato.campoAdicional%>
+                    </h4>
+                    <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-dato.id%>">
+                      <%=dato.abreviatura%>
+                    </h4>
                   </div>
                 </a>
                 <% }) %>
@@ -47,7 +55,7 @@
           </div>
         </div>
         <div class="icon-change">
-          <input  type="button" id="arrowChange" value="↑↓">
+          <input type="button" id="arrowChange" value="↑↓">
         </div>
         <div class="caja-input">
           <div class="inputSalida">
@@ -59,8 +67,12 @@
               <div class="contenido-select-Salida">
                 <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png"
                   alt="<%=pagos[0].nombre%>">
-                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%=pagos[0].id%>"><%=pagos[0].campoAdicional%></h4>
-                <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-pagos.id%>"><%=pagos[0].abreviatura%></h4>
+                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%=pagos[0].id%>">
+                  <%=pagos[0].campoAdicional%>
+                </h4>
+                <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-pagos.id%>">
+                  <%=pagos[0].abreviatura%>
+                </h4>
               </div>
               <i class="fas fa-angle-down"></i>
             </div>
@@ -71,8 +83,12 @@
                   <a href="#" class="opcionSalida">
                     <div class="contenido-opcion">
                       <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
-                      <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%-dato.id%>"><%=dato.campoAdicional%></h4>
-                      <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-dato.id%>"><%=dato.abreviatura%></h4>
+                      <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%-dato.id%>">
+                        <%=dato.campoAdicional%>
+                      </h4>
+                      <h4 type="text" id="abreviaturaDestino" class="idOcultado" data-id="<%-dato.id%>">
+                        <%=dato.abreviatura%>
+                      </h4>
                       </span>
                     </div>
                   </a>
@@ -144,3 +160,4 @@
       <%- include('./partials/footer.ejs') %>
         <script src="../javascripts/<%=JQueryForm %>"></script>
         <script src="/javascripts/<%=script%>"></script>
+        
