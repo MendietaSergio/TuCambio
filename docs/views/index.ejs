@@ -39,18 +39,20 @@
             </div>
             <div class="opciones" id="opcionesEntrada">
               <% pagos.forEach(dato=> { %>
-                <a href="#" class="opcionEntrada">
-                  <div class="contenido-opcion">
-                    <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
-                    <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>">
-                      <%-dato.campoAdicional%>
-                    </h4>
-                    <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-dato.id%>">
-                      <%=dato.abreviatura%>
-                    </h4>
-                  </div>
-                </a>
-                <% }) %>
+                <% if(dato.id !=5){%>
+                  <a href="#" class="opcionEntrada">
+                    <div class="contenido-opcion">
+                      <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                      <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>">
+                        <%-dato.campoAdicional%>
+                      </h4>
+                      <h4 type="text" id="abreviaturaOrigen" class="idOcultado" data-id="<%-dato.id%>">
+                        <%=dato.abreviatura%>
+                      </h4>
+                    </div>
+                  </a>
+                  <%}%>
+              <% }) %>
             </div>
           </div>
         </div>
@@ -79,7 +81,7 @@
 
             <div class="opciones" id="opcionesSalida">
               <% pagos.forEach(dato=> { %>
-                <% if( dato.id!=2 && dato.id !=3 ){%>
+                <% if( dato.id!=2 && dato.id !=3 && dato.id !=5){%>
                   <a href="#" class="opcionSalida">
                     <div class="contenido-opcion">
                       <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
@@ -160,4 +162,3 @@
       <%- include('./partials/footer.ejs') %>
         <script src="../javascripts/<%=JQueryForm %>"></script>
         <script src="/javascripts/<%=script%>"></script>
-        

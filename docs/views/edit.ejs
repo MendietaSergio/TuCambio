@@ -17,14 +17,17 @@
                         </div>
                         <div class="opciones" id="opcionesEntrada">
                             <% mediosdepago.forEach(dato=> { %>
-                                <a href="#" class="opcionEntrada">
-                                    <div class="contenido-opcion">
-                                        <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
-                                        <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>">
-                                        </h4>
-                                    </div>
-                                </a>
-                                <% }) %>
+                                <% if(dato.id !=5){%>
+                                    <a href="#" class="opcionEntrada">
+                                        <div class="contenido-opcion">
+                                            <img src="/img/img_medios_de_pagos/<%-dato.image%>.png"
+                                                alt="<%-dato.nombre%>">
+                                            <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%-dato.id%>">
+                                            </h4>
+                                        </div>
+                                    </a>
+                                    <%}%>
+                                        <% }) %>
                         </div>
                     </div>
                     <span class="text-danger" id="errorOrigen"></span>
@@ -42,7 +45,7 @@
 
                         <div class="opciones" id="opcionesSalida">
                             <% mediosdepago.forEach(dato=> { %>
-                                <% if( dato.id!=2 && dato.id !=3 ){%>
+                                <% if( dato.id!=2 && dato.id !=3 && dato.id !=5){%>
                                     <a href="#" class="opcionSalida">
                                         <div class="contenido-opcion">
                                             <img src="/img/img_medios_de_pagos/<%-dato.image%>.png"
