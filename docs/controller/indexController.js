@@ -90,8 +90,8 @@ module.exports = {
         console.log(req.body);
         let content = req.body;
         let mailOptions = {
-            from: `Tu cambio - Datos de contacto ${process.env.USER_MAIL}`,
-            to: process.env.USER_MAIL,
+            from: `Tu cambio - Datos de contacto ${process.env.USER_MAIL_CONTACT}`,
+            to: process.env.USER_MAIL_CONTACT,
             subject: 'Datos de contacto',
             html: `
             <html lang="es">
@@ -154,7 +154,7 @@ module.exports = {
 //             </html>
 //             `
 //         }
-        transporter.sendMail(mailOptionsNodemailer, function (errors, info) {
+        transporter.sendMail(mailOptions, function (errors, info) {
             if (errors) {
                 console.log("Correo no enviado");
             } else {
