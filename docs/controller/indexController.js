@@ -23,7 +23,7 @@ var smtpConfig = {
     secure: true, // use SSL
     auth: {
         user: process.env.USER_MAIL_CONTACT,
-        pass: USER_PASSWORD_CONTACT
+        pass: process.env.USER_PASSWORD_CONTACT
     },
     tls: {
         rejectUnauthorized: false,
