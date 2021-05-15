@@ -18,12 +18,12 @@ const nodeMailer = require('nodemailer');
 //tucambio.ok@gmail.com PRUEBA
 var smtpConfig = {
     host: 'smtp.gmail.com',
-    // secureConnection: true,
+    secureConnection: true,
     port: 465,
     secure: true, // use SSL
     auth: {
-        user: 'tucambio.ok@gmail.com',
-        pass: 'tucambio2021'
+        user: process.env.USER_MAIL_CONTACT,
+        pass: USER_PASSWORD_CONTACT
     },
     tls: {
         rejectUnauthorized: false,
@@ -45,7 +45,7 @@ var transporter = nodeMailer.createTransport(smtpConfig);
 //         secureProtocol: "TLSv1_method"
 //     }
 // };
-// var transporter = nodeMailer.createTransport(smtpConfig);
+var transporter = nodeMailer.createTransport(smtpConfig);
 module.exports = {
     home: (req, res) => {
         db.MediosDePagos.findAll()
@@ -104,15 +104,15 @@ module.exports = {
             <body style="color:black;">
             <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
                 <h1 style="color:black;">¡Hola Lucas!</h1>
-                <h2 style="color:black;">Estos son los datos de la persona que se quiere comunicar con usted:</h2>
+                <small style="color:black;">Estos son los datos de la persona que se quiere comunicar con usted:</small>
 
-                <h2 style="color:black;">Email: ${content.email}</h2>
-                <h2 style="color:black;">Asunto: ${content.asunto}</h2>
-                <h2 style="color:black;">Comentario: ${content.comentario}</h2>
+                <small style="color:black;">Email: ${content.email}</small>
+                <small style="color:black;">Asunto: ${content.asunto}</small>
+                <small style="color:black;">Comentario: ${content.comentario}</small>
 
 
-                <h2 style="color:black;"> Un cordial saludo...
-                El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
+                <small style="color:black;"> Un cordial saludo...
+                El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></small>
             </body>
             </html>
             `

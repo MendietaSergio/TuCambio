@@ -335,20 +335,46 @@ module.exports = {
     },
     processEdit: (req, res) => {
         const { coeficiente, origen, destino } = req.body;
-        db.Coeficientes.update({
-            coeficiente: coeficiente
-        }, {
-            where: {
-                mediosdepagos1: origen,
-                mediosdepagos2: destino,
-            }
-        })
-            .then(medios => {
-                console.log(req.body);
+        if(origen == 1 || origen ==4){
+            db.Coeficientes.update({
+                coeficiente: coeficiente
+            }, {
+                where: {
+                    mediosdepagos1: 1,
+                    mediosdepagos2: destino
+                }
             })
-            .catch(error => {
-                res.send(error)
+            db.Coeficientes.update({
+                coeficiente: coeficiente
+            }, {
+                where: {
+                    mediosdepagos1: 4,
+                    mediosdepagos2: destino
+                }
             })
+                .then(medios => {
+                    console.log(req.body);
+                })
+                .catch(error => {
+                    res.send(error)
+                })
+        }else{
+            db.Coeficientes.update({
+                coeficiente: coeficiente
+            }, {
+                where: {
+                    mediosdepagos1: origen,
+                    mediosdepagos2: destino,
+                }
+            })
+                .then(medios => {
+                    console.log(req.body);
+                })
+                .catch(error => {
+                    res.send(error)
+                })
+        }
+        
     },
     processProfileEdit: (req, res) => {
         // //SEGUIR DESDE ACÁ, DA ERROR
