@@ -90,7 +90,7 @@ module.exports = {
         console.log(req.body);
         let content = req.body;
         let mailOptions = {
-            from: `Tu cambio - Datos de contacto ${process.env.USER_MAIL_CONTACT}`,
+            from: `Tu cambio - Datos de contacto <>`,
             to: process.env.USER_MAIL_CONTACT,
             subject: 'Datos de contacto',
             html: `
@@ -102,7 +102,7 @@ module.exports = {
                 <title>Tu cambio</title>
             </head>
             <body style="color:black;">
-            <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="http://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+            <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
                 <h1 style="color:black;">¡Hola Lucas!</h1>
                 <small style="color:black;">Estos son los datos de la persona que se quiere comunicar con usted:</small>
 

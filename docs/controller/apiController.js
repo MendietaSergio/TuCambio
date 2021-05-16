@@ -1,23 +1,5 @@
 const db = require('../database/models');
 const nodeMailer = require('nodemailer');
-// //PRUEBANODEMAILER@GMAIL.COM
-// var smtpConfig = {
-//     host: 'smtp.gmail.com',
-//     secureConnection: true,
-//     port: 465,
-//     secure: true, // use SSL
-//     auth: {
-//         user: 'pruebanodemailers@gmail.com',
-//         pass: 'aduwbhzuypeuefam'
-//     },
-//     tls: {
-//         rejectUnauthorized: false,
-//         secureProtocol: "TLSv1_method"
-//     }
-// };
-// var transporter = nodeMailer.createTransport(smtpConfig);
-//==============================================================
-// SERVTUCAMBIO@GMAIL.COM
 var smtpConfig = {
     host: process.env.HOST_MAIL,
     secureConnection: true,
@@ -434,8 +416,8 @@ module.exports = {
         let contentHTML = estructuraHTML(content);
         let mail = content.content.correoPersonal;
         let mailOptions = {
-            from: 'Tu cambio - Datos de contacto <servtucambio@gmail.com>',
-            to: 'servtucambio@gmail.com,' + mail,
+            from: `Tu cambio - Datos de contacto <${process.env.USER_MAIL}>`,
+            to: `${process.env.USER_MAIL},` + mail,
             subject: 'Datos de contacto',
             html: contentHTML
         }
