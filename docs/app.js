@@ -13,7 +13,14 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usuario');
 
 var app = express();
-
+app.use(function(req,resp,next){
+  let newURL="http";
+  if (newURL == 'http') {
+      return resp.redirect(301, 'https://' + req.headers.host + '/');
+  } else {
+      return next();
+  }
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -47,12 +54,13 @@ app.use(function(req, res, next) {
 });
 app.use(function (req, res, next) {
   var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
+  console.log(schema)
   if (schema === 'https') {
     console.log("No esta redireccionando");
     next();
   } else {
     console.log("Esta redireccionando");
-    res.redirect('https://' + req.headers.host + req.url);
+    res.redirect('www.google.com');
   }
 });
 
