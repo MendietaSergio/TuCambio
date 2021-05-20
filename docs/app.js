@@ -45,6 +45,16 @@ app.use(function(req, res, next) {
     errorURL: 'errorURL.js'
   }));
 });
+app.use(function (req, res, next) {
+  var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
+  if (schema === 'https') {
+    console.log("No esta redireccionando");
+    next();
+  } else {
+    console.log("Esta redireccionando");
+    res.redirect('https://' + req.headers.host + req.url);
+  }
+});
 
 // error handler
 app.use(function(err, req, res, next) {
