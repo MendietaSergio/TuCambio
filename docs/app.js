@@ -13,14 +13,25 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usuario');
 
 var app = express();
-app.use(function(req,resp,next){
-  let newURL="http";
-  if (newURL == 'http') {
-      return resp.redirect(301, 'https://' + req.headers.host + '/');
-  } else {
-      return next();
-  }
-});
+// app.use(function(req,resp,next){
+//   let url = req.headers.referer;
+//   let cont = 0;
+//   let newURL="";
+//   for (let index = 0; index < url.length; index++) {
+//     if(cont !=4){
+//       newURL += url[index];
+//       cont++;
+//     }    
+//   }
+//   // console.log(req.headers.referer);
+//   // console.log(req.headers);
+
+//   if (newURL == 'http') {
+//       return resp.redirect(301, 'https://' + req.headers.host + '/');
+//   } else {
+//       return next();
+//   }
+// });
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -52,17 +63,17 @@ app.use(function(req, res, next) {
     errorURL: 'errorURL.js'
   }));
 });
-app.use(function (req, res, next) {
-  var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
-  console.log(schema)
-  if (schema === 'https') {
-    console.log("No esta redireccionando");
-    next();
-  } else {
-    console.log("Esta redireccionando");
-    res.redirect('www.google.com');
-  }
-});
+// app.use(function (req, res, next) {
+//   var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
+//   console.log(schema)
+//   if (schema === 'https') {
+//     console.log("No esta redireccionando");
+//     next();
+//   } else {
+//     console.log("Esta redireccionando");
+//     res.redirect('www.google.com');
+//   }
+// });
 
 // error handler
 app.use(function(err, req, res, next) {

@@ -15,7 +15,6 @@
     "express-session": "^1.17.1",
     "express-validation": "^3.0.8",
     "express-validator": "^6.10.0",
-    "heroku-ssl-redirect": "^0.1.1",
     "http-errors": "~1.6.3",
     "jquery": "^3.6.0",
     "method-override": "^3.0.0",
