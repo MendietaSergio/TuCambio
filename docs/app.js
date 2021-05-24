@@ -22,7 +22,7 @@ app.all('*', function(req, res, next){
       return next();
   }
 
-  res.redirect('https://'+req.headers.host + ':' + app.get('secPort') + req.url);
+  res.redirect('https://'+req.headers.host + req.url);
 });
 // app.use(function(req,resp,next){
 //   let url = req.headers.referer;
