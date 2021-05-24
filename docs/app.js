@@ -14,6 +14,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usuario');
 
 var app = express();
+
+
 // app.use(function(req,resp,next){
 //   let url = req.headers.referer;
 //   let cont = 0;

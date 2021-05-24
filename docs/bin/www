@@ -21,23 +21,33 @@ app.set('port', port);
 
 
 // const enforce = require('express-sslify');
-//NO FUNCIONAN
+
 // app.use(enforce.HTTPS({ trustProtoHeader: true }));
-var server = http.createServer((req, res) => {
-  res.writeHead(301,{Location: `https://${req.headers.host}${req.url}`});
-  res.end();
-})
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
+ app.all('*', ensureSecure);
+ function ensureSecure(req, res, next){
+   console.log(req.secure);
+   console.log("abajo de secure");
+  if(!req.secure){
+    // OK, continue
+    console.log("entro en req.secure");
+    return next();
+  };
+  // handle port numbers if you need non defaults
+  // res.redirect('https://' + req.host + req.url); // express 3.x
+  res.redirect('https://' + req.hostname + req.url); // express 4.x
+}
 //  app.use(function(req, res, next) {
 //    console.log("Arriba de req");
 //   if (req.headers['x-request-id'] !== 'https') {
 //     console.log("entra en la primer condicion");
 //     let prueba = 'https://' + req.headers.host
 //     console.log(prueba);
-//     return res.redirect('https://www.google.com/');
+//     return res.redirect(prueba);
 //     console.log("NO REDIRECCIONO");
 //   }
 //   else {
