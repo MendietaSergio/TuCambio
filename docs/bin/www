@@ -20,10 +20,13 @@ app.set('port', port);
  */
 
 
-const enforce = require('express-sslify');
-
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
-var server = http.createServer(app);
+// const enforce = require('express-sslify');
+//NO FUNCIONAN
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+var server = http.createServer((req, res) => {
+  res.writeHead(301,{Location: `https://${req.headers.host}${req.url}`});
+  res.end();
+})
 
 /**
  * Listen on provided port, on all network interfaces.
