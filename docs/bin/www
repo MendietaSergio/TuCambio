@@ -24,19 +24,19 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
- app.use(function(req, res, next) {
-   console.log("Arriba de req");
-  if (req.headers['x-request-id'] !== 'https') {
-    console.log("entra en la primer condicion");
-    let prueba = 'https://' + req.headers.host
-    console.log(prueba);
-    return res.redirect('https://www.google.com/');
-    console.log("NO REDIRECCIONO");
-  }
-  else {
-    next();
-  }
-});
+//  app.use(function(req, res, next) {
+//    console.log("Arriba de req");
+//   if (req.headers['x-request-id'] !== 'https') {
+//     console.log("entra en la primer condicion");
+//     let prueba = 'https://' + req.headers.host
+//     console.log(prueba);
+//     return res.redirect('https://www.google.com/');
+//     console.log("NO REDIRECCIONO");
+//   }
+//   else {
+//     next();
+//   }
+// });
 //          NO FUNCIONA
 // app.use((req, res, next) =>{
 //   if (req.headers['x-forwarded-proto'] !== 'https') {
