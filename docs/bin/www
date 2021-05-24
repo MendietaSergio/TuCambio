@@ -30,12 +30,20 @@ console.log("ARRIBA DE APP.USE +++++++++++++++++++++++++++++++++++++++++++++++++
 console.log("entro en app.use ================================================");
 // console.log(req.headers);
 console.log("ABAJO DE REQ.HEADERS");
-app.use((req, res, next) => {
-  if (!req.secure) {
-    return res.redirect('https://' + req.headers.host + req.url);
+app.use((req, res, next) =>{
+  if (req.headers['x-forwarded-proto'] !== 'https') {
+      return res.redirect(['https://', req.get('Host'), req.url].join(''));
   }
-  next();
+  return next();
 });
+
+//      NO FUNCIONA
+// app.use((req, res, next) => {
+//   if (!req.secure) {
+//     return res.redirect('https://' + req.headers.host + req.url);
+//   }
+//   next();
+// });
 
 //NO FUNCIONA
 // app.enable('trust proxy')
