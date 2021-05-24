@@ -25,6 +25,16 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
+
+console.log("ARRIBA DE APP.USE ++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+console.log("entro en app.use ================================================");
+// console.log(req.headers);
+console.log("ABAJO DE REQ.HEADERS");
+app.enable('trust proxy')
+app.use((req, res, next) => {
+  console.log("+++++++++++++++++++++app.use");
+  req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+})
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
