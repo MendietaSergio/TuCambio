@@ -15,7 +15,15 @@ var usersRouter = require('./routes/usuario');
 
 var app = express();
 
+app.all('*', function(req, res, next){
+  console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
+  if (req.secure) {
+    console.log("entra en req.secure*********************************");
+      return next();
+  }
 
+  res.redirect('https://'+req.headers.host + ':' + app.get('secPort') + req.url);
+});
 // app.use(function(req,resp,next){
 //   let url = req.headers.referer;
 //   let cont = 0;

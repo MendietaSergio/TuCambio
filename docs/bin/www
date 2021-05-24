@@ -28,19 +28,21 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
- app.all('*', ensureSecure);
- function ensureSecure(req, res, next){
-   console.log(req.secure);
-   console.log("abajo de secure");
-  if(!req.secure){
-    // OK, continue
-    console.log("entro en req.secure");
-    return next();
-  };
-  // handle port numbers if you need non defaults
-  // res.redirect('https://' + req.host + req.url); // express 3.x
-  res.redirect('https://' + req.hostname + req.url); // express 4.x
-}
+//  app.all('*', ensureSecure);
+//  function ensureSecure(req, res, next){
+//    console.log(req.secure);
+//    console.log("abajo de secure");
+//   if(req.secure){
+//     // OK, continue
+//     console.log("entro en req.secure");
+//     return next();
+//   };
+//   console.log("ARRIA DE REQ");
+//   console.log(req);
+//   // handle port numbers if you need non defaults
+//   res.redirect('https://' + req.host + req.url); // express 3.x
+//   // res.redirect('https://' + req.hostname + req.url); // express 4.x
+// }
 //  app.use(function(req, res, next) {
 //    console.log("Arriba de req");
 //   if (req.headers['x-request-id'] !== 'https') {
@@ -78,23 +80,26 @@ var server = http.createServer(app);
 // })
 
 //    *********** NO FUNCIONA*************
-// app.use (function (req, res, next) {
-//   console.log(req.headers);
+// app.enable('trust proxy');
+// app.use(function (req, res, next) {
 //   if (req.secure) {
 //     console.log("REQ.SEGURE+++++++++++++++++++++++++++++");
-//           // request was via https, so do no special handling
-//           next();
+//     // request was via https, so do no special handling
+//     next();
 //   } else {
 //     console.log("REDIRECCION --------------------------------------------------------------");
 //     console.log(req.headers.host);
-//     console.log(req.body);
-//           // request was via http, so redirect to https
-//         //  return res.redirect('www.google.com.ar');
-
-//         //  return res.redirect('https://' + req.headers.host);
-//     res.redirect('https://' + req.headers.host);
+//     // request was via http, so redirect to https
+//     //  return res.redirect('www.google.com.ar');
+//     console.log("arriba redireccion");
+//     // res.redirect('https://' + req.headers.host);
+//     console.log("arriba return redireccion");
+//     //  return res.redirect('https://' + req.headers.host);
 //   }
 // });
+
+
+
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
