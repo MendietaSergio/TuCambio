@@ -60,7 +60,8 @@ app.use (function (req, res, next) {
           // request was via http, so redirect to https
         //  return res.redirect('www.google.com.ar');
 
-         return res.redirect('https://' + req.headers.host);
+        //  return res.redirect('https://' + req.headers.host);
+    res.redirect('https://' + req.headers.host);
   }
 });
 server.listen(port);
