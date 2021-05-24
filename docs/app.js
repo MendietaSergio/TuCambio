@@ -9,9 +9,6 @@ const methodOverride = require('method-override');
 
 const localsUserCheck = require('./middlewares/localsUserCheck')
 
-const enforce = require('express-sslify');
-
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usuario');
