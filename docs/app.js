@@ -55,15 +55,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 // //PRUEBA
-app.all('*', function(req, res, next){
-    console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
-    if (req.secure) {
-      console.log("entra en req.secure*********************************");
-        return next();
-    }
+// app.all('*', function(req, res, next){
+//     console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
+//     if (req.secure) {
+//       console.log("entra en req.secure*********************************");
+//         return next();
+//     }
   
-    res.redirect('https://'+req.headers.host);
-  });
+//     res.redirect('https://'+req.headers.host);
+//   });
 // set up plain http server
 var http = express();
 
@@ -94,14 +94,14 @@ app.use(function(req, res, next) {
   }));
 });
 // app.use(function (req, res, next) {
-//   var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
-//   console.log(schema)
+//   var schema = (req.headers.host || '').toLowerCase();
+//   console.log(req.headers['x-forwarded-proto'])
 //   if (schema === 'https') {
 //     console.log("No esta redireccionando");
 //     next();
 //   } else {
 //     console.log("Esta redireccionando");
-//     res.redirect('www.google.com');
+//     return res.redirect('www.google.com');
 //   }
 // });
 
