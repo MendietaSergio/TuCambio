@@ -55,17 +55,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 // //PRUEBA
-app.all('*', function(req, res, next){
-    console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
-    if (req.secure) {
-      console.log("entra en req.secure*********************************");
-        return next();
-    }
+// app.all('*', function(req, res, next){
+//     console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
+//     if (req.secure) {
+//       console.log("entra en req.secure*********************************");
+//         return next();
+//     }
   
-    res.redirect('https://'+req.headers.host);
-  });
+//     res.redirect('https://'+req.headers.host);
+//   });
 // set up plain http server
-var http = express();
+// var http = express();
 
 // set up a route to redirect http to https
 // http.get('*', function(req, res) {
