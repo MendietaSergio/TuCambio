@@ -44,6 +44,20 @@ var app = express();
 //   }
 // });
 // view engine setup
+app.enable('trust proxy')
+
+app.use(function(request, response, next) { 
+  if (process.env.NODE_ENV != 'development' && !request.secure) { 
+    console.log("**********************************************************");
+    return response.redirect("https://" + request.headers.host + request.url); 
+  } 
+  next(); 
+})
+
+
+
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
