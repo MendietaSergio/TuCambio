@@ -7,56 +7,22 @@ require('dotenv').config()
 const session = require('express-session');
 const methodOverride = require('method-override');
 
-const localsUserCheck = require('./middlewares/localsUserCheck')
-
+const localsUserCheck = require('./middlewares/localsUserCheck');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usuario');
 
 var app = express();
 
-// app.all('*', function(req, res, next){
-//   console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
-//   if (req.secure) {
-//     console.log("entra en req.secure*********************************");
-//       return next();
-//   }
-
-//   res.redirect('https://'+req.headers.host + ':' + app.get('secPort') + req.url);
-// });
-// app.use(function(req,resp,next){
-//   let url = req.headers.referer;
-//   let cont = 0;
-//   let newURL="";
-//   for (let index = 0; index < url.length; index++) {
-//     if(cont !=4){
-//       newURL += url[index];
-//       cont++;
-//     }    
-//   }
-//   // console.log(req.headers.referer);
-//   // console.log(req.headers);
-
-//   if (newURL == 'http') {
-//       return resp.redirect(301, 'https://' + req.headers.host + '/');
-//   } else {
-//       return next();
-//   }
-// });
 // view engine setup
 app.enable('trust proxy')
 
 app.use(function(request, response, next) { 
-  if (process.env.NODE_ENV != 'development' && !request.secure) { 
-    console.log("**********************************************************");
+  if (process.env.NODE_ENV != 'development' && !request.secure) {
     return response.redirect("https://" + request.headers.host + request.url); 
   } 
   next(); 
 })
-
-
-
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -68,26 +34,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
-// //PRUEBA
-// app.all('*', function(req, res, next){
-//     console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
-//     if (req.secure) {
-//       console.log("entra en req.secure*********************************");
-//         return next();
-//     }
-  
-//     res.redirect('https://'+req.headers.host);
-//   });
-// set up plain http server
-// var http = express();
-
-// set up a route to redirect http to https
-// http.get('*', function(req, res) {
-//     return res.redirect('https://' + req.headers.host);
-
-//     // Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
-//     // res.redirect('https://example.com' + req.url);
-// })
 app.use(session({
   secret:"Saldo", 
   resave: true,
@@ -107,17 +53,6 @@ app.use(function(req, res, next) {
     errorURL: 'errorURL.js'
   }));
 });
-// app.use(function (req, res, next) {
-//   var schema = (req.headers.host || '').toLowerCase();
-//   console.log(req.headers['x-forwarded-proto'])
-//   if (schema === 'https') {
-//     console.log("No esta redireccionando");
-//     next();
-//   } else {
-//     console.log("Esta redireccionando");
-//     return res.redirect('www.google.com');
-//   }
-// });
 
 // error handler
 app.use(function(err, req, res, next) {
