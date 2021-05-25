@@ -54,7 +54,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
-//PRUEBA
+// //PRUEBA
 app.all('*', function(req, res, next){
     console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
     if (req.secure) {
@@ -64,7 +64,16 @@ app.all('*', function(req, res, next){
   
     res.redirect('https://'+req.headers.host);
   });
+// set up plain http server
+var http = express();
 
+// set up a route to redirect http to https
+// http.get('*', function(req, res) {
+//     return res.redirect('https://' + req.headers.host);
+
+//     // Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
+//     // res.redirect('https://example.com' + req.url);
+// })
 app.use(session({
   secret:"Saldo", 
   resave: true,
