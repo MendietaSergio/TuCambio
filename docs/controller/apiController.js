@@ -418,7 +418,7 @@ module.exports = {
         let mailOptions = {
             from: `Tu cambio - Datos de contacto <${process.env.USER_MAIL}>`,
             to: `${process.env.USER_MAIL},` + mail,
-            subject: 'Datos de contacto',
+            subject: 'Este es tu pedido, revísalo.',
             html: contentHTML
         }
         transporter.sendMail(mailOptions, function (error, info) {
