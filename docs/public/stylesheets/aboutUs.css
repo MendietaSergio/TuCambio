@@ -45,9 +45,6 @@ div .aboutUs_text a{
                           "aboutUs_body aboutUs_body"
                           "footer footer";
     }
-    div .header{
-        margin-bottom: 60px;
-    }
     div.header img{
         margin: auto;
         display: block;

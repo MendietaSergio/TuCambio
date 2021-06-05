@@ -403,10 +403,7 @@ RESPONSIVE - TABLET
                          "mas-info mas-info" 
                          "footer footer";
   }
-  
-  div .header{
-    margin-bottom: 60px;
-  }div.header img{
+  div.header img{
     margin: auto;
     display: block;
     width: 80%;
@@ -427,6 +424,9 @@ RESPONSIVE - TABLET
 div .caja-formulario{
   width: 92%;
   margin: 30px;
+}
+div .caja-cambio{
+  margin-top: 0;
 }
 .opciones {
   width: 43%;

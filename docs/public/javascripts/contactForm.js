@@ -1,6 +1,4 @@
 addEventListener('DOMContentLoaded', function () {
-    console.log("Vinculado contactForm.JS..!>");
-
     const formulario = document.querySelector('form');
     let inputEmail = document.querySelector('#email');
     let errorEmailContact = document.querySelector('#errorEmailContact');
@@ -118,12 +116,10 @@ addEventListener('DOMContentLoaded', function () {
     formulario.addEventListener('submit',function(e){
         e.preventDefault();
         let elementos = formulario.elements;
-        console.log(elementos);
 
         let error = false;
         for(let i=0; i<3; i++){
             if(elementos[i].value == 0){
-                console.log(elementos[i]);
                 elementos[i].classList.add('is-invalid');
                 error = true;
             }

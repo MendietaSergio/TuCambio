@@ -203,12 +203,7 @@ div .dropdown{
   padding-right: 40px;
   bottom: 85px;
 }
-div .dropdown-contenido{
-/* SEGUIR EL MENU ACÁ */
-}
-div .header{
-  margin-bottom: 60px;
-}div.header img{
+div.header img{
   margin: auto;
   display: block;
   width: 80%;

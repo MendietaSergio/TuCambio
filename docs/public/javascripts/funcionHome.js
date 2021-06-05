@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
     let campoAdicional2 = document.querySelector('#campoAdicional2');
 
     const campoCBU1 = (inputAdicional1, origen, destino) => {
-        console.log(origen, destino);
         switch (true) {
             case origen == 16 && destino == 15:
                 campoAdicional1.style.display = "block";
@@ -284,7 +283,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     numEntrada.addEventListener('input', () => {
         if (origen.value == 1 || origen.value == 2 || origen.value == 3 || origen.value == 4 || origen.value == 5) {
-            console.log(origen.value);
+
             switch (true) {
                 case numEntrada.value.length == 0:
                     errorEntrada.innerHTML = "Debe ingresar un número."
@@ -311,7 +310,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
         if (origen.value == 7 || origen.value == 8 || origen.value == 9 || origen.value == 10 || origen.value == 11 || origen.value == 12 || origen.value == 13 || origen.value == 14 || origen.value == 15 || origen.value == 16 || origen.value == 17) {
-            console.log("7 a 16");
+
             switch (true) {
                 case numEntrada.value == 0:
                     errorEntrada.innerHTML = "Debe ingresar un número."
@@ -867,7 +866,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         blockAcutualizar();
                         break;
                     default:
-                        console.log(this.value.length);
                         errorAdicional2.innerHTML = " ";
                         this.classList.remove('is-invalid');
                         this.classList.add('is-valid');
@@ -1094,7 +1092,6 @@ window.addEventListener('DOMContentLoaded', () => {
             )
                 .then(() => {
                     formulario.submit();
-                    console.log("formulario.submit OK");
                 })
 
                 .catch(error => {

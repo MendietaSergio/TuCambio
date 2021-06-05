@@ -87,4 +87,3 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 console.log("Servidor corriendo en el puerto " + port);
-console.log("Prueba..");

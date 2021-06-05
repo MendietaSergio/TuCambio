@@ -86,8 +86,6 @@ module.exports = {
         })
     },
     processContactForm: (req, res) => {
-        console.log("arriba de req.body processcontactform");
-        console.log(req.body);
         let content = req.body;
         let mailOptions = {
             from: `Tu cambio - Datos de contacto <>`,
@@ -117,43 +115,6 @@ module.exports = {
             </html>
             `
         }
-//         let mailOptionsNodemailer = {
-//             from: `Tu cambio - Datos de contacto`,
-//             to: 'tucambio.ok@gmail.com',
-//             subject: 'Datos de contacto',
-//             html: `
-//             <html lang="es">
-//             <head>
-//                 <meta charset="UTF-8">
-//                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//                 <title>Tu cambio</title>
-//             </head>
-//             <body style="background-color:rgb(43, 128, 87);">
-//             <div style="margin: 30px;">
-//             <a href="https://www.tucambio.com.ar"><img
-//             style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400"
-//             src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
-//     <small style="color:black; font-size: 20px;">¡Hola!</small>
-//     <br>
-//     <br>
-//     <small style="color:black; font-size: 20px;">Estos son los datos de la persona que se quiere comunicar con usted:</small>
-//     <br>
-//     <br>
-//     <small style="color:black; font-size: 20px;">Email: ${content.email}</small>
-//     <br>
-//     <small style="color:black; font-size: 20px;">Asunto: ${content.asunto}</small>
-//     <br>
-//     <small style="color:black; font-size: 20px;">Comentario: ${content.comentario}</small>
-//     <br>
-//     <br>
-// <br>
-//     <small style="color:black; font-size: 20px;"> Un cordial saludo...
-//         El equipo de <a href="https://www.tucambio.com.ar"></a></small>
-//             </body>
-//             </html>
-//             `
-//         }
         transporter.sendMail(mailOptions, function (errors, info) {
             if (errors) {
                 console.log("Correo no enviado");
@@ -165,7 +126,6 @@ module.exports = {
         return res.redirect('/')
     },
     aboutUs: (req, res) => {
-        console.log("acerca de nosotros");
         res.render('aboutUs', {
             title: "Acerca de Nosotros",
             css: 'aboutUs.css',
@@ -173,7 +133,6 @@ module.exports = {
         })
     },
     frequentQuestions: (req, res) => {
-        console.log("preguntas frecuentes");
         res.render('frequentQuestions', {
             title: "Preguntas Frecuentes",
             css: 'frequentQuestions.css',

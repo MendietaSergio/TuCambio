@@ -57,7 +57,7 @@ const estructuraHTML = (content) => {
         return contentHTML;
     } else if (content.content.recibe == "Wise" == content.content.recibe == "Transferencia Bancaria en Euros") {
         iban = "IBAN de " + content.content.recibe + ": " + content.content.campoAdicional2;
-        console.log(iban);
+
         let contentHTML = `
     <html lang="es">
     <head>
@@ -91,7 +91,7 @@ const estructuraHTML = (content) => {
         return contentHTML;
     } else if (content.content.recibe == "Transferencia Bancaria en pesos" || content.content.recibe == "MercadoPago(Saldo en Cuenta)" || content.content.recibe == "Ualá") {
         cbuAlias = "CBU/Alias de " + content.content.recibe + ": " + content.content.campoAdicional2;
-        console.log(cbuAlias);
+
         let contentHTML = `
     <html lang="es">
     <head>
@@ -126,7 +126,6 @@ const estructuraHTML = (content) => {
     } else if ((content.content.envia == "Skrill" || content.content.envia == "Payoneer" || content.content.envia == "Payeer" || content.content.envia == "Neteller") && ((content.content.recibe == "Skrill" || content.content.recibe == "Payoneer" || content.content.recibe == "Payeer" || content.content.recibe == "Neteller"))) {
         correoCuenta1 = "Correo de " + content.content.envia + ": " + content.content.campoAdicional1;
         correoCuenta2 = "Correo de " + content.content.recibe + ": " + content.content.campoAdicional2;
-        console.log("correo con dos cuentas");
         let contentHTML = `
     <html lang="es">
     <head>
@@ -157,11 +156,10 @@ const estructuraHTML = (content) => {
     </body>
     </html>
     `;
-        console.log(contentHTML);
         return contentHTML;
     } else {
         correoCuenta2 = "Correo de " + content.content.recibe + ": " + content.content.campoAdicional2;
-        console.log("Demás correos");
+  
         let contentHTML = `
     <html lang="es">
     <head>
@@ -192,7 +190,6 @@ const estructuraHTML = (content) => {
     </body>
     </html>
     `;
-        console.log(contentHTML);
         return contentHTML;
     }
 }
@@ -304,7 +301,6 @@ module.exports = {
                                             resultado = (numSalida / result.coeficiente).toFixed(2);
                                             break;
                                     }
-                                    console.log("Origen: " + medios[index].id + ", Destino " + medios[subIndex].id);
                                 }
                             }
                         }
@@ -335,7 +331,6 @@ module.exports = {
                 }
             })
                 .then(medios => {
-                    console.log(req.body);
                 })
                 .catch(error => {
                     res.send(error)
@@ -350,7 +345,6 @@ module.exports = {
                 }
             })
                 .then(medios => {
-                    console.log(req.body);
                 })
                 .catch(error => {
                     res.send(error)
@@ -394,7 +388,6 @@ module.exports = {
     },
     processViewCoeficiente: (req, res) => {
         const { origen, destino } = req.body;
-        console.log(req.body);
         db.Coeficientes.findOne({
             where: {
                 mediosdepagos1: origen,

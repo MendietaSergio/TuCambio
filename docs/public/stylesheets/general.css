@@ -129,6 +129,9 @@ div .help{
   div .title-usuario{
     display: block;
   }
+  div .header-menu{
+    display: none;
+  }
   div .dropdown{
     float: left;
     padding-left: 40px;
@@ -148,6 +151,7 @@ div .help{
     grid-template-areas: "header-logo"
                          "header-menu";
   }
+  
   div .menu_items{
     padding: 0 0 0 16px;
   }

@@ -88,9 +88,6 @@ div .fa-key:before, .fa-user:before{
                           "form form"
                           "footer footer";
     }
-    div .header{
-        margin-bottom: 60px;
-    }
     div.header img{
         margin: auto;
         display: block;
