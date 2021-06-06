@@ -73,7 +73,9 @@ div.header{
   grid-area: header;
   margin-bottom: 0px;
 }
-
+div .menu_link{
+  display: none;
+}
 div.header img{
   height: 250px;
   margin: auto;
@@ -123,14 +125,24 @@ div .help{
   div .header-nav{
     display: grid;
     grid-template-columns: repeat(1,1fr);
-    grid-template-areas: "header-logo"
-                         "header-menu";
+    grid-template-areas: "header-logo";
   }
   div .title-usuario{
     display: block;
   }
+  div .mas-info{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: "header-menu";
+  }
+  div .menu_header{
+    grid-area: header-menu;
+  }
   div .header-menu{
     display: none;
+  }
+  div .menu_link{
+    display: block;
   }
   div .dropdown{
     float: left;
@@ -148,8 +160,7 @@ div .help{
   div .header-nav{
     display: grid;
     grid-template-columns: repeat(1,1fr);
-    grid-template-areas: "header-logo"
-                         "header-menu";
+    grid-template-areas: "header-logo";
   }
   
   div .menu_items{

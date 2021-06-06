@@ -152,11 +152,26 @@
         </div>
       </div>
       <div class="mas-info">
-
+        <div class="menu_link">
+          <% if (typeof user !="undefined" ) { %>
+            <!-- <span class="title-usuario"><i class="fas fa-bars"></i></span> -->
+            <ul class="menu_items">
+                <li><a href="/admin/edit">Editar valores</a></li>
+                <!-- <li><a href="/admin/profile">Cambiar contraseña</a></li> -->
+                <li><a href="/admin/logout">Salir</a></li>
+            </ul>
+            <% }else{ %>
+                <div class="hideLink">
+                    <ul class="menu_items">
+                    <li><a href="/preguntas-frecuentes">Preguntas Frecuentes</a></li>
+                    <li><a href="/acerca-de-nosotros">Acerca de nosotros</a></li>
+                    <li><a href="/contactenos" class="contactenos">Contáctenos</a></li>
+                </ul>
+                </div>
+                
+                <% } %>
+        </div>
       </div>
-
-
-
       <%- include('./partials/footer.ejs') %>
         <script src="../javascripts/<%=JQueryForm %>"></script>
         <script src="/javascripts/<%=script%>"></script>
