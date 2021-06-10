@@ -11,3 +11,4 @@ Nodemon
 Mysql2
 Sequelize
 Method-override
+nodemailer
