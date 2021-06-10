@@ -742,7 +742,214 @@ window.addEventListener('DOMContentLoaded', () => {
     let errorAdicional2 = document.querySelector('#errorAdicional2');
     campoAdicional2.addEventListener('blur', function () {
 
-        if (destino.value == 10 || destino.value == 11 || destino.value == 12 || destino.value == 13 || destino.value == 15 || destino.value == 16) {
+        if (destino.value == 10 || destino.value == 11 || destino.value == 12 || destino.value == 13 || destino.value == 15 || destino.value == 16 || destino.value == 18 || destino.value == 19) {
+            switch (true) {
+                case this.value.length === 0:
+                    errorAdicional2.innerHTML = "Debe ingresar su correo electrónino.";
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                case !regExEmail.test(this.value):
+                    errorAdicional2.innerHTML = "El correo debe ser válido.";
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                default:
+                    errorAdicional2.innerHTML = " ";
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    validCampAdicional2 = true;
+
+                    habilitarBtn();
+                    break;
+            }
+        } else if (destino.value == 9 || destino.value == 17) {
+            switch (true) {
+                case this.value.length === 0:
+                    errorAdicional2.innerHTML = "Debe ingresar su IBAN.";
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                case !regExIBAN.test(this.value):
+                    errorAdicional2.innerHTML = "El IBAN debe ser válido.";
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                case this.value.length >= 25:
+                    errorAdicional2.innerHTML = "Debe ingresar su IBAN de 24 carácteres.";
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                default:
+                    errorAdicional2.innerHTML = " ";
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    validCampAdicional2 = true;
+
+                    habilitarBtn();
+                    break;
+            }
+        } else if (destino.value == 6 || destino.value == 8) {
+            switch (true) {
+                case this.value.length === 0:
+                    errorAdicional2.innerHTML = "Debe ingresar su Wallet.";
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                case !regExWallet.test(this.value):
+                    errorAdicional2.innerHTML = "El Wallet debe ser válido.";
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                case this.value.length >= 35:
+                    errorAdicional2.innerHTML = "Debe ingresar su Wallet de 34 carácteres.";
+                    this.classList.add('is-invalid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                default:
+                    errorAdicional2.innerHTML = " ";
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    validCampAdicional2 = true;
+
+                    habilitarBtn();
+                    break;
+            }
+        } else if (destino.value == 1 || destino.value == 4 || destino.value == 5) {
+            if (!isNaN(this.value)) {
+                switch (true) {
+                    case this.value.length === 0:
+                        errorAdicional2.innerHTML = "Debe ingresar su CBU o Alias.";
+                        this.classList.add('is-invalid');
+                        validCampAdicional2 = false;
+
+                        this.classList.remove('is-valid');
+                        blockAcutualizar();
+                        break;
+                    case !regExCBU.test(this.value):
+                        errorAdicional2.innerHTML = "El CBU debe ser válido.";
+                        this.classList.add('is-invalid');
+                        this.classList.remove('is-valid');
+                        validCampAdicional2 = false;
+
+                        blockAcutualizar();
+                        break;
+                    case this.value.length > 22:
+                        errorAdicional2.innerHTML = "Debe ingresar su CBU o Alias.";
+                        this.classList.add('is-invalid');
+                        this.classList.remove('is-valid');
+                        validCampAdicional2 = false;
+
+                        blockAcutualizar();
+                        break;
+                    default:
+                        errorAdicional2.innerHTML = " ";
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                        validCampAdicional2 = true;
+
+                        habilitarBtn();
+                        break;
+                }
+            } else {
+                switch (true) {
+                    case this.value.length === 0:
+                        errorAdicional2.innerHTML = "Debe ingresar su CBU o Alias.";
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                        validCampAdicional2 = false;
+
+                        blockAcutualizar();
+                        break;
+                    case !regExAlias.test(this.value):
+                        errorAdicional2.innerHTML = "El CBU debe ser válido.";
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                        validCampAdicional2 = false;
+
+                        blockAcutualizar();
+                        break;
+                    case this.value.length > 20:
+                        errorAdicional2.innerHTML = "Debe ingresar su CBU o Alias.";
+                        this.classList.remove('is-valid');
+                        validCampAdicional2 = false;
+
+                        this.classList.add('is-invalid');
+                        blockAcutualizar();
+                        break;
+                    default:
+                        errorAdicional2.innerHTML = " ";
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                        validCampAdicional2 = true;
+
+                        habilitarBtn();
+                        break;
+                }
+            }
+
+        } else if (destino.value == 7) {
+            switch (true) {
+                case this.value.length === 0:
+                    errorAdicional2.innerHTML = "Debe ingresar su Wallet DAI.";
+                    this.classList.remove('is-valid');
+                    this.classList.add('is-invalid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                case !regExDai.test(this.value):
+                    errorAdicional2.innerHTML = "El Wallet DAI debe ser válido.";
+                    this.classList.remove('is-valid');
+                    this.classList.add('is-invalid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                case this.value.length >= 43:
+                    errorAdicional2.innerHTML = "Debe ingresar su Wallet DAI de 42 carácteres.";
+                    this.classList.remove('is-valid');
+                    this.classList.add('is-invalid');
+                    validCampAdicional2 = false;
+
+                    blockAcutualizar();
+                    break;
+                default:
+                    errorAdicional2.innerHTML = " ";
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    validCampAdicional2 = true;
+                    habilitarBtn();
+                    break;
+            }
+        }
+    })
+    campoAdicional2.addEventListener('keyup', function () {
+
+        if (destino.value == 10 || destino.value == 11 || destino.value == 12 || destino.value == 13 || destino.value == 15 || destino.value == 16 || destino.value == 18 || destino.value == 19) {
             switch (true) {
                 case this.value.length === 0:
                     errorAdicional2.innerHTML = "Debe ingresar su correo electrónino.";
