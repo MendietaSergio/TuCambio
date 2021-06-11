@@ -2,7 +2,7 @@
 
 _Página para cotizar e intercambiar, comprar y vender PayPal, Skrill, Uphold, Payeer, etc de una forma fácil y rápida._
 
-<a href="www.tucambio.com.ar" title="TuCambio" target="_blank">Ver</a>
+[Tu Cambio](https://www.tucambio.com.ar)
 
 ## Comenzando 🚀
 
@@ -32,5 +32,5 @@ localhost:3004
 ## Construido con 🛠️
 
 
-* [NodeJS](https://nodejs.org/es/) - El framework web usado
+* [NodeJS](https://nodejs.org/es/) - Entorno de ejecución
 * [NPM](https://www.npmjs.com/) - Manejador de dependencias
