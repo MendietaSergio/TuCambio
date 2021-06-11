@@ -8,7 +8,7 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 
 
-### Pre-requisitos 📋
+### Requisitos 📋
 
 _Que cosas necesitas para instalar el software y como instalarlas_
 
@@ -21,8 +21,13 @@ npm install
 ```
 nodemon
 ```
+## Visualización :globe_with_meridians:
 
-##Construido con 🛠️
+```
+localhost:3004
+```
+
+## Construido con 🛠️
 
 
 * [NodeJS](https://nodejs.org/es/) - El framework web usado
