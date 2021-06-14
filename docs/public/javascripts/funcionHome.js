@@ -1321,7 +1321,6 @@ window.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => response.json())
             .then(result => {
-
             })
     }
 });

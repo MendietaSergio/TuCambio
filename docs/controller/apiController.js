@@ -22,8 +22,6 @@ const estructuraHTML = (content) => {
     let correoCuenta1;
     let correoCuenta2;
     if (content.content.recibe === "Bitcoin" || content.content.recibe == "DAI" || content.content.recibe == "Tether") {
-        wallet = "Wallet de " + content.content.recibe + ": " + content.content.campoAdicional2;
-        console.log(wallet);
         let contentHTML = `
     <html lang="es">
     <head>
@@ -36,28 +34,30 @@ const estructuraHTML = (content) => {
     <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
-        <ul style="color:black;">
-        <li>Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta ${content.content.correoPersonal}</li>
-        <li>Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta wallet ${content.content.campoAdicional2}</li>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <br>
+        <li style="color:black;">Nombre completo: <span style="font-size: 14px; font-weight: lighter;">${content.content.nomCompleto}.</span></li>
+        <li style="color:black;">Correo electrónico: <span style="font-size: 14px; font-weight: lighter;">${content.content.correoPersonal}.</span></li>
+        <li style="color:black;">Teléfono: <span style="font-size: 14px; font-weight: lighter;">${content.content.telefono}.</span></li>
+        <li style="color:black;">Wallet de ${content.content.recibe}: <span style="font-size: 14px; font-weight: lighter;">${content.content.campoAdicional2}.</span></li>        
+        <li style="color:black;">Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta.</li>
+        <li style="color:black;">Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta.</li>
         </ul>
-
+        <br>       
         <h2 style="color:black;">Acerca de este pedido:</h2>
-        <ul style="color:black;">
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
         <li>Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
         <li>Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
         <li>En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
         <li>Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
         </ul>
-
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
     </html>
     `;
         return contentHTML;
-    } else if (content.content.recibe == "Wise" == content.content.recibe == "Transferencia Bancaria en Euros") {
-        iban = "IBAN de " + content.content.recibe + ": " + content.content.campoAdicional2;
-
+    } else if (content.content.recibe == "Wise" || content.content.recibe == "Transferencia Bancaria en Euros") {
         let contentHTML = `
     <html lang="es">
     <head>
@@ -70,19 +70,21 @@ const estructuraHTML = (content) => {
     <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
-        <ul style="color:black;">
-        <li>Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta ${content.content.correoPersonal}</li>
-        <li>Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta IBAN ${content.content.campoAdicional2}</li>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Nombre completo: <span style="font-size: 14px; font-weight: lighter;">${content.content.nomCompleto}.</span></li>
+        <li style="color:black;">Correo electrónico: <span style="font-size: 14px; font-weight: lighter;">${content.content.correoPersonal}.</span></li>
+        <li style="color:black;">Teléfono: <span style="font-size: 14px; font-weight: lighter;">${content.content.telefono}.</span></li>
+        <li style="color:black;">IBAN de ${content.content.recibe}: <span style="font-size: 14px; font-weight: lighter;">${content.content.campoAdicional2}.</span></li>
+        <li style="color:black;">Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta.</li>
+        <li style="color:black;">Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta.</li>
         </ul>
-
         <h2 style="color:black;">Acerca de este pedido:</h2>
-        <ul style="color:black;">
-        <li>Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
-        <li>Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
-        <li>En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
-        <li>Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
+        <li style="color:black;">Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
+        <li style="color:black;">En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
+        <li style="color:black;">Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
         </ul>
-
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
@@ -90,8 +92,6 @@ const estructuraHTML = (content) => {
     `;
         return contentHTML;
     } else if (content.content.recibe == "Transferencia Bancaria en pesos" || content.content.recibe == "MercadoPago(Saldo en Cuenta)" || content.content.recibe == "Ualá") {
-        cbuAlias = "CBU/Alias de " + content.content.recibe + ": " + content.content.campoAdicional2;
-
         let contentHTML = `
     <html lang="es">
     <head>
@@ -104,19 +104,23 @@ const estructuraHTML = (content) => {
     <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
-        <ul style="color:black;">
-        <li>Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta ${content.content.correoPersonal}</li>
-        <li>Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta con CBU/Alias ${content.content.campoAdicional2}</li>
+        <br>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Nombre completo: <span style="font-size: 14px; font-weight: lighter;">${content.content.nomCompleto}.</span></li>
+        <li style="color:black;">Correo electrónico: <span style="font-size: 14px; font-weight: lighter;">${content.content.correoPersonal}.</span></li>
+        <li style="color:black;">Teléfono: <span style="font-size: 14px; font-weight: lighter;">${content.content.telefono}.</span></li>
+        <li style="color:black;">CBU/Alias ${content.content.recibe}: <span style="font-size: 14px; font-weight: lighter;">${content.content.campoAdicional2}.</span></li>
+        <li style="color:black;">Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta.</li>
+        <li style="color:black;">Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta.</li>
         </ul>
-
+        <br>
         <h2 style="color:black;">Acerca de este pedido:</h2>
-        <ul style="color:black;">
-        <li>Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
-        <li>Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
-        <li>En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
-        <li>Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
+        <li style="color:black;">Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
+        <li style="color:black;">En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
+        <li style="color:black;">Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
         </ul>
-
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
@@ -124,8 +128,6 @@ const estructuraHTML = (content) => {
     `;
         return contentHTML;
     } else if ((content.content.envia == "Skrill" || content.content.envia == "Payoneer" || content.content.envia == "Payeer" || content.content.envia == "Neteller") && ((content.content.recibe == "Skrill" || content.content.recibe == "Payoneer" || content.content.recibe == "Payeer" || content.content.recibe == "Neteller"))) {
-        correoCuenta1 = "Correo de " + content.content.envia + ": " + content.content.campoAdicional1;
-        correoCuenta2 = "Correo de " + content.content.recibe + ": " + content.content.campoAdicional2;
         let contentHTML = `
     <html lang="es">
     <head>
@@ -138,19 +140,22 @@ const estructuraHTML = (content) => {
     <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
-        <ul style="color:black;">
-        <li>Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta ${content.content.campoAdicional1}</li>
-        <li>Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta ${content.content.campoAdicional2}</li>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Nombre completo: <span style="font-size: 14px; font-weight: lighter;">${content.content.nomCompleto}.</span></li>
+        <li style="color:black;">Correo electrónico: <span style="font-size: 14px; font-weight: lighter;">${content.content.correoPersonal}.</span></li>
+        <li style="color:black;">Teléfono: <span style="font-size: 14px; font-weight: lighter;">${content.content.telefono}.</span></li>
+        <li style="color:black;">Correo electrónico de ${content.content.envia}: <span style="font-size: 14px; font-weight: lighter;">${content.content.campoAdicional1}.</span></li>
+        <li style="color:black;">Correo electrónico de ${content.content.recibe}: <span style="font-size: 14px; font-weight: lighter;">${content.content.campoAdicional2}.</span></li>
+        <li style="color:black;">Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta ${content.content.campoAdicional1}.</li>
+        <li style="color:black;">Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta ${content.content.campoAdicional2}.</li>
         </ul>
-
         <h2 style="color:black;">Acerca de este pedido:</h2>
-        <ul style="color:black;">
-        <li>Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
-        <li>Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
-        <li>En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
-        <li>Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
+        <li style="color:black;">Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
+        <li style="color:black;">En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
+        <li style="color:black;">Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
         </ul>
-
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
@@ -172,19 +177,23 @@ const estructuraHTML = (content) => {
     <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
-        <ul style="color:black;">
-        <li>Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta ${content.content.correoPersonal}</li>
-        <li>Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta ${content.content.campoAdicional2}</li>
+        <br>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Nombre completo: <span style="font-size: 14px; font-weight: lighter;">${content.content.nomCompleto}.</span></li>
+        <li style="color:black;">Correo electrónico: <span style="font-size: 14px; font-weight: lighter;">${content.content.correoPersonal}.</span></li>
+        <li style="color:black;">Teléfono: <span style="font-size: 14px; font-weight: lighter;">${content.content.telefono}.</span></li>
+        <li style="color:black;">Correo elctrónico de ${content.content.recibe}: <span style="font-size: 14px; font-weight: lighter;">${content.content.campoAdicional2}.</span></li>
+        <li style="color:black;">Tú envías ${content.content.cantEnvia} ${content.content.enviaAbreviatura} por ${content.content.envia} con tu cuenta.</li>
+        <li style="color:black;">Te enviamos ${content.content.cantRecibe} ${content.content.recibeAbreviatura} por ${content.content.recibe} a tu cuenta ${content.content.campoAdicional2}.</li>
         </ul>
-
+        <br>
         <h2 style="color:black;">Acerca de este pedido:</h2>
-        <ul style="color:black;">
-        <li>Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
-        <li>Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
-        <li>En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
-        <li>Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
+        <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
+        <li style="color:black;">Los envíos no son inmediatos. Generalmente se procesan dentro de las 24 hs una vez acreditado tu envío, siendo 48hs hábiles el tiempo máximo.</li>
+        <li style="color:black;">Utiliza tus datos reales ya que, por motivos de seguridad, puedo solicitarte que envíes documentación para validar tu identidad.</li>
+        <li style="color:black;">En caso de mucha volatilidad y demoras en el envío de tu pago, puede que sea necesario renegociar.</li>
+        <li style="color:black;">Si tienes problemas con esta solicitud y no me he comunicado contigo en las últimas 48 hs, por favor responde este correo para ver el caso.</li>
         </ul>
-
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
     </body>
