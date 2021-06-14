@@ -19,7 +19,6 @@ router.get('/acerca-de-nosotros',indexController.aboutUs);
 router.get('/preguntas-frecuentes', indexController.frequentQuestions);
 
 router.post('/api/form',apiValorController.processForm);
-router.post('/form',indexController.processForm)
 
 router.post('/apis/valor', apiValorController.getValorEntrada);
 router.post('/apis/valores', apiValorController.getValorSalida);

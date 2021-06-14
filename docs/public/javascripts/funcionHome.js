@@ -1299,6 +1299,7 @@ window.addEventListener('DOMContentLoaded', () => {
             )
                 .then(() => {
                     formulario.submit();
+                    location.replace("/")
                 })
 
                 .catch(error => {
@@ -1321,6 +1322,8 @@ window.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => response.json())
             .then(result => {
+        
+
             })
     }
 });

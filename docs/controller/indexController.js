@@ -63,21 +63,6 @@ module.exports = {
             })
 
     },
-    processForm: (req, res) => {
-        db.MediosDePagos.findAll()
-            .then((pagos) => {
-                res.render('index', {
-                    title: "Tu cambio - CAMBIÁ FÁCIL Y SEGURO",
-                    css: 'index.css',
-                    pagos: pagos,
-                    script: "funcionHome.js",
-                    JQueryForm: "JQueryForm.js"
-                })
-            })
-            .catch(error => {
-                res.send(error)
-            })
-    },
     contactForm: (req, res) => {
         res.render('contactForm', {
             title: "Contáctenos - Tu Cambio",
