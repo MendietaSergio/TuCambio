@@ -1,6 +1,6 @@
 
 window.addEventListener('DOMContentLoaded', () => {
-    let url = location.protocol+'//'+location.host;
+    let url = location.protocol + '//' + location.host;
     //VARIABLES DE INPUT ENTRADA Y SALIDA.
     const origen = document.querySelector("#metodoOrigen");
     const destino = document.querySelector("#metodoDestino");
@@ -146,26 +146,26 @@ window.addEventListener('DOMContentLoaded', () => {
     //FUNCION PARA BLOQUEAR Y DESBLOQUEAR LA CAJA DE COMISIONES CUANDO ALGUN MEDIO DE PAGO SEA DE PAYPAL
     let comisionEntrada = document.querySelector('.comisionEntrada');
     let comisionSalida = document.querySelector('.comisionSalida');
-    const cajaComisionDestino = (destino,origen) => {
-            switch (true) {
-                case (origen == 16 && destino == 13) || (origen == 14 && destino == 13) || (origen == 11 && destino == 13):
-                    comisionEntrada.style.display = "block";
-                    comisionSalida.style.display = "block";
-                    break;
-                case destino == 13:
-                    comisionEntrada.style.display = "none";
-                    comisionSalida.style.display = "block";
-                    break;
-                case origen == 16 || origen == 14 || origen == 11:
-                    comisionEntrada.style.display = "block";
-                    comisionSalida.style.display = "none";
-                    break;
-                default:
-                    comisionEntrada.style.display = "none";
-                    comisionSalida.style.display = "none";
-                    break;
-            }
-        
+    const cajaComisionDestino = (destino, origen) => {
+        switch (true) {
+            case (origen == 16 && destino == 13) || (origen == 14 && destino == 13) || (origen == 11 && destino == 13):
+                comisionEntrada.style.display = "block";
+                comisionSalida.style.display = "block";
+                break;
+            case destino == 13:
+                comisionEntrada.style.display = "none";
+                comisionSalida.style.display = "block";
+                break;
+            case origen == 16 || origen == 14 || origen == 11:
+                comisionEntrada.style.display = "block";
+                comisionSalida.style.display = "none";
+                break;
+            default:
+                comisionEntrada.style.display = "none";
+                comisionSalida.style.display = "none";
+                break;
+        }
+
     }
     cajaComisionDestino(destino.value, origen.value);
     const btnSiguiente = document.querySelector('.btn-success');
@@ -182,6 +182,8 @@ window.addEventListener('DOMContentLoaded', () => {
             opcionesEntrada.classList.toggle('active');
             origen.value = e.currentTarget.querySelector('#tituloOrigen').getAttribute('data-id');
             igualdad(origen.value, destino.value);
+            blockBtnEnviar(origen.value, destino.value);
+
             inputAdicional1 = e.currentTarget.querySelector('#tituloOrigen').textContent;
             enviaAbreviatura.innerHTML = e.currentTarget.querySelector('#abreviaturaOrigen').textContent;
             enviaNombre.innerHTML = e.currentTarget.querySelector('.opcionEntrada img').alt;
@@ -222,6 +224,7 @@ window.addEventListener('DOMContentLoaded', () => {
             recibeNombre.innerHTML = e.currentTarget.querySelector('.opcionSalida img').alt;
             campoCBU2(inputAdicional2, origen.value, destino.value)
             igualdad(origen.value, destino.value);
+            blockBtnEnviar(origen.value, destino.value);
             getValor(numEntrada.value, origen.value, destino.value);
             cajaComisionDestino(destino.value, origen.value);
             campoAdicional2.value = "";
@@ -250,7 +253,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValor = (numEntrada, origen, destino) => {
         agregaAbreviaturaInput();
         if (numEntrada > 0 && origen != destino) {
-            fetch(url+`/apis/valor`, {
+            fetch(url + `/apis/valor`, {
                 method: 'POST',
                 body: JSON.stringify({
                     numEntrada,
@@ -289,12 +292,16 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.innerHTML = "Debe ingresar un número."
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
+                    btnEnviar.style.display = "none"
+
                     comisionPagoUno();
-                    break;                    
+                    break;
                 case numEntrada.value < 3000:
                     errorEntrada.innerHTML = "Debe ingresar un mínimo de $3.000";
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
+                    btnEnviar.style.display = "none"
+
                     paypalComision();
                     comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
@@ -303,6 +310,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.innerHTML = " ";
                     errorEntrada.style.display = "none";
                     btnSiguiente.style.display = "block";
+                    btnEnviar.style.display = "block"
+
                     paypalComision();
                     comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
@@ -316,12 +325,16 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.innerHTML = "Debe ingresar un número."
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
+                    btnEnviar.style.display = "none"
+
                     comisionPagoUno();
                     break;
                 case numEntrada.value < 10:
                     errorEntrada.innerHTML = "Debe ingresar un mínimo de $10.";
                     errorEntrada.style.display = "block";
                     btnSiguiente.style.display = "none";
+                    btnEnviar.style.display = "none"
+
                     paypalComision();
                     comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
@@ -330,6 +343,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     errorEntrada.innerHTML = " ";
                     errorEntrada.style.display = "none";
                     btnSiguiente.style.display = "block";
+                    btnEnviar.style.display = "block"
+
                     paypalComision();
                     comisionPagoUno();
                     getValor(numEntrada.value, origen.value, destino.value);
@@ -346,7 +361,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const getValorSalida = (numSalida, origen, destino) => {
         agregaAbreviaturaInput();
         if (numSalida > 0 && origen != destino) {
-            fetch(url+`/apis/valores`, {
+            fetch(url + `/apis/valores`, {
                 method: 'POST',
                 body: JSON.stringify({
                     numSalida,
@@ -402,7 +417,7 @@ window.addEventListener('DOMContentLoaded', () => {
         totalPaypal.innerHTML = numSalida.value;
         deseoPaypal.innerHTML = numSalida.value;
         totalEntrada.innerHTML = numEntrada.value;
-        enviar.innerHTML = numEntrada.value;        
+        enviar.innerHTML = numEntrada.value;
     }
     valorSalida()
     let porcentajeVariable = document.querySelector('.porcentajeVariable');
@@ -446,97 +461,109 @@ window.addEventListener('DOMContentLoaded', () => {
     const igualdad = (origen, destino) => {
         if (origen == destino) {
             msgError.innerHTML = "Elija otro método."
+            btnEnviar.style.display = "none"
         } else {
             msgError.innerHTML = " ";
+            btnEnviar.style.display = "block"
+
+        }
+    }
+    const blockBtnEnviar = (origen, destino) =>{
+        if (origen == destino) {
+            btnEnviar.style.display = "none"
+        } else {
+            btnEnviar.style.display = "block"
         }
     }
     /*HACER UNA FUNCION IGUAL AL DE igualdad PARA QUE NO SE PUEDA ELEGIR ENTRE PESOS*/
-    const evitaCambio = ()=>{
+    const evitaCambio = () => {
         msgError.innerHTML = "Seleccione otro medio."
     }
     let arrowChange = document.querySelector('#arrowChange');
 
     arrowChange.addEventListener('click', () => {
-        if(origen.value == 2 || origen.value ==3){
+        if (origen.value == 2 || origen.value == 3) {
             evitaCambio();
         } else {
-        let imgOrigen = document.querySelector('.contenido-select-Entrada img');
-        let imgDestino = document.querySelector('.contenido-select-Salida img');
-        let abreviaturaDestino = document.querySelector('#abreviaturaDestino');
-        let abreviaturaOrigen = document.querySelector('#abreviaturaOrigen');
-        let newTituloDestino = document.querySelector('#tituloDestino');
-        let newTituloOrigen = document.querySelector('#tituloOrigen');
-        let contentOrigen = {
-            imgSRC: "",
-            imgALT: "",
-            tituloOrigen: "",
-            origen: 0,
-            campoAdicional1: "",
-            dataID: 0,
-            abreviaturaOrigen: ""
-        };
-        let contentDestino = {
-            imgSRC: "",
-            imgALT: "",
-            tituloDestino: "",
-            destino: 0,
-            campoAdicional2: "",
-            dataID: 0,
-            abreviaturaDestino: "",
-            numSalida: 0
-        }
-        agregaAbreviaturaInput();
-        //cargo los valores del objeto ORIGEN
-        contentOrigen.imgALT = imgOrigen.alt.trim();
-        contentOrigen.imgSRC = atrapaBarra(imgOrigen.src);
-        contentOrigen.tituloOrigen = newTituloOrigen.textContent.trim();
-        contentOrigen.dataID = origen.value;
-        contentOrigen.origen = origen.value;
-        contentOrigen.abreviaturaOrigen = abreviaturaOrigen.textContent.trim();
-        //cargo los valores del objeto DESTINO
-        contentDestino.imgALT = imgDestino.alt.trim();
-        contentDestino.imgSRC = atrapaBarra(imgDestino.src);
-        contentDestino.tituloDestino = newTituloDestino.textContent.trim();
-        contentDestino.destino = destino.value;
-        contentDestino.dataID = destino.value;
-        contentDestino.abreviaturaDestino = abreviaturaDestino.textContent.trim();
-        contentDestino.numSalida = numSalida.value;
+            let imgOrigen = document.querySelector('.contenido-select-Entrada img');
+            let imgDestino = document.querySelector('.contenido-select-Salida img');
+            let abreviaturaDestino = document.querySelector('#abreviaturaDestino');
+            let abreviaturaOrigen = document.querySelector('#abreviaturaOrigen');
+            let newTituloDestino = document.querySelector('#tituloDestino');
+            let newTituloOrigen = document.querySelector('#tituloOrigen');
+            let contentOrigen = {
+                imgSRC: "",
+                imgALT: "",
+                tituloOrigen: "",
+                origen: 0,
+                campoAdicional1: "",
+                dataID: 0,
+                abreviaturaOrigen: ""
+            };
+            let contentDestino = {
+                imgSRC: "",
+                imgALT: "",
+                tituloDestino: "",
+                destino: 0,
+                campoAdicional2: "",
+                dataID: 0,
+                abreviaturaDestino: "",
+                numSalida: 0
+            }
+            agregaAbreviaturaInput();
+            //cargo los valores del objeto ORIGEN
+            contentOrigen.imgALT = imgOrigen.alt.trim();
+            contentOrigen.imgSRC = atrapaBarra(imgOrigen.src);
+            contentOrigen.tituloOrigen = newTituloOrigen.textContent.trim();
+            contentOrigen.dataID = origen.value;
+            contentOrigen.origen = origen.value;
+            contentOrigen.abreviaturaOrigen = abreviaturaOrigen.textContent.trim();
+            //cargo los valores del objeto DESTINO
+            contentDestino.imgALT = imgDestino.alt.trim();
+            contentDestino.imgSRC = atrapaBarra(imgDestino.src);
+            contentDestino.tituloDestino = newTituloDestino.textContent.trim();
+            contentDestino.destino = destino.value;
+            contentDestino.dataID = destino.value;
+            contentDestino.abreviaturaDestino = abreviaturaDestino.textContent.trim();
+            contentDestino.numSalida = numSalida.value;
 
-        //CAMBIO DESTINO A ORIGEN 
-        imgOrigen.src = contentDestino.imgSRC;
-        imgOrigen.alt = contentDestino.imgALT;
-        inputAdicional1 = contentDestino.tituloDestino;
-        campoCBU1(inputAdicional1, origen.value, destino.value);
-        newTituloOrigen.setAttribute('data-id', contentDestino.dataID);
-        abreviaturaOrigen.setAttribute('data-id',contentDestino.dataID);
-        newTituloOrigen.innerHTML = contentDestino.tituloDestino;
-        origen.value = contentDestino.destino;
-        abreviaturaOrigen.innerHTML = contentDestino.abreviaturaDestino;
-        abreviaturaEntrada.innerHTML = contentDestino.abreviaturaDestino;
-        numEntrada.value = contentDestino.numSalida;
-        enviaAbreviatura.innerHTML = contentDestino.abreviaturaDestino;//CAMBIO ABREVIATURA DE INPUT
-        enviaNombre.innerHTML = contentDestino.imgALT;
+            //CAMBIO DESTINO A ORIGEN 
+            imgOrigen.src = contentDestino.imgSRC;
+            imgOrigen.alt = contentDestino.imgALT;
+            inputAdicional1 = contentDestino.tituloDestino;
+            campoCBU1(inputAdicional1, origen.value, destino.value);
+            newTituloOrigen.setAttribute('data-id', contentDestino.dataID);
+            abreviaturaOrigen.setAttribute('data-id', contentDestino.dataID);
+            newTituloOrigen.innerHTML = contentDestino.tituloDestino;
+            origen.value = contentDestino.destino;
+            abreviaturaOrigen.innerHTML = contentDestino.abreviaturaDestino;
+            abreviaturaEntrada.innerHTML = contentDestino.abreviaturaDestino;
+            numEntrada.value = contentDestino.numSalida;
+            enviaAbreviatura.innerHTML = contentDestino.abreviaturaDestino;//CAMBIO ABREVIATURA DE INPUT
+            enviaNombre.innerHTML = contentDestino.imgALT;
 
-        //CAMBIO ORIGEN A DESTINO   ===============>> FUNCIONA!
-        imgDestino.src = contentOrigen.imgSRC;
+            //CAMBIO ORIGEN A DESTINO   ===============>> FUNCIONA!
+            imgDestino.src = contentOrigen.imgSRC;
 
-        imgDestino.alt = contentOrigen.imgALT;
-        inputAdicional2 = contentOrigen.tituloOrigen;
-        campoCBU2(inputAdicional2, origen.value, destino.value);
-        newTituloDestino.setAttribute('data-id', contentOrigen.dataID);//para cambiar data-id
-        abreviaturaDestino.setAttribute('data-id',contentOrigen.dataID)
-        newTituloDestino.innerHTML = contentOrigen.tituloOrigen;
-        destino.value = contentOrigen.origen;
-        abreviaturaDestino.innerHTML = contentOrigen.abreviaturaOrigen;
-        abreviaturaSalida.innerHTML = contentOrigen.abreviaturaOrigen;
-        recibeNombre.innerHTML = contentOrigen.imgALT;
-        recibeAbreviatura.innerHTML = contentOrigen.abreviaturaOrigen;//CAMBIO ABREVIATURA DE INPUT
-        changeValue();
+            imgDestino.alt = contentOrigen.imgALT;
+            inputAdicional2 = contentOrigen.tituloOrigen;
+            campoCBU2(inputAdicional2, origen.value, destino.value);
+            newTituloDestino.setAttribute('data-id', contentOrigen.dataID);//para cambiar data-id
+            abreviaturaDestino.setAttribute('data-id', contentOrigen.dataID)
+            newTituloDestino.innerHTML = contentOrigen.tituloOrigen;
+            destino.value = contentOrigen.origen;
+            abreviaturaDestino.innerHTML = contentOrigen.abreviaturaOrigen;
+            abreviaturaSalida.innerHTML = contentOrigen.abreviaturaOrigen;
+            recibeNombre.innerHTML = contentOrigen.imgALT;
+            recibeAbreviatura.innerHTML = contentOrigen.abreviaturaOrigen;//CAMBIO ABREVIATURA DE INPUT
+            changeValue();
         }
     })
     const changeValue = () => {
-        campoCBU1(inputAdicional1,origen.value,destino.value);
+        campoCBU1(inputAdicional1, origen.value, destino.value);
         igualdad(origen.value, destino.value);
+        blockBtnEnviar(origen.value, destino.value);
+
         getValor(numEntrada.value, origen.value, destino.value);
         cajaComisionDestino(destino.value, origen.value);
         paypalComision();
@@ -1311,7 +1338,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const submitForm = (content) => {
-        fetch(url+`/api/form`, {
+        fetch(url + `/api/form`, {
             method: 'POST',
             body: JSON.stringify({
                 content
@@ -1322,7 +1349,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => response.json())
             .then(result => {
-        
+
 
             })
     }
