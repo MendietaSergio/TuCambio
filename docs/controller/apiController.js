@@ -31,7 +31,8 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+    <div>
+    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200px; width:400px" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
@@ -53,6 +54,7 @@ const estructuraHTML = (content) => {
         </ul>
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
+        </div>
     </body>
     </html>
     `;
@@ -67,7 +69,8 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+    <div>
+    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200px; width:400px" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
@@ -87,6 +90,7 @@ const estructuraHTML = (content) => {
         </ul>
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
+    </div>
     </body>
     </html>
     `;
@@ -101,7 +105,8 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+    <div>
+    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200px; width:400px" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <br>
@@ -123,6 +128,7 @@ const estructuraHTML = (content) => {
         </ul>
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
+    </div>
     </body>
     </html>
     `;
@@ -137,7 +143,8 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+    <div>
+    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200px; width:400px" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <ul style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">
@@ -158,13 +165,14 @@ const estructuraHTML = (content) => {
         </ul>
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
+    </div>
     </body>
     </html>
     `;
         return contentHTML;
     } else {
         correoCuenta2 = "Correo de " + content.content.recibe + ": " + content.content.campoAdicional2;
-  
+
         let contentHTML = `
     <html lang="es">
     <head>
@@ -174,7 +182,8 @@ const estructuraHTML = (content) => {
         <title>Tu cambio</title>
     </head>
     <body style="color:black;">
-    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200; width:400" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
+    <div>
+    <a href="https://www.tucambio.com.ar"><img style="margin:auto; display:block; background-color:rgb(43, 128, 87); height:200px; width:400px" src="https://www.tucambio.com.ar/img/Logo.png" title="Tu Cambio" alt="TuCambio"></a>
         <h1 style="color:black;">Este es tu pedido, revísalo</h1>
         <h2 style="color:black;">¡Hola! Primero que nada, muchas gracias por tu pedido. Éste es el detalle del mismo:</h2>
         <br>
@@ -196,6 +205,7 @@ const estructuraHTML = (content) => {
         </ul>
         <h2 style="color:black;"> Un cordial saludo...
         El equipo de <a href="https://www.tucambio.com.ar">www.tucambio.com.ar</a></h2>
+    </div>
     </body>
     </html>
     `;
@@ -221,34 +231,34 @@ module.exports = {
                                 if (origen == medios[index].id && destino == medios[subIndex].id) {
                                     switch (true) {
                                         //PESOS A DOLARES
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USD":                                             
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USD":
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USDt":                                             
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "USDt":
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "EUR":                                             
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "EUR":
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "DAI":                                             
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "DAI":
                                             resultado = (numEntrada / result.coeficiente).toFixed(2);
                                             break;
-                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "BTC":                                             
+                                        case medios[index].abreviatura == "ARS" && medios[subIndex].abreviatura == "BTC":
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "EUR" && medios[subIndex].abreviatura == "BTC":                                             
+                                        case medios[index].abreviatura == "EUR" && medios[subIndex].abreviatura == "BTC":
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "USD" && medios[subIndex].abreviatura == "BTC":                                             
+                                        case medios[index].abreviatura == "USD" && medios[subIndex].abreviatura == "BTC":
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "USDt" && medios[subIndex].abreviatura == "BTC":                                             
+                                        case medios[index].abreviatura == "USDt" && medios[subIndex].abreviatura == "BTC":
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        case medios[index].abreviatura == "DAI" && medios[subIndex].abreviatura == "BTC":                                             
+                                        case medios[index].abreviatura == "DAI" && medios[subIndex].abreviatura == "BTC":
                                             resultado = (numEntrada / result.coeficiente).toFixed(8);
                                             break;
-                                        default:                                             
+                                        default:
                                             resultado = (numEntrada * result.coeficiente).toFixed(2);
                                             break;
                                     }
@@ -322,7 +332,7 @@ module.exports = {
     },
     processEdit: (req, res) => {
         const { coeficiente, origen, destino } = req.body;
-        if(origen == 1 || origen ==4){
+        if (origen == 1 || origen == 4) {
             db.Coeficientes.update({
                 coeficiente: coeficiente
             }, {
@@ -344,7 +354,7 @@ module.exports = {
                 .catch(error => {
                     res.send(error)
                 })
-        }else{
+        } else {
             db.Coeficientes.update({
                 coeficiente: coeficiente
             }, {
@@ -359,7 +369,7 @@ module.exports = {
                     res.send(error)
                 })
         }
-        
+
     },
     processProfileEdit: (req, res) => {
         // //SEGUIR DESDE ACÁ, DA ERROR
