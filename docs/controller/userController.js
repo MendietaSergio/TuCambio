@@ -85,6 +85,12 @@ module.exports = {
             })
         }
     },
+    listOrders: (req,res) =>{
+        res.render('listOrders',{
+            title:'Lista de ordenes',
+            css: 'listOrders.css',
+        })
+    },
     logout: (req, res) => {
         req.session.destroy()
         return res.redirect('/');
