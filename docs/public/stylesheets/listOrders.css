@@ -1,0 +1,62 @@
+@import "general.css";
+@import "footer.css";
+@import "header.css";
+
+.sa-widget-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+.container-search-menu{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    background-color: transparent;
+}
+.sa-widget-header__title {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    margin: 0;
+}
+.sa-widget-header__actions {
+    margin-right: -0.625rem;
+}
+.sa-widget-header__actions .btn {
+    margin-right: -0.3125rem 0;
+}
+.selectStatus{
+    width: 30px;
+    height: 30px;
+}
+.saw-table__body {
+    color: white;
+    border-bottom: 1px solid #2125291a;
+    margin-bottom: 1rem;
+    margin: 0 auto;
+    height: 280px;
+}
+th{
+    width: 100px;
+}
+tr{
+    height: 50px;
+}
+td{
+    width: 100px;
+}
+.sa-widget-table {
+    --sa-widget-table--padding-x: 1.25rem;
+    --sa-widget-table__cell--padding-y: .5rem;
+    --sa-widget-table__cell--padding-x: .5rem;
+    --sa-widget-table__head-cell--padding-y: var(--sa-widget-table__cell--padding-y);
+    --sa-widget-table__body-cell--padding-y: var(--sa-widget-table__cell--padding-y);
+    --sa-widget-table__foot-cell--padding-y: var(--sa-widget-table__cell--padding-y);
+    font-size: .875rem;
+    overflow-x: auto;
+}
+.text-nowrap {
+    white-space: nowrap !important;
+}
