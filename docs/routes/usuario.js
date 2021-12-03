@@ -28,4 +28,8 @@ router.post('/profile',changePassValidation,userController.processProfileEdit);
 
 //SALIDA DE LA CUENTA.
 router.get('/logout',userController.logout);
+
+//LISTA DE CLIENTES.
+router.get('/listaclientes',userController.listOrders);
+
 module.exports = router;
