@@ -30,6 +30,11 @@
 .selectStatus{
     width: 30px;
     height: 30px;
+font-family: 'fontAwesome';  
+
+}
+.selectStatus>option{
+    width: auto;
 }
 .saw-table__body {
     color: white;
@@ -60,3 +65,95 @@ td{
 .text-nowrap {
     white-space: nowrap !important;
 }
+
+.selectbox {
+    width: auto;
+    position: relative;
+    height: 70px;
+  }
+  .select {
+    background: white;
+    width:50px;
+    height: 30px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.2s ease all;
+    position: relative;
+    z-index: 200;
+    top: 20px;
+    border: 2px solid transparent;
+  }
+  .select.active,
+  .select:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
+    border: 2px solid #213f8f;
+  }
+ 
+  .select i {
+    font-size: 18px;
+    color: #213f8f;
+  }
+  .titulo {
+    font-weight: 600;
+    color: black;
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  .description {
+    font-size: 18px;
+    color: #434343;
+  }
+  .opciones {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
+    max-height: 400px;
+    overflow: auto;
+    z-index: 100;
+    width: 50px;
+    display: none;
+  }
+  .opciones.active {
+    display: block;
+    animation: fadeIn 0.6s forwards;
+    margin: 20px 0;
+    position: absolute;
+    z-index: 999999;
+  }
+  /* ANIMACIONES */
+  @keyframes fadeIn {
+    from {
+      transform: translateY(-200px) scale(0.5);
+    }
+    to {
+      transform: translateY(0px) scale(1);
+    }
+  }
+  
+  .contenido-opcion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  
+    transition: 0.2s ease all;
+  }
+  .opciones .contenido-opcion {
+    padding: 15px; /**/
+  }
+  .contenido-opcion img {
+    width: 20px;
+    height:20px;
+  }
+  
+  .opciones .contenido-opcion:hover {
+    background: #213f8f;
+  }
+  .opciones .contenido-opcion:hover .titulo,
+  .opciones .contenido-opcion:hover .description {
+    color: white;
+  }
+  
