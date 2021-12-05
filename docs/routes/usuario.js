@@ -31,5 +31,7 @@ router.get('/logout',userController.logout);
 
 //LISTA DE CLIENTES.
 router.get('/listaclientes',userController.listOrders);
+router.post('/listaclientes',userController.add);
+router.get('/lista',userController.list);
 
 module.exports = router;
