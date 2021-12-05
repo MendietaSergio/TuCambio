@@ -72,7 +72,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td><a href="app-order.html" class="text-reset">#00745</a></td>
             <td>
               <div class="d-flex fs-6">
@@ -80,11 +80,34 @@
               </div>
             </td>
             <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
+              <div class="selectbox">
+                <div class="select" id="select">
+                  <div class="contenido-select">
+                    <div class="contenido-opcion">
+                      <img src="../img/status/realizado.png" alt="checked" />
+                    </div>
+                  </div>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="opciones" id="opciones">
+                  <a href="#" class="opcion">
+                    <div class="contenido-opcion">
+                      <img src="../img/status/realizado.png" alt="checked" />
+                    </div>
+                  </a>
+                  <a href="#" class="opcion">
+                    <div class="contenido-opcion">
+                      <img src="../img/status/cancelado.png" alt="checked" />
+                    </div>
+                  </a>
+                  <a href="#" class="opcion">
+                    <div class="contenido-opcion">
+                      <img src="../img/status/pendiente.png" alt="checked" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <input type="hidden" name="estado" id="inputSelect" value="" />
             </td>
             <td>
               <div class="d-flex align-items-center">
@@ -95,175 +118,76 @@
                 </div>
               </div>
             </td>
-          </tr>
+          </tr> -->
+          <% listClient.forEach((client) =>{ %>
           <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
+            <td><%= client.orden %>
+            </td>
             <td>
               <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
-            </td>
-            <td>
-              <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
+                <div class="badge badge-sa-primary">
+                  <%= client.nomCompleto %>
                 </div>
               </div>
             </td>
-          </tr>
-          <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
             <td>
               <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
-            </td>
-            <td>
-              <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
+                <div class="badge badge-sa-primary">
+                  <div class="selectbox">
+                    <div class="select" id="select">
+                      <div class="contenido-select">
+                        <div class="contenido-opcion">
+                          <img
+                            src="../img/status/<%= client.estado %>.png"
+                            alt="<% client.estado %>"
+                          />
+                        </div>
+                      </div>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="opciones" id="opciones">
+                      <a href="#" class="opcion">
+                        <div class="contenido-opcion">
+                          <img
+                            src="../img/status/realizado.png"
+                            alt="checked"
+                          />
+                        </div>
+                      </a>
+                      <a href="#" class="opcion">
+                        <div class="contenido-opcion">
+                          <img
+                            src="../img/status/cancelado.png"
+                            alt="checked"
+                          />
+                        </div>
+                      </a>
+                      <a href="#" class="opcion">
+                        <div class="contenido-opcion">
+                          <img
+                            src="../img/status/pendiente.png"
+                            alt="checked"
+                          />
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <input
+                    type="hidden"
+                    name="estado"
+                    id="inputSelect"
+                    value=""
+                  />
                 </div>
               </div>
             </td>
-          </tr>
-          <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
-            <td>
-              <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
-            </td>
             <td>
               <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
-                </div>
+                <div><%= client.created_at %></div>
               </div>
             </td>
           </tr>
-          <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
-            <td>
-              <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
-            </td>
-            <td>
-              <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
-            <td>
-              <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
-            </td>
-            <td>
-              <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
-            <td>
-              <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
-            </td>
-            <td>
-              <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
-            <td>
-              <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <select name="selectStatus" id="selectStatus">
-                <option>Cancelado</option>
-                <option>Confirmado</option>
-                <option>Pendiente</option>
-              </select>
-            </td>
-            <td>
-              <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
+          <% }) %>
         </tbody>
       </table>
     </div>
@@ -271,3 +195,4 @@
 </div>
 
 <%- include('./partials/footer.ejs') %>
+<script src="/javascripts/<%=viewListClient%>"></script>
