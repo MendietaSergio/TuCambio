@@ -1,35 +1,35 @@
 const db = require('../database/models');
 const nodeMailer = require('nodemailer');
 //PRUEBANODEMAILER@GMAIL.COM
-// var smtpConfig = {
-//     host: 'smtp.gmail.com',
-//     secureConnection: true,
-//     port: 465,
-//     secure: true, // use SSL
-//     auth: {
-//         user: 'pruebanodemailers@gmail.com',
-//         pass: 'aduwbhzuypeuefam'
-//     },
-//     tls: {
-//         rejectUnauthorized: false,
-//         secureProtocol: "TLSv1_method"
-//     }
-// };
-//tucambio.ok@gmail.com PRUEBA
 var smtpConfig = {
     host: 'smtp.gmail.com',
     secureConnection: true,
     port: 465,
     secure: true, // use SSL
     auth: {
-        user: process.env.USER_MAIL_CONTACT,
-        pass: process.env.USER_PASSWORD_CONTACT
+        user: 'pruebanodemailers@gmail.com',
+        pass: 'aduwbhzuypeuefam'
     },
     tls: {
         rejectUnauthorized: false,
         secureProtocol: "TLSv1_method"
     }
 };
+//tucambio.ok@gmail.com PRUEBA
+// var smtpConfig = {
+//     host: 'smtp.gmail.com',
+//     secureConnection: true,
+//     port: 465,
+//     secure: true, // use SSL
+//     auth: {
+//         user: process.env.USER_MAIL_CONTACT,
+//         pass: process.env.USER_PASSWORD_CONTACT
+//     },
+//     tls: {
+//         rejectUnauthorized: false,
+//         secureProtocol: "TLSv1_method"
+//     }
+// };
 var transporter = nodeMailer.createTransport(smtpConfig);
 // var smtpConfig = {
 //     host: process.env.HOST_MAIL,
@@ -74,7 +74,8 @@ module.exports = {
         let content = req.body;
         let mailOptions = {
             from: `Tu cambio - Datos de contacto <>`,
-            to: process.env.USER_MAIL_CONTACT,
+            // to: process.env.USER_MAIL_CONTACT,
+            to: "pruebanodemailers@gmail.com",
             subject: 'Datos de contacto',
             html: `
             <html lang="es">
@@ -102,7 +103,7 @@ module.exports = {
         }
         transporter.sendMail(mailOptions, function (errors, info) {
             if (errors) {
-                console.log("Correo no enviado");
+                console.log("Correo no enviado indexController");
             } else {
                 console.log("Correo enviado " + info.response);
             }
