@@ -72,61 +72,92 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr>
-            <td><a href="app-order.html" class="text-reset">#00745</a></td>
-            <td>
-              <div class="d-flex fs-6">
-                <div class="badge badge-sa-primary">Pending</div>
-              </div>
-            </td>
-            <td>
-              <div class="selectbox">
-                <div class="select" id="select">
-                  <div class="contenido-select">
-                    <div class="contenido-opcion">
-                      <img src="../img/status/realizado.png" alt="checked" />
-                    </div>
-                  </div>
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="opciones" id="opciones">
-                  <a href="#" class="opcion">
-                    <div class="contenido-opcion">
-                      <img src="../img/status/realizado.png" alt="checked" />
-                    </div>
-                  </a>
-                  <a href="#" class="opcion">
-                    <div class="contenido-opcion">
-                      <img src="../img/status/cancelado.png" alt="checked" />
-                    </div>
-                  </a>
-                  <a href="#" class="opcion">
-                    <div class="contenido-opcion">
-                      <img src="../img/status/pendiente.png" alt="checked" />
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <input type="hidden" name="estado" id="inputSelect" value="" />
-            </td>
-            <td>
-              <div class="d-flex align-items-center">
-                <div>
-                  <a href="app-customer.html" class="text-reset"
-                    >Giordano Bruno</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr> -->
           <% listClient.forEach((client) =>{ %>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="modalClient<%= client.orden %>"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Datos del cliente <%=client.orden%>
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Nombre Completo:
+                    <span class="modal-title" id="nombre"
+                      ><%= client.nombreCompleto %> asds
+                    </span>
+                  </h5>
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Correo personal:
+                    <span class="modal-title" id="nombre"
+                      ><%= client.correoPersonal %>
+                    </span>
+                  </h5>
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Telefono:
+                    <span class="modal-title" id="nombre"
+                      ><%= client.telefono %>
+                    </span>
+                  </h5>
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Campo Adicional 1: 
+                    <span class="modal-title" id="nombre"
+                      ><%= client.campoAdicional%>
+                    </span>
+                  </h5>
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Campo Adicional 2:
+                    <span class="modal-title" id="nombre"
+                      ><%= client.campoAdiciona2%>
+                    </span>
+                  </h5>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <tr>
-            <td><%= client.orden %>
+            <td>
+              <a
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#modalClient<%= client.orden %>"
+              >
+                <%= client.orden %>
+              </a>
             </td>
             <td>
               <div class="d-flex fs-6">
                 <div class="badge badge-sa-primary">
-                  <%= client.nomCompleto %>
+                  <a
+                    class="modalClient"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalClient"
+                  >
+                    <%= client.nomCompleto %>
+                  </a>
                 </div>
               </div>
             </td>
@@ -134,8 +165,12 @@
               <div class="d-flex fs-6">
                 <div class="badge badge-sa-primary">
                   <div class="selectbox">
-                    <div class="select" id="select">
-                      <div class="contenido-select">
+                    <div
+                      class="select"
+                      id="select<%=client.orden%>"
+                      onclick="actionSelector(event, '<%=client.orden%>')"
+                    >
+                      <div class="contenido-select<%=client.orden%>" id="contenido-select<%=client.orden%>">
                         <div class="contenido-opcion">
                           <img
                             src="../img/status/<%= client.estado %>.png"
@@ -145,39 +180,33 @@
                       </div>
                       <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="opciones" id="opciones">
-                      <a href="#" class="opcion">
+                    <div class="opciones" id="opciones<%=client.orden%>">
+                      <a href="#" class="opcion" onclick="actionSelected(event,'<%=client.orden%>', 'realizado', '<%=client._id%>')">
                         <div class="contenido-opcion">
                           <img
                             src="../img/status/realizado.png"
-                            alt="checked"
+                            alt="realizado"
                           />
                         </div>
                       </a>
-                      <a href="#" class="opcion">
+                      <a href="#" class="opcion" onclick="actionSelected(event,'<%=client.orden%>', 'cancelado', '<%=client._id%>')" >
                         <div class="contenido-opcion">
                           <img
                             src="../img/status/cancelado.png"
-                            alt="checked"
+                            alt="cancelado"
                           />
                         </div>
                       </a>
-                      <a href="#" class="opcion">
+                      <a href="#" class="opcion" onclick="actionSelected(event,'<%=client.orden%>', 'pendiente', '<%=client._id%>')">
                         <div class="contenido-opcion">
                           <img
                             src="../img/status/pendiente.png"
-                            alt="checked"
+                            alt="pendiente"
                           />
                         </div>
                       </a>
                     </div>
                   </div>
-                  <input
-                    type="hidden"
-                    name="estado"
-                    id="inputSelect"
-                    value=""
-                  />
                 </div>
               </div>
             </td>
