@@ -1,15 +1,19 @@
 const mongoose = require("mongoose");
-let fecha = new Date()
-fecha = fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()
+let fecha = new Date();
+fecha =
+  fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
 console.log(fecha);
 const listClientSchema = mongoose.Schema({
-  envia: {
+  estado: {
     type: String,
   },
-  nomCompleto: {
+  orden: {
     type: String,
   },
-  correoPersonal: {
+  nombreCompleto: {
+    type: String,
+  },
+  correoElectronico: {
     type: String,
   },
   telefono: {
@@ -20,31 +24,17 @@ const listClientSchema = mongoose.Schema({
   },
   campoAdicional2: {
     type: String,
-  },
-  recibeAbreviatura: {
-    type: String,
-  },
-  enviaAbreviatura: {
-    type: String,
-  },
-  cantEnviar: {
-    type: String,
+    default: "-",
   },
   recibe: {
     type: String,
   },
-  cantRecibe: {
-    type: String,
-  },
-  orden: {
-    type: String,
-  },
-  estado: {
+  envia: {
     type: String,
   },
   created_at: {
     type: String,
-    default: fecha
+    default: fecha,
   },
 });
 
