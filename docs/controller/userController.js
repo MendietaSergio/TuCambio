@@ -88,14 +88,14 @@ module.exports = {
   },
   listOrders: async (req, res) => {
     try {
-      const listClient = await ListClient.find({})
+      const listClient = await ListClient.find({});
       console.log(listClient);
       res.render("listOrders", {
         title: "Lista de ordenes",
         css: "listOrders.css",
         viewListClient: "viewListClient.js",
         listClient: listClient,
-        data: data
+        data: data,
       });
     } catch (error) {
       console.log("error =>> ", error);
@@ -104,7 +104,24 @@ module.exports = {
   add: (req, res) => {
     console.log("body nodemon ==> ", req.body);
   },
-  list: (req, res) => {},
+  update: async (req, res) => {
+    const { _id, status } = req.body;
+    console.log(req.body);
+    console.log(_id);
+    console.log(status);
+    await ListClient.updateOne(
+      { _id: _id },
+      {
+        $set: {
+          estado: status,
+        },
+      }
+    );
+    res.json({
+      message: "Estado cambiado !",
+    });
+    // const updateStatus = await ListClient.updateOne({_id:id})
+  },
   logout: (req, res) => {
     req.session.destroy();
     return res.redirect("/");
@@ -113,14 +130,14 @@ module.exports = {
 const data = [
   {
     id: 1,
-    img:"realizado",
+    img: "realizado",
   },
   {
     id: 2,
-    img:"cancelado",
+    img: "cancelado",
   },
   {
     id: 3,
-    img:"pendiente",
-  }
-]
+    img: "pendiente",
+  },
+];
