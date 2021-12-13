@@ -88,21 +88,26 @@ module.exports = {
   },
   listOrders: async (req, res) => {
     try {
-      const listClient = await ListClient.find({});
-      console.log(listClient);
+     
       res.render("listOrders", {
         title: "Lista de ordenes",
         css: "listOrders.css",
         viewListClient: "viewListClient.js",
-        listClient: listClient,
-        data: data,
+        // listClient: listClient,
+        // data: data,
       });
     } catch (error) {
       console.log("error =>> ", error);
     }
   },
-  add: (req, res) => {
-    console.log("body nodemon ==> ", req.body);
+  list: async (req, res) => {
+    try{
+      const listClient = await ListClient.find({});
+      console.log(listClient);
+      res.json(listClient)
+    } catch(error){
+      console.log("Error=> ",error);
+    }
   },
   update: async (req, res) => {
     const { _id, status } = req.body;
