@@ -8,7 +8,7 @@ const listClientSchema = mongoose.Schema({
     type: String,
   },
   orden: {
-    type: String,
+    type: Number,
   },
   nombreCompleto: {
     type: String,
@@ -22,7 +22,14 @@ const listClientSchema = mongoose.Schema({
   campoAdicional1: {
     type: String,
   },
+  campoAdicional1Valor: {
+    type: String,
+  },
   campoAdicional2: {
+    type: String,
+    default: "-",
+  },
+  campoAdicional2Valor: {
     type: String,
     default: "-",
   },
