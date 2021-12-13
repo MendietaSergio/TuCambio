@@ -43,6 +43,18 @@ const estructuraHTML = (content) => {
     content.content.recibe == "DAI" ||
     content.content.recibe == "Tether"
   ) {
+    let data ={
+      'nombreCompleto':content.content.nomCompleto,
+      'correoElectronico':content.content.correoPersonal,
+      'telefono': content.content.telefono,
+      'campoAdicional1': "Wallet de "+content.content.recibe+": ",
+      'campoAdicional1Valor': content.content.campoAdicional2,
+      'recibe':content.content.cantRecibe+" "+content.content.recibeAbreviatura+" por "+content.content.recibe+ " a su cuenta",
+      'envia':content.content.cantEnvia +" "+ content.content.enviaAbreviatura+" por "+content.content.envia+" con su cuenta",
+      'orden':content.content.orden,
+      'estado':'pendiente'
+    }
+    sendData(data)
     let contentHTML = `
     <html lang="es">
     <head>
@@ -84,6 +96,18 @@ const estructuraHTML = (content) => {
     content.content.recibe == "Wise" ||
     content.content.recibe == "Transferencia Bancaria en Euros"
   ) {
+    let data ={
+      'nombreCompleto':content.content.nomCompleto,
+      'correoElectronico':content.content.correoPersonal,
+      'telefono': content.content.telefono,
+      'campoAdicional1': "IBAN de"+content.content.recibe+": ",
+      'campoAdicional1Valor':content.content.campoAdicional2,
+      'recibe':content.content.cantRecibe+" "+content.content.recibeAbreviatura+" por "+content.content.recibe+ " a su cuenta",
+      'envia':content.content.cantEnvia +" "+ content.content.enviaAbreviatura+" por "+content.content.envia+" con su cuenta",
+      'orden':content.content.orden,
+      'estado':'pendiente'
+    }
+    sendData(data)
     let contentHTML = `
     <html lang="es">
     <head>
@@ -124,6 +148,18 @@ const estructuraHTML = (content) => {
     content.content.recibe == "MercadoPago(Saldo en Cuenta)" ||
     content.content.recibe == "Ualá"
   ) {
+    let data ={
+      'nombreCompleto':content.content.nomCompleto,
+      'correoElectronico':content.content.correoPersonal,
+      'telefono': content.content.telefono,
+      'campoAdicional1': "CBU/Alias "+content.content.recibe+": ",
+      'campoAdicional1Valor': content.content.campoAdicional2,
+      'recibe':content.content.cantRecibe+" "+content.content.recibeAbreviatura+" por "+content.content.recibe+ " a su cuenta",
+      'envia':content.content.cantEnvia +" "+ content.content.enviaAbreviatura+" por "+content.content.envia+" con su cuenta",
+      'orden':content.content.orden,
+      'estado':'pendiente'
+    }
+    sendData(data)
     let contentHTML = `
     <html lang="es">
     <head>
@@ -171,6 +207,20 @@ const estructuraHTML = (content) => {
       content.content.recibe == "Payeer" ||
       content.content.recibe == "Neteller")
   ) {
+    let data ={
+      'nombreCompleto':content.content.nomCompleto,
+      'correoElectronico':content.content.correoPersonal,
+      'telefono': content.content.telefono,
+      'campoAdicional1':"Correo electronico de "+content.content.envia+": ",
+      'campoAdicional1Valor': content.content.campoAdicional1,
+      'campoAdicional2':"Correo electronico de "+content.content.recibe+": ",
+      'campoAdicional2Valor': content.content.campoAdicional2,
+      'recibe':content.content.cantRecibe+" "+content.content.recibeAbreviatura+" por "+content.content.recibe+ " a su cuenta",
+      'envia':content.content.cantEnvia +" "+ content.content.enviaAbreviatura+" por "+content.content.envia+" con su cuenta",
+      'orden':content.content.orden,
+      'estado':'pendiente'
+    }
+    sendData(data)
     let contentHTML = `
     <html lang="es">
     <head>
@@ -213,7 +263,18 @@ const estructuraHTML = (content) => {
       content.content.recibe +
       ": " +
       content.content.campoAdicional2;
-
+      let data ={
+        'nombreCompleto':content.content.nomCompleto,
+        'correoElectronico':content.content.correoPersonal,
+        'telefono': content.content.telefono,
+        'campoAdicional1': "Correo electronico de "+content.content.recibe+": ",
+        'campoAdicional1Valor': content.content.campoAdicional2,
+        'recibe':content.content.cantRecibe+" "+content.content.recibeAbreviatura+" por "+content.content.recibe+ " a su cuenta",
+        'envia':content.content.cantEnvia +" "+ content.content.enviaAbreviatura+" por "+content.content.envia+" con su cuenta",
+        'orden':content.content.orden,
+        'estado':'pendiente'
+      }
+      sendData(data)
     let contentHTML = `
     <html lang="es">
     <head>
@@ -494,19 +555,7 @@ module.exports = {
       subject: "Este es tu pedido, revísalo.",
       html: contentHTML,
     };
-    const listClient = new ListClient(content.content);
-
-    console.log("sendata ", content);
-    console.log("listClient ", listClient);
-    try {
-      await listClient.save();
-      res.json({
-        message: "Agregado!",
-      });
-    } catch (error) {
-      console.log(error);
-      res.send(error);
-    }
+    
     // sendData(content);
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
@@ -518,4 +567,17 @@ module.exports = {
     });
   },
 };
-const sendData = async (data) => {};
+const sendData = async (data) => {
+  console.log(
+    "data desde sendData => ",data
+  );
+  const listClient = new ListClient(data);
+
+    // console.log("sendata ", content);
+    console.log("listClient ", listClient);
+    try {
+      await listClient.save();
+    } catch (error) {
+      console.log(error);
+    }
+};
