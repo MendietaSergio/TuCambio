@@ -1347,6 +1347,7 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     let elementos = formulario.elements;
     var currentDate = new Date();
+    let orden01=(count+currentDate.getSeconds())+""+currentDate.getMilliseconds()
     let content = {
       envia: enviaNombre.textContent,
       cantEnvia: numEntrada.value,
@@ -1359,7 +1360,7 @@ window.addEventListener("DOMContentLoaded", () => {
       campoAdicional2: campoAdicional2.value,
       recibeAbreviatura: (recibeAbreviatura.textContent.trim()),
       enviaAbreviatura: (enviaAbreviatura.textContent.trim()),
-      orden: 00+""+(count+currentDate.getSeconds())+""+currentDate.getMilliseconds(),
+      orden: 00+parseInt(orden01),
       estado: "pendiente"
     };
     let error = false;
