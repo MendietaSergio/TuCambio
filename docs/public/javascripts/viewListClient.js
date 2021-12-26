@@ -1,17 +1,14 @@
 let url = location.protocol + "//" + location.host;
 let newData;
-// window.addEventListener("DOMContentLoaded", () => {
+
 const ListClient = async () => {
   await fetch(url + "/admin/list")
     .then((response) => response.json())
     .then((data) => {
-      console.log("data fetch");
-      console.log(data);
       mostrarData(data);
     })
     .catch((error) => console.log(error));
 };
-console.log(url);
 const preloader = document.querySelector("#preloader");
 ListClient();
 let loading = `<div class="preloader" ></div> 
@@ -25,7 +22,6 @@ const mostrarData = (data) => {
   <span >Cargando...</span>`;
   preloader.style.display = "display";
   document.getElementById("preloader").innerHTML = loading;
-  console.log("prelaoader");
   document.getElementById("bodyData").innerHTML = body;
   document.getElementById("modal-container").innerHTML = modal;
   setTimeout(function () {
@@ -51,7 +47,7 @@ const mostrarData = (data) => {
                 </a>
               </td>
               <td>
-                <div class="d-flex fs-6">
+                <div class="fs-6">
                   <div class="badge badge-sa-primary">
                     <div class="selectbox">
                       <div
@@ -74,7 +70,6 @@ const mostrarData = (data) => {
                       </div>
                       <div class="opciones" id="opciones${data[i].orden}">
                         <a
-                          href="#"
                           class="opcion"
                           onclick="actionSelected(event,'${data[i].orden}', 'realizado', '${data[i]._id}')"
                         >
@@ -86,7 +81,17 @@ const mostrarData = (data) => {
                           </div>
                         </a>
                         <a
-                          href="#"
+                          class="opcion"
+                          onclick="actionSelected(event,'${data[i].orden}', 'acreditado', '${data[i]._id}')"
+                        >
+                          <div class="contenido-opcion">
+                            <img
+                              src="../img/status/acreditado.png"
+                              alt="acreditado"
+                            />
+                          </div>
+                        </a>
+                        <a
                           class="opcion"
                           onclick="actionSelected(event,'${data[i].orden}', 'cancelado', '${data[i]._id}')"
                         >
@@ -98,7 +103,6 @@ const mostrarData = (data) => {
                           </div>
                         </a>
                         <a
-                          href="#"
                           class="opcion"
                           onclick="actionSelected(event,'${data[i].orden}', 'pendiente', '${data[i]._id}')"
                         >
@@ -115,14 +119,13 @@ const mostrarData = (data) => {
                 </div>
               </td>
               <td>
-                <div class="d-flex align-items-center">
+                <div class="align-items-center">
                   <div> ${data[i].created_at}</div>
                 </div>
               </td>
             </tr>
             
             `;
-      // <script src="/javascripts/actionsList.js"></script>
       if (data[i].campoAdicional2 !== "-") {
         modal += `<div
             class="modal fade"
@@ -282,12 +285,11 @@ const mostrarData = (data) => {
     preloader.style.display = "none";
     loading = "";
     document.getElementById("preloader").innerHTML = loading;
-    console.log("prelaoader");
     document.getElementById("bodyData").innerHTML = body;
     document.getElementById("modal-container").innerHTML = modal;
   }, 2000);
 };
-// });
+// SELECCION DE ESTOS Y ACTUALIZACIÓN DEL MISMO
 const select = document.querySelector("#select");
 const opciones = document.querySelector("#opciones");
 const contenidoSelect = document.querySelector("#select .contenido-select ");
@@ -295,12 +297,10 @@ const status = document.querySelector(".contenido-opcion img");
 const actionSelector = (e, id) => {
   e.preventDefault();
 
-  console.log("click");
   document.getElementById("select" + id).classList.toggle("active");
   document.getElementById("opciones" + id).classList.toggle("active");
 };
 const updateStatus = async (status, _id) => {
-  console.log("desde updateStatus => ", status, _id);
   fetch(url + `/admin/update`, {
     method: "POST",
     body: JSON.stringify({
@@ -320,9 +320,11 @@ const actionSelected = (e, id, status, _id) => {
   document.getElementById("select" + id).classList.toggle("active"); //cambia la clase
   updateStatus(status, _id);
   document.getElementById("contenido-select" + id).innerHTML =
-  e.currentTarget.innerHTML;
+    e.currentTarget.innerHTML;
   document.getElementById("opciones" + id).classList.toggle("active"); //cambia la clase
 };
+// ************************************************************************
+//FILTRAR MAYOR O MENOR
 const OrdenarMenor = async () => {
   let dataMenor = await newData.sort(function (a, b) {
     return a.orden - b.orden;
@@ -336,3 +338,26 @@ const OrdenarMayor = async () => {
   });
   mostrarData(dataMayor);
 };
+// *******************************************
+//BUSCADOR INTERNO
+window.addEventListener("load", () => {
+  const submitForm = document.getElementById("submit");
+  const inputSearch = document.getElementById("search");
+  submitForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log(inputSearch.value);
+    // if (inputSearch.value > 0) {
+    //   await fetch(url + "/admin/search", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       inputSearch,
+    //     }),
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //     },
+    //   })
+    //     .then((response) => response.json())
+    //     .then((result) => {});
+    // }
+  });
+});
