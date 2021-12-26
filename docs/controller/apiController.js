@@ -2,34 +2,34 @@ const db = require("../database/models");
 const nodeMailer = require("nodemailer");
 const ListClient = require("../database/models/listClient.js");
 
-// var smtpConfig = {
-//     host: process.env.HOST_MAIL,
-//     secureConnection: true,
-//     port: 465,
-//     secure: true, // use SSL
-//     auth: {
-//         user: process.env.USER_MAIL,
-//         pass: process.env.USER_PASSWORD
-//     },
-//     tls: {
-//         rejectUnauthorized: false,
-//         secureProtocol: "TLSv1_method"
-//     }
-// };
 var smtpConfig = {
-  host: "smtp.gmail.com",
-  secureConnection: true,
-  port: 465,
-  secure: true, // use SSL
-  auth: {
-    user: "pruebanodemailers@gmail.com",
-    pass: "aduwbhzuypeuefam",
-  },
-  tls: {
-    rejectUnauthorized: false,
-    secureProtocol: "TLSv1_method",
-  },
+    host: process.env.HOST_MAIL,
+    secureConnection: true,
+    port: 465,
+    secure: true, // use SSL
+    auth: {
+        user: process.env.USER_MAIL,
+        pass: process.env.USER_PASSWORD
+    },
+    tls: {
+        rejectUnauthorized: false,
+        secureProtocol: "TLSv1_method"
+    }
 };
+// var smtpConfig = {
+//   host: "smtp.gmail.com",
+//   secureConnection: true,
+//   port: 465,
+//   secure: true, // use SSL
+//   auth: {
+//     user: "pruebanodemailers@gmail.com",
+//     pass: "aduwbhzuypeuefam",
+//   },
+//   tls: {
+//     rejectUnauthorized: false,
+//     secureProtocol: "TLSv1_method",
+//   },
+// };
 var transporter = nodeMailer.createTransport(smtpConfig);
 const estructuraHTML = (content) => {
   let wallet;
@@ -37,7 +37,7 @@ const estructuraHTML = (content) => {
   let cbuAlias;
   let correoCuenta1;
   let correoCuenta2;
-  console.log("orden: ", content.content.orden);
+
   if (
     content.content.recibe === "Bitcoin" ||
     content.content.recibe == "DAI" ||
@@ -544,14 +544,14 @@ module.exports = {
   },
   processForm: async (req, res) => {
     const content = req.body;
-    console.log("req.body ", req.body);
+    
     let contentHTML = estructuraHTML(content);
     let mail = content.content.correoPersonal;
     let mailOptions = {
-      // from: `Tu cambio - Datos de contacto <${process.env.USER_MAIL}>`,
-      from: `Tu cambio - Datos de contacto`,
-      // to: `${process.env.USER_MAIL},` + mail,
-      to: `pruebanodemailers@gmail.com,` + mail,
+      from: `Tu cambio - Datos de contacto <${process.env.USER_MAIL}>`,
+      // from: `Tu cambio - Datos de contacto`,
+      to: `${process.env.USER_MAIL},` + mail,
+      // to: `pruebanodemailers@gmail.com, + mail,
       subject: "Este es tu pedido, revísalo.",
       html: contentHTML,
     };
@@ -568,13 +568,7 @@ module.exports = {
   },
 };
 const sendData = async (data) => {
-  console.log(
-    "data desde sendData => ",data
-  );
   const listClient = new ListClient(data);
-
-    // console.log("sendata ", content);
-    console.log("listClient ", listClient);
     try {
       await listClient.save();
     } catch (error) {
