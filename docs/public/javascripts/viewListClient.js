@@ -340,24 +340,36 @@ const OrdenarMayor = async () => {
 };
 // *******************************************
 //BUSCADOR INTERNO
-window.addEventListener("load", () => {
-  const submitForm = document.getElementById("submit");
-  const inputSearch = document.getElementById("search");
+const submitForm = document.getElementById("submit");
+const inputSearch = document.getElementById("search");
+inputSearch.addEventListener("keyup", (e) => {
+  searchClient(e.target.value);
+});
+const searchClient = async (e) => {
+  console.log("desde searchclient ");
+  console.log(e);
+  fetch(url + "/admin/search", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ payload: e }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      let payload = data.payload;
+      console.log(payload);
+      if (payload.length > 0) {
+        mostrarData(payload);
+      } else {
+        console.log("vacioooo");
+        notResult = `<div class="d-flex flex-column align-items-center my-5"
+        <span class="text-center">No hay resultados... </span>
+        </div> 
+        `;
+        document.getElementById("bodyData").innerHTML = notResult;
+      }
+      
+    });
   submitForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(inputSearch.value);
-    // if (inputSearch.value > 0) {
-    //   await fetch(url + "/admin/search", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       inputSearch,
-    //     }),
-    //     headers: {
-    //       "Content-type": "application/json; charset=UTF-8",
-    //     },
-    //   })
-    //     .then((response) => response.json())
-    //     .then((result) => {});
-    // }
   });
-});
+};
