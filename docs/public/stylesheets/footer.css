@@ -4,7 +4,6 @@ div .footer{
     grid-area: footer;
 }
 div .footer-body{
-  margin: 20px;
   display: grid;
   grid-template-columns: repeat(5,1fr);
   grid-template-areas: "footer-logos footer-logos footer-text footer-text footer-text";

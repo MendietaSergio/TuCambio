@@ -1,7 +1,7 @@
-@import "general.css";
 @import "footer.css";
 @import "header.css";
 @import "form.css";
+@import "general.css";
 div.contenedor{
   width: 100%;
   display: grid;
@@ -185,7 +185,7 @@ div .infoNumero{
 
 div .mas-info{
   height: 100px;
-  margin: 30px;
+  /* margin: 30px; */
   grid-area: mas-info;
 }
 div .valores{
@@ -420,6 +420,9 @@ RESPONSIVE - TABLET
                          "caja-comision caja-comision "
                          "mas-info mas-info"
                          "footer footer ";
+  }
+  .menu_link{
+    margin: 0 !important;
   }
 div .caja-formulario{
   width: 92%;

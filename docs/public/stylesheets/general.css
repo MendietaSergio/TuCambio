@@ -143,6 +143,10 @@ div .help{
   }
   div .menu_link{
     display: block;
+    margin: 30px;
+  }
+  div .menu_items{
+    justify-content: center;
   }
   div .dropdown{
     float: left;
@@ -163,9 +167,6 @@ div .help{
     grid-template-areas: "header-logo";
   }
   
-  div .menu_items{
-    padding: 0 0 0 16px;
-  }
   div .menu_items .contactenos{
     display: none;
   }
