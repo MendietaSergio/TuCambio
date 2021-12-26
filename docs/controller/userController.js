@@ -109,13 +109,10 @@ module.exports = {
     }
   },
   search: async (req, res) => {
-    const {inputSearch} = req.body;
+    const payload = req.body.payload.trim();
     try{
-      const listClient = await ListClient.find({
-        $or:[{'nombreCompleto': inputSearch}]
-      });
-      
-      res.json(listClient)
+      let search = await ListClient.find({ nombreCompleto: {$regex: '.*'+payload+'.*',$options:'i'}}).exec();
+      res.send({payload:search})      
     } catch(error){
       console.log("Error=> ",error);
     }
