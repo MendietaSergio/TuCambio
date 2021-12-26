@@ -1,19 +1,19 @@
 let url = location.protocol + "//" + location.host;
 let newData;
 console.log("URL==> ");
-console.log(url);
+
 const ListClient = async () => {
   try{
+
     await fetch(url + `/admin/list`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       mostrarData(data);
     })
     .catch((error) => console.log(error));
   } catch(error){
-    console.log("Error=> ",error);
-  }
+      console.log("Error=> ",error);
+    }
 };
 const preloader = document.querySelector("#preloader");
 ListClient();
