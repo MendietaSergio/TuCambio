@@ -1,8 +1,9 @@
 let url = location.protocol + "//" + location.host;
 let newData;
-
+console.log("URL==> ");
+console.log(url);
 const ListClient = async () => {
-  await fetch(url + "/admin/list")
+  await fetch(url + `/admin/list`)
     .then((response) => response.json())
     .then((data) => {
       mostrarData(data);
