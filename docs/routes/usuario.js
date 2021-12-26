@@ -18,7 +18,7 @@ router.get('/',redirect, userController.login);
 router.post('/',redirect,loginValidation, userController.processLogin);
 
 //EDIT Y PROCESO DE EDIT.
-router.get('/edit',redirectAdmin,userController.edit);
+router.get('/editar',redirectAdmin,userController.edit);
 router.post('/api/edit',apiEditController.processEdit);
 router.post('/api/viewCoeficiente',apiEditController.processViewCoeficiente);
 
@@ -30,8 +30,9 @@ router.post('/profile',changePassValidation,userController.processProfileEdit);
 router.get('/logout',userController.logout);
 
 //LISTA DE CLIENTES.
-router.get('/listaclientes',userController.listOrders);
-router.get('/list', userController.list)
+router.get('/listaclientes',redirectAdmin,userController.listOrders);
+router.get('/list',redirectAdmin, userController.list)
+router.get('/search', userController.search)
 
 //ACTUALIZACIÓN DEL ESTADO
 router.post('/update',userController.update)
