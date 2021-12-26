@@ -31,7 +31,7 @@ router.get('/logout',userController.logout);
 
 //LISTA DE CLIENTES.
 router.get('/listaclientes',redirectAdmin,userController.listOrders);
-router.get('/list',redirectAdmin, userController.list)
+router.get('/list', userController.list)
 router.get('/search', userController.search)
 
 //ACTUALIZACIÓN DEL ESTADO
