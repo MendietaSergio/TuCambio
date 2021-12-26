@@ -103,7 +103,18 @@ module.exports = {
   list: async (req, res) => {
     try{
       const listClient = await ListClient.find({});
-      console.log(listClient);
+      res.json(listClient)
+    } catch(error){
+      console.log("Error=> ",error);
+    }
+  },
+  search: async (req, res) => {
+    const {inputSearch} = req.body;
+    try{
+      const listClient = await ListClient.find({
+        $or:[{'nombreCompleto': inputSearch}]
+      });
+      
       res.json(listClient)
     } catch(error){
       console.log("Error=> ",error);
@@ -111,9 +122,7 @@ module.exports = {
   },
   update: async (req, res) => {
     const { _id, status } = req.body;
-    console.log(req.body);
-    console.log(_id);
-    console.log(status);
+    
     await ListClient.updateOne(
       { _id: _id },
       {
@@ -125,24 +134,9 @@ module.exports = {
     res.json({
       message: "Estado cambiado !",
     });
-    // const updateStatus = await ListClient.updateOne({_id:id})
   },
   logout: (req, res) => {
     req.session.destroy();
     return res.redirect("/");
   },
 };
-const data = [
-  {
-    id: 1,
-    img: "realizado",
-  },
-  {
-    id: 2,
-    img: "cancelado",
-  },
-  {
-    id: 3,
-    img: "pendiente",
-  },
-];
