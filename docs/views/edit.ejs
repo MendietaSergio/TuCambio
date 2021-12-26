@@ -17,7 +17,7 @@
                         </div>
                         <div class="opciones" id="opcionesEntrada">
                             <% mediosdepago.forEach(dato=> { %>
-                                <% if(dato.id !=5){%>
+                                <% if(dato.id !=5 && dato.id != 2 &&dato.id !=14){%>
                                     <a href="#" class="opcionEntrada">
                                         <div class="contenido-opcion">
                                             <img src="/img/img_medios_de_pagos/<%-dato.image%>.png"
@@ -45,7 +45,7 @@
 
                         <div class="opciones" id="opcionesSalida">
                             <% mediosdepago.forEach(dato=> { %>
-                                <% if( dato.id!=2 && dato.id !=3 && dato.id !=5){%>
+                                <% if( dato.id!=2 && dato.id !=3 && dato.id !=5 && dato.id !=14){%>
                                     <a href="#" class="opcionSalida">
                                         <div class="contenido-opcion">
                                             <img src="/img/img_medios_de_pagos/<%-dato.image%>.png"
@@ -77,6 +77,24 @@
                     <span class="text-danger" id="msgError"></span>
             </form>
         </div>
+        <div class="menu_link">
+            <% if (typeof user !="undefined" ) { %>
+              <ul class="menu_items">
+                  <li><a href="/admin/listaclientes">Ver lista</a></li>
+                  <li><a href="/admin/editar">Editar valores</a></li>
+                  <li><a href="/admin/logout">Salir</a></li>
+              </ul>
+              <% }else{ %>
+                  <div class="hideLink">
+                      <ul class="menu_items">
+                      <li><a href="/preguntas-frecuentes">Preguntas Frecuentes</a></li>
+                      <li><a href="/acerca-de-nosotros">Acerca de nosotros</a></li>
+                      <li><a href="/contactenos" class="contactenos">Contáctenos</a></li>
+                  </ul>
+                  </div>
+                  
+                  <% } %>
+          </div>
         </div>
 
         <%- include('./partials/footer.ejs') %>
