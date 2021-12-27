@@ -1,19 +1,17 @@
 let url = location.protocol + "//" + location.host;
 let newData;
-console.log("URL==> ");
 
 const ListClient = async () => {
-  try{
-
+  try {
     await fetch(url + `/admin/list`)
-    .then((response) => response.json())
-    .then((data) => {
-      mostrarData(data);
-    })
-    .catch((error) => console.log(error));
-  } catch(error){
-      console.log("Error=> ",error);
-    }
+      .then((response) => response.json())
+      .then((data) => {
+        mostrarData(data);
+      })
+      .catch((error) => console.log(error));
+  } catch (error) {
+    console.log("Error=> ", error);
+  }
 };
 const preloader = document.querySelector("#preloader");
 ListClient();
@@ -200,7 +198,16 @@ const mostrarData = (data) => {
                   </h5>
                 </div>
                 <div class="modal-footer">
-                  <button
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                    onclick="actionDeleted(event, '${data[i]._id}')"
+                  >
+                    Eliminar
+                  </button>
+                </div>  
+                <button
                     type="button"
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
@@ -276,6 +283,14 @@ const mostrarData = (data) => {
           <div class="modal-footer">
             <button
               type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              onclick="actionDeleted(event,'${data[i]._id}')"
+              >
+              Eliminar
+            </button>
+            <button
+              type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
@@ -319,7 +334,6 @@ const updateStatus = async (status, _id) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
     });
 };
 const actionSelected = (e, id, status, _id) => {
@@ -328,6 +342,21 @@ const actionSelected = (e, id, status, _id) => {
   document.getElementById("contenido-select" + id).innerHTML =
     e.currentTarget.innerHTML;
   document.getElementById("opciones" + id).classList.toggle("active"); //cambia la clase
+};
+const actionDeleted = (e, _id) => {
+  fetch(url + `/admin/delete`, {
+    method: "POST",
+    body: JSON.stringify({
+      _id,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      ListClient()
+    });
 };
 // ************************************************************************
 //FILTRAR MAYOR O MENOR
@@ -352,8 +381,6 @@ inputSearch.addEventListener("keyup", (e) => {
   searchClient(e.target.value);
 });
 const searchClient = async (e) => {
-  console.log("desde searchclient ");
-  console.log(e);
   fetch(url + "/admin/search", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -362,18 +389,15 @@ const searchClient = async (e) => {
     .then((res) => res.json())
     .then((data) => {
       let payload = data.payload;
-      console.log(payload);
       if (payload.length > 0) {
         mostrarData(payload);
       } else {
-        console.log("vacioooo");
         notResult = `<div class="d-flex flex-column align-items-center my-5"
         <span class="text-center">No hay resultados... </span>
         </div> 
         `;
         document.getElementById("bodyData").innerHTML = notResult;
       }
-      
     });
   submitForm.addEventListener("submit", (e) => {
     e.preventDefault();
