@@ -126,7 +126,7 @@ const mostrarData = (data) => {
               </td>
               <td>
                 <div class="align-items-center">
-                  <div> ${data[i].created_at}</div>
+                  <div> ${data[i].created_at}Hs.</div>
                 </div>
               </td>
             </tr>
