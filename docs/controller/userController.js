@@ -132,6 +132,16 @@ module.exports = {
       message: "Estado cambiado !",
     });
   },
+  delete: async (req, res) => {
+    const { _id } = req.body;
+    
+    await ListClient.findByIdAndDelete(
+      { _id: _id },
+    );
+    res.json({
+      message: "Cliente eliminado!",
+    });
+  },
   logout: (req, res) => {
     req.session.destroy();
     return res.redirect("/");

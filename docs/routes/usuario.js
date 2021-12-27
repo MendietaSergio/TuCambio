@@ -36,4 +36,6 @@ router.post('/search', userController.search)
 
 //ACTUALIZACIÓN DEL ESTADO
 router.post('/update',userController.update)
+//ELIMINACIÓN DE CLIENTE
+router.post('/delete',userController.delete)
 module.exports = router;
