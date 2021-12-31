@@ -1,23 +1,26 @@
 const mongoose = require("mongoose");
-let fecha = new Date();
-fecha = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
+// let fecha = new Date();
+// fecha = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
 
 let hora = new Date();
-hora = hora.toLocaleTimeString()
+console.log("HORA=>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+console.log(hora.toLocaleString());
+hora = hora.toLocaleString()
 const atrapaPuntos = (hora) => {
   let largo = 0;
   let nuevaHora = "";
   let doblePunto = 0;
-  while (largo != 8) {
+  while (largo != 19) {
     nuevaHora += hora[largo];
     largo++; 
     if (hora[largo] == ":") {
       doblePunto++;
     }
-    if (doblePunto == 2) { 
-      largo = 8;
+    if (doblePunto == 2) {  
+      largo = 19;
     }
   }
+  console.log(nuevaHora);
   return (nuevaHora = nuevaHora.split("").join(""));
 };
 
@@ -59,7 +62,7 @@ const listClientSchema = mongoose.Schema({
   },
   created_at: {
     type: String,
-    default: fecha+" - "+atrapaPuntos(hora),
+    default: atrapaPuntos(hora),
   },
 });
 

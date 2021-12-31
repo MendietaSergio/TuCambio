@@ -1,35 +1,37 @@
 const db = require("../database/models");
 const nodeMailer = require("nodemailer");
 const ListClient = require("../database/models/listClient.js");
-
-var smtpConfig = {
-    host: process.env.HOST_MAIL,
-    secureConnection: true,
-    port: 465,
-    secure: true, // use SSL
-    auth: {
-        user: process.env.USER_MAIL,
-        pass: process.env.USER_PASSWORD
-    },
-    tls: {
-        rejectUnauthorized: false,
-        secureProtocol: "TLSv1_method"
-    }
-};
+//MAIL ADMIN
 // var smtpConfig = {
-//   host: "smtp.gmail.com",
-//   secureConnection: true,
-//   port: 465,
-//   secure: true, // use SSL
-//   auth: {
-//     user: "pruebanodemailers@gmail.com",
-//     pass: "aduwbhzuypeuefam",
-//   },
-//   tls: {
-//     rejectUnauthorized: false,
-//     secureProtocol: "TLSv1_method",
-//   },
-// };
+//     host: process.env.HOST_MAIL,
+//     secureConnection: true,
+//     port: 465,
+//     secure: true, // use SSL
+//     auth: {
+//         user: process.env.USER_MAIL,
+//         pass: process.env.USER_PASSWORD
+//     },
+//     tls: {
+//         rejectUnauthorized: false,
+//         secureProtocol: "TLSv1_method"
+//     }
+// }; 
+
+//MAIL PRUEBAS
+var smtpConfig = {
+  host: "smtp.gmail.com",
+  secureConnection: true,
+  port: 465,
+  secure: true, // use SSL
+  auth: {
+    user: "pruebanodemailers@gmail.com",
+    pass: "aduwbhzuypeuefam",
+  },
+  tls: {
+    rejectUnauthorized: false,
+    secureProtocol: "TLSv1_method",
+  },
+};
 var transporter = nodeMailer.createTransport(smtpConfig);
 const estructuraHTML = (content) => {
   let wallet;
@@ -548,10 +550,12 @@ module.exports = {
     let contentHTML = estructuraHTML(content);
     let mail = content.content.correoPersonal;
     let mailOptions = {
-      from: `Tu cambio - Datos de contacto <${process.env.USER_MAIL}>`,
-      // from: `Tu cambio - Datos de contacto`,
-      to: `${process.env.USER_MAIL},` + mail,
-      // to: `pruebanodemailers@gmail.com, + mail,
+      //RUEBA
+      from: `Tu cambio - Datos de contacto`,
+      to: `pruebanodemailers@gmail.com,` + mail,
+      //ADMIN
+      // from: `Tu cambio - Datos de contacto <${process.env.USER_MAIL}>`,
+      // to: `${process.env.USER_MAIL},` + mail,
       subject: "Este es tu pedido, revísalo.",
       html: contentHTML,
     };
