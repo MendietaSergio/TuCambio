@@ -17,7 +17,7 @@
                         </div>
                         <div class="opciones" id="opcionesEntrada">
                             <% mediosdepago.forEach(dato=> { %>
-                                <% if(dato.id !=5 && dato.id != 2 &&dato.id !=14 && dato.id != 3){%>
+                                <% if(dato.id !=5 && dato.id != 2 &&dato.id !=14 && dato.id != 3 && dato.id != 20){%>
                                     <a href="#" class="opcionEntrada">
                                         <div class="contenido-opcion">
                                             <img src="/img/img_medios_de_pagos/<%-dato.image%>.png"
@@ -45,7 +45,7 @@
 
                         <div class="opciones" id="opcionesSalida">
                             <% mediosdepago.forEach(dato=> { %>
-                                <% if( dato.id!=2 && dato.id !=3 && dato.id !=5 && dato.id !=14){%>
+                                <% if( dato.id!=2 && dato.id !=3 && dato.id !=5 && dato.id !=14 && dato.id != 20){%>
                                     <a href="#" class="opcionSalida">
                                         <div class="contenido-opcion">
                                             <img src="/img/img_medios_de_pagos/<%-dato.image%>.png"
