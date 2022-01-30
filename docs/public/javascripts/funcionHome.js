@@ -847,6 +847,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let regExAlias = /^\w{6,20}/; //ALIA
   let regExDai = /\d\x\w{40}/; //DAI
   let regExCBU = /\d{22}/; //CBU
+  let regExCBV = /\d{20}/; //CBV
   let errorAdicional2 = document.querySelector("#errorAdicional2");
   campoAdicional2.addEventListener("blur", function () {
     if (
@@ -1027,7 +1028,45 @@ window.addEventListener("DOMContentLoaded", () => {
             break;
         }
       }
-    } else if (destino.value == 7) {
+    } else if (destino.value == 20) {
+      if (!isNaN(this.value)) {
+        switch (true) {
+          case this.value.length === 0:
+            errorAdicional2.innerHTML = "Debe ingresar su número de cuenta.";
+            this.classList.add("is-invalid");
+            validCampAdicional2 = false;
+
+            this.classList.remove("is-valid");
+            blockAcutualizar();
+            break;
+          case !regExCBV.test(this.value):
+            errorAdicional2.innerHTML = "El número de cuenta debe ser válido.";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
+            validCampAdicional2 = false;
+
+            blockAcutualizar();
+            break;
+          case this.value.length > 20:
+            errorAdicional2.innerHTML = "Debe ingresar su número de cuenta válido.";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
+            validCampAdicional2 = false;
+
+            blockAcutualizar();
+            break;
+          default:
+            errorAdicional2.innerHTML = " ";
+            this.classList.remove("is-invalid");
+            this.classList.add("is-valid");
+            validCampAdicional2 = true;
+
+            habilitarBtn();
+            break;
+        }
+      }
+    } 
+    else if (destino.value == 7) {
       switch (true) {
         case this.value.length === 0:
           errorAdicional2.innerHTML = "Debe ingresar su Wallet DAI.";
@@ -1231,6 +1270,43 @@ window.addEventListener("DOMContentLoaded", () => {
             validCampAdicional2 = false;
 
             this.classList.add("is-invalid");
+            blockAcutualizar();
+            break;
+          default:
+            errorAdicional2.innerHTML = " ";
+            this.classList.remove("is-invalid");
+            this.classList.add("is-valid");
+            validCampAdicional2 = true;
+
+            habilitarBtn();
+            break;
+        }
+      }
+    } else if (destino.value == 20) {
+      if (!isNaN(this.value)) {
+        switch (true) {
+          case this.value.length === 0:
+            errorAdicional2.innerHTML = "Debe ingresar su número de cuenta.";
+            this.classList.add("is-invalid");
+            validCampAdicional2 = false;
+
+            this.classList.remove("is-valid");
+            blockAcutualizar();
+            break;
+          case !regExCBV.test(this.value):
+            errorAdicional2.innerHTML = "El número de cuenta debe ser válido.";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
+            validCampAdicional2 = false;
+
+            blockAcutualizar();
+            break;
+          case this.value.length > 20:
+            errorAdicional2.innerHTML = "Debe ingresar su número de cuenta válido.";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
+            validCampAdicional2 = false;
+
             blockAcutualizar();
             break;
           default:
