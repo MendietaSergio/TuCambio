@@ -307,94 +307,9 @@ window.addEventListener("DOMContentLoaded", () => {
   };
   agregaAbreviaturaInput();
   let errorEntrada = document.querySelector("#errorEntrada");
-
+ 
   numEntrada.addEventListener("input", () => {
-    if (
-      origen.value == 1 ||
-      origen.value == 2 ||
-      origen.value == 3 ||
-      origen.value == 4 ||
-      origen.value == 5
-    ) {
-      switch (true) {
-        case numEntrada.value.length == 0:
-          errorEntrada.innerHTML = "Debe ingresar un número.";
-          errorEntrada.style.display = "block";
-          btnSiguiente.style.display = "none";
-          btnEnviar.style.display = "none";
-
-          comisionPagoUno();
-          break;
-        case numEntrada.value < 3000:
-          errorEntrada.innerHTML = "Debe ingresar un mínimo de $3.000";
-          errorEntrada.style.display = "block";
-          btnSiguiente.style.display = "none";
-          btnEnviar.style.display = "none";
-
-          paypalComision();
-          comisionPagoUno();
-          getValor(numEntrada.value, origen.value, destino.value);
-          break;
-        default:
-          errorEntrada.innerHTML = " ";
-          errorEntrada.style.display = "none";
-          btnSiguiente.style.display = "block";
-          btnEnviar.style.display = "block";
-
-          paypalComision();
-          comisionPagoUno();
-          getValor(numEntrada.value, origen.value, destino.value);
-          break;
-      }
-    }
-    if (
-      origen.value == 7 ||
-      origen.value == 8 ||
-      origen.value == 9 ||
-      origen.value == 10 ||
-      origen.value == 11 ||
-      origen.value == 12 ||
-      origen.value == 13 ||
-      origen.value == 14 ||
-      origen.value == 15 ||
-      origen.value == 16 ||
-      origen.value == 17
-    ) {
-      switch (true) {
-        case numEntrada.value == 0:
-          errorEntrada.innerHTML = "Debe ingresar un número.";
-          errorEntrada.style.display = "block";
-          btnSiguiente.style.display = "none";
-          btnEnviar.style.display = "none";
-
-          comisionPagoUno();
-          break;
-        case numEntrada.value < 10:
-          errorEntrada.innerHTML = "Debe ingresar un mínimo de $10.";
-          errorEntrada.style.display = "block";
-          btnSiguiente.style.display = "none";
-          btnEnviar.style.display = "none";
-
-          paypalComision();
-          comisionPagoUno();
-          getValor(numEntrada.value, origen.value, destino.value);
-          break;
-        default:
-          errorEntrada.innerHTML = " ";
-          errorEntrada.style.display = "none";
-          btnSiguiente.style.display = "block";
-          btnEnviar.style.display = "block";
-
-          paypalComision();
-          comisionPagoUno();
-          getValor(numEntrada.value, origen.value, destino.value);
-          break;
-      }
-    } else {
-      paypalComision();
-      comisionPagoUno();
-      getValor(numEntrada.value, origen.value, destino.value);
-    }
+    ValidarEntrada(numEntrada)
   });
   //LOGICA PARA HACER LA ECUACION EN BASE AL INPUT SALIDA
   const getValorSalida = (numSalida, origen, destino) => {
@@ -521,6 +436,128 @@ window.addEventListener("DOMContentLoaded", () => {
   const evitaCambio = () => {
     msgError.innerHTML = "Seleccione otro medio.";
   };
+  const ValidarEntrada = (numEntrada) =>{
+    if (
+      origen.value == 1 ||
+      origen.value == 2 ||
+      origen.value == 3 ||
+      origen.value == 4 ||
+      origen.value == 5
+    ) {
+      switch (true) {
+        case numEntrada.value.length == 0:
+          errorEntrada.innerHTML = "Debe ingresar un número.";
+          errorEntrada.style.display = "block";
+          btnSiguiente.style.display = "none";
+          btnEnviar.style.display = "none";
+
+          comisionPagoUno();
+          break;
+        case numEntrada.value < 3000:
+          errorEntrada.innerHTML = "Debe ingresar un mínimo de $3.000";
+          errorEntrada.style.display = "block";
+          btnSiguiente.style.display = "none";
+          btnEnviar.style.display = "none";
+
+          paypalComision();
+          comisionPagoUno();
+          getValor(numEntrada.value, origen.value, destino.value);
+          break;
+        default:
+          errorEntrada.innerHTML = " ";
+          errorEntrada.style.display = "none";
+          btnSiguiente.style.display = "block";
+          btnEnviar.style.display = "block";
+
+          paypalComision();
+          comisionPagoUno();
+          getValor(numEntrada.value, origen.value, destino.value);
+          break;
+      }
+    }
+    if (
+      origen.value == 7 ||
+      origen.value == 8 ||
+      origen.value == 9 ||
+      origen.value == 10 ||
+      origen.value == 11 ||
+      origen.value == 12 ||
+      origen.value == 13 ||
+      origen.value == 14 ||
+      origen.value == 15 ||
+      origen.value == 16 ||
+      origen.value == 17
+    ) {
+      switch (true) {
+        case numEntrada.value == 0:
+          errorEntrada.innerHTML = "Debe ingresar un número.";
+          errorEntrada.style.display = "block";
+          btnSiguiente.style.display = "none";
+          btnEnviar.style.display = "none";
+
+          comisionPagoUno();
+          break;
+        case numEntrada.value < 10:
+          errorEntrada.innerHTML = "Debe ingresar un mínimo de $10.";
+          errorEntrada.style.display = "block";
+          btnSiguiente.style.display = "none";
+          btnEnviar.style.display = "none";
+
+          paypalComision();
+          comisionPagoUno();
+          getValor(numEntrada.value, origen.value, destino.value);
+          break;
+        default:
+          errorEntrada.innerHTML = " ";
+          errorEntrada.style.display = "none";
+          btnSiguiente.style.display = "block";
+          btnEnviar.style.display = "block";
+
+          paypalComision();
+          comisionPagoUno();
+          getValor(numEntrada.value, origen.value, destino.value);
+          break;
+      }
+    } if (
+      origen.value == 20
+    ) {
+      switch (true) {
+        case numEntrada.value == 0:
+          errorEntrada.innerHTML = "Debe ingresar un número.";
+          errorEntrada.style.display = "block";
+          btnSiguiente.style.display = "none";
+          btnEnviar.style.display = "none";
+
+          comisionPagoUno();
+          break;
+        case numEntrada.value < 50:
+          errorEntrada.innerHTML = "Debe ingresar un mínimo de $50.00.";
+          errorEntrada.style.display = "block";
+          btnSiguiente.style.display = "none";
+          btnEnviar.style.display = "none";
+
+          paypalComision();
+          comisionPagoUno();
+          getValor(numEntrada.value, origen.value, destino.value);
+          break;
+        default:
+          errorEntrada.innerHTML = " ";
+          errorEntrada.style.display = "none";
+          btnSiguiente.style.display = "block";
+          btnEnviar.style.display = "block";
+
+          paypalComision();
+          comisionPagoUno();
+          getValor(numEntrada.value, origen.value, destino.value);
+          break;
+      }
+    }
+    else {
+      paypalComision();
+      comisionPagoUno();
+      getValor(numEntrada.value, origen.value, destino.value);
+    }
+  }
   let arrowChange = document.querySelector("#arrowChange");
 
   arrowChange.addEventListener("click", () => {
@@ -600,6 +637,7 @@ window.addEventListener("DOMContentLoaded", () => {
       recibeAbreviatura.innerHTML = contentOrigen.abreviaturaOrigen; //CAMBIO ABREVIATURA DE INPUT
       changeValue();
     }
+    ValidarEntrada(numEntrada)
   });
   const changeValue = () => {
     campoCBU1(inputAdicional1, origen.value, destino.value);
